@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Política de Privacidad · Carrizosa y Almazor</title>
+<meta name="description" content="Política de privacidad y protección de datos del despacho Carrizosa y Almazor, conforme al RGPD y la LOPDGDD.">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#040465;--ink-2:#020342;--body:#161616;
+    --bg:#fbfaf6;--bg-2:#f3efe6;--line:#d9d3c4;
+    --gold:#a98643;--gold-soft:#c9a35a;--muted:#6b6a66;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Montserrat",-apple-system,sans-serif;
+    color:var(--body);background:var(--bg);
+    font-size:15.5px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3,h4{
+    font-family:"EB Garamond",Georgia,serif;color:var(--ink);
+    font-weight:500;letter-spacing:-0.005em;line-height:1.2;
+    margin:0;text-wrap:balance;
+  }
+  h1 em,h2 em{font-style:italic;color:var(--gold);font-weight:400}
+  p{margin:0 0 14px;text-wrap:pretty}
+  a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line);transition:text-decoration-color .2s}
+  a:hover{text-decoration-color:var(--ink)}
+
+  .container{max-width:1240px;margin:0 auto;padding:0 32px}
+  .eyebrow{
+    font-family:"Montserrat",sans-serif;font-size:11px;font-weight:600;
+    letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold)}
+
+  /* TOP BAR */
+  .topbar{border-bottom:1px solid var(--line);background:var(--bg);font-size:12.5px;color:var(--muted)}
+  .topbar-inner{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 32px;max-width:1240px;margin:0 auto;
+  }
+  .topbar-left{display:flex;gap:28px;align-items:center}
+  .topbar-right a{color:var(--muted);text-decoration:none}
+  .topbar-right a:hover{color:var(--ink)}
+
+  /* NAV */
+  nav.main{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,250,246,0.94);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:24px 32px;max-width:1240px;margin:0 auto;gap:32px;
+  }
+  .brand{text-decoration:none}
+  .brand-name{
+    font-family:"EB Garamond",serif;color:var(--ink);
+    font-size:28px;line-height:1;font-weight:500;
+  }
+  .brand-name small{
+    font-family:"Montserrat",sans-serif;font-size:10px;letter-spacing:0.36em;
+    color:var(--muted);text-transform:uppercase;margin-left:12px;font-weight:500;
+  }
+  .nav-back{
+    font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--ink);font-weight:600;text-decoration:none;
+    display:inline-flex;align-items:center;gap:10px;
+    border-bottom:1px solid var(--line);padding-bottom:6px;
+  }
+  .nav-back:hover{border-color:var(--ink)}
+
+  /* HEADER */
+  .legal-header{padding:80px 0 56px;border-bottom:1px solid var(--line)}
+  .legal-header h1{font-size:clamp(40px,5vw,64px);margin:24px 0 18px;font-weight:500}
+  .legal-header p.lede{font-size:17px;line-height:1.7;color:var(--body);max-width:720px}
+  .legal-meta{
+    display:flex;flex-wrap:wrap;gap:32px;margin-top:36px;
+    padding-top:24px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--muted);letter-spacing:0.04em;
+  }
+  .legal-meta div{display:flex;flex-direction:column;gap:4px;min-width:0}
+  .legal-meta .lbl{
+    font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;
+  }
+  .legal-meta .val{
+    font-family:"EB Garamond",serif;color:var(--ink);font-size:17px;
+    line-height:1.3;font-weight:500;
+  }
+
+  /* BODY GRID */
+  .legal-body{padding:64px 0 96px}
+  .legal-grid{display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start}
+  .legal-grid > *{min-width:0}
+
+  /* TOC */
+  aside.toc{position:sticky;top:96px;border-left:1px solid var(--line);padding-left:24px}
+  .toc-label{
+    font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:18px;
+  }
+  .toc ol{
+    list-style:none;padding:0;margin:0;
+    display:flex;flex-direction:column;gap:10px;
+    counter-reset:tocsec;
+  }
+  .toc li{counter-increment:tocsec;font-size:13px;line-height:1.5}
+  .toc li a{
+    display:flex;gap:12px;color:var(--body);
+    text-decoration:none;padding:4px 0;transition:color .2s;
+  }
+  .toc li a::before{
+    content:counter(tocsec,upper-roman)".";
+    color:var(--gold);font-family:"EB Garamond",serif;
+    font-style:italic;font-size:14px;flex-shrink:0;min-width:30px;
+  }
+  .toc li a:hover{color:var(--ink)}
+
+  /* CONTENT */
+  article.legal{max-width:780px}
+  article.legal section{
+    padding:48px 0;border-bottom:1px solid var(--line);
+    scroll-margin-top:104px;
+  }
+  article.legal section:first-child{padding-top:0}
+  article.legal section:last-child{border-bottom:none}
+  article.legal h2{
+    font-size:clamp(28px,3vw,36px);font-weight:500;margin-bottom:20px;
+    display:flex;gap:16px;align-items:baseline;
+  }
+  article.legal h2 .num{
+    font-family:"EB Garamond",serif;font-style:italic;
+    color:var(--gold);font-size:22px;font-weight:400;
+    min-width:36px;
+  }
+  article.legal h3{
+    font-size:20px;font-weight:500;color:var(--ink);
+    margin:32px 0 12px;
+  }
+  article.legal p{font-size:15.5px;line-height:1.75;color:var(--body)}
+  article.legal ul{padding-left:0;margin:8px 0 16px;list-style:none}
+  article.legal ul li{
+    padding-left:22px;position:relative;
+    font-size:15px;line-height:1.7;margin-bottom:8px;
+  }
+  article.legal ul li::before{
+    content:"";position:absolute;left:0;top:11px;
+    width:10px;height:1px;background:var(--gold);
+  }
+  article.legal strong{color:var(--ink);font-weight:600}
+  article.legal em{font-style:italic;color:var(--ink)}
+
+  /* CALLOUT */
+  .callout{
+    border:1px solid var(--line);background:var(--bg-2);
+    padding:24px 28px;margin:20px 0;
+    border-left:3px solid var(--gold);
+  }
+  .callout .cl-label{
+    font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:10px;
+  }
+  .callout p{margin:0;font-size:14.5px;line-height:1.7}
+  .callout p + p{margin-top:10px}
+
+  /* TABLE */
+  .legal-table{
+    width:100%;border-collapse:collapse;
+    margin:16px 0 8px;font-size:14px;
+    border-top:1px solid var(--line);
+  }
+  .legal-table thead th{
+    text-align:left;padding:14px 14px;
+    border-bottom:1px solid var(--line);
+    font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;
+    background:var(--bg-2);
+  }
+  .legal-table tbody td{
+    padding:16px 14px;border-bottom:1px solid var(--line);
+    vertical-align:top;line-height:1.55;
+  }
+  .legal-table tbody td.provider{
+    font-family:"EB Garamond",serif;color:var(--ink);
+    font-size:16px;font-weight:500;line-height:1.2;
+  }
+  .legal-table tbody td.provider small{
+    display:block;font-family:"JetBrains Mono",monospace;
+    font-size:10.5px;color:var(--muted);
+    letter-spacing:0.04em;margin-top:4px;font-weight:400;
+  }
+  .legal-table tbody td.country{
+    font-family:"JetBrains Mono",monospace;font-size:12px;
+    color:var(--muted);letter-spacing:0.06em;
+  }
+  .pill{
+    display:inline-block;font-size:10px;letter-spacing:0.18em;
+    text-transform:uppercase;font-weight:600;
+    padding:3px 8px;border:1px solid var(--line);
+    color:var(--muted);margin-top:6px;
+  }
+  .pill.warn{color:var(--gold);border-color:var(--gold)}
+
+  /* KV TABLE — bases jurídicas */
+  .kv{
+    width:100%;border-collapse:collapse;
+    margin:8px 0 16px;font-size:14.5px;
+    border-top:1px solid var(--line);
+  }
+  .kv tr td{
+    padding:14px 0;border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  .kv tr td:first-child{
+    width:46%;padding-right:24px;color:var(--ink);
+    font-family:"EB Garamond",serif;font-size:16.5px;
+    line-height:1.35;font-weight:500;
+  }
+  .kv tr td:last-child{color:var(--body);line-height:1.55}
+  .kv .art{
+    font-family:"JetBrains Mono",monospace;font-size:11px;
+    color:var(--muted);letter-spacing:0.04em;display:block;margin-top:4px;
+  }
+
+  /* CONTACT BLOCK */
+  .legal-contact{
+    margin-top:48px;padding:32px 32px;
+    background:var(--ink);color:#fff;
+  }
+  .legal-contact h3{color:#fff;font-size:24px;margin:0 0 14px}
+  .legal-contact p{color:rgba(255,255,255,.78);font-size:14.5px;margin:0 0 8px}
+  .legal-contact a{color:var(--gold-soft);text-decoration-color:rgba(201,163,90,.5)}
+  .legal-contact a:hover{text-decoration-color:var(--gold-soft)}
+
+  /* FOOTER */
+  footer{background:#020342;color:rgba(255,255,255,.7);padding:48px 0 32px;font-size:13px}
+  .footer-row{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:24px;padding-bottom:24px;
+    border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .footer-row .brand-name{color:#fff;font-size:22px}
+  .footer-row .brand-name small{color:rgba(255,255,255,.5)}
+  .footer-links{display:flex;gap:24px;flex-wrap:wrap}
+  .footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:13px}
+  .footer-links a:hover{color:var(--gold-soft)}
+  .footer-bottom{padding-top:24px;color:rgba(255,255,255,.45);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  @media(max-width:980px){
+    .legal-grid{grid-template-columns:1fr;gap:32px}
+    aside.toc{position:static;border-left:none;border-top:1px solid var(--line);padding:24px 0 0}
+    .toc ol{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .topbar-left span:nth-child(n+2){display:none}
+  }
+  @media(max-width:680px){
+    .container{padding:0 22px}
+    .legal-header{padding:48px 0 36px}
+    .legal-header h1{font-size:34px}
+    .legal-body{padding:40px 0 64px}
+    article.legal section{padding:36px 0}
+    article.legal h2{font-size:24px;gap:10px}
+    .legal-table thead{display:none}
+    .legal-table tbody tr{display:block;padding:14px 0;border-bottom:1px solid var(--line)}
+    .legal-table tbody td{display:block;padding:4px 0;border-bottom:none}
+    .legal-table tbody td.provider{margin-bottom:6px}
+    .kv tr td:first-child,.kv tr td:last-child{display:block;width:auto;padding:8px 0}
+    .toc ol{grid-template-columns:1fr}
+  }
+
+  @media print{
+    .topbar,nav.main,footer,aside.toc{display:none}
+    .legal-grid{display:block}
+    article.legal{max-width:none}
+    body{background:#fff;font-size:11pt}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span>📍 Calle Pau Claris 171, 08037 Barcelona</span>
+        <span>☎ +34 934 572 123</span>
+      </div>
+      <div class="topbar-right">
+        <a href="#">CAT</a>
+        <a href="#" style="color:var(--ink);font-weight:600">ES</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-name">Carrizosa y Almazor<small>Abogados · Barcelona</small></div>
+      </a>
+      <a href="index.html" class="nav-back">← Volver a la web</a>
+    </div>
+  </nav>
+
+  <header class="legal-header">
+    <div class="container">
+      <span class="eyebrow">Documento legal</span>
+      <h1>Política de Privacidad y <em>Protección de Datos.</em></h1>
+      <p class="lede">Este documento explica cómo recogemos y tratamos los datos personales que nos facilita al contactar con el despacho, al contratar nuestros servicios o al navegar por esta web. Lo presentamos en lenguaje claro, sin renunciar al rigor que exigen el RGPD y la LOPDGDD.</p>
+      <div class="legal-meta">
+        <div>
+          <span class="lbl">Última actualización</span>
+          <span class="val">11 de mayo de 2026</span>
+        </div>
+        <div>
+          <span class="lbl">Versión</span>
+          <span class="val">1.0</span>
+        </div>
+        <div>
+          <span class="lbl">Marco normativo</span>
+          <span class="val">RGPD 2016/679 · LOPDGDD · LSSI-CE</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="legal-body">
+    <div class="container legal-grid">
+
+      <aside class="toc">
+        <div class="toc-label">Índice</div>
+        <ol>
+          <li><a href="#s1">Responsable del tratamiento</a></li>
+          <li><a href="#s2">Datos que recogemos</a></li>
+          <li><a href="#s3">Finalidades y base jurídica</a></li>
+          <li><a href="#s4">Destinatarios y subencargados</a></li>
+          <li><a href="#s5">Transferencias internacionales</a></li>
+          <li><a href="#s6">Plazos de conservación</a></li>
+          <li><a href="#s7">Uso de IA y decisiones automatizadas</a></li>
+          <li><a href="#s8">Derechos de la persona interesada</a></li>
+          <li><a href="#s9">Cookies y rastreadores</a></li>
+          <li><a href="#s10">Seguridad y secreto profesional</a></li>
+          <li><a href="#s11">Modificaciones</a></li>
+        </ol>
+      </aside>
+
+      <article class="legal">
+
+        <section id="s1">
+          <h2><span class="num">I.</span>Responsable del tratamiento</h2>
+          <p>El responsable del tratamiento de los datos personales facilitados a través de esta web y de cualquier otro canal habilitado por el despacho es:</p>
+          <table class="kv">
+            <tr><td>Denominación</td><td>Carrizosa y Almazor, Abogados</td></tr>
+            <tr><td>NIF</td><td>[NIF/CIF pendiente de cumplimentar]</td></tr>
+            <tr><td>Domicilio profesional</td><td>Calle Pau Claris, 171 — 08037 Barcelona (España)</td></tr>
+            <tr><td>Correo electrónico</td><td><a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a></td></tr>
+            <tr><td>Teléfono</td><td><a href="tel:934572123">+34 934 572 123</a></td></tr>
+            <tr><td>Colegio profesional</td><td>Il·lustre Col·legi de l'Advocacia de Barcelona (ICAB)</td></tr>
+          </table>
+          <p>El despacho <strong>no ha designado Delegado de Protección de Datos</strong>, al no concurrir ninguno de los supuestos del artículo 37.1 del RGPD ni del artículo 34 de la LOPDGDD. Para cualquier asunto relativo a protección de datos puede dirigirse al correo indicado.</p>
+        </section>
+
+        <section id="s2">
+          <h2><span class="num">II.</span>Datos que recogemos y de dónde proceden</h2>
+          <p>Recogemos datos a través de <strong>tres canales</strong> claramente diferenciados. Solo recogemos los datos estrictamente necesarios para la finalidad de cada canal (principio de minimización, art. 5.1.c RGPD).</p>
+
+          <h3>1. Formulario de contacto de la web</h3>
+          <p>Cuando rellena el formulario de contacto se recogen:</p>
+          <ul>
+            <li>Nombre y apellidos.</li>
+            <li>Dirección de correo electrónico.</li>
+            <li>Número de teléfono.</li>
+            <li>Área de interés y breve descripción del asunto.</li>
+            <li>Datos técnicos asociados al envío (dirección IP, fecha y hora).</li>
+          </ul>
+          <p>El envío se procesa mediante el servicio <strong>Web3Forms</strong>, que actúa como encargado del tratamiento.</p>
+
+          <h3>2. Correos electrónicos entrantes</h3>
+          <p>Cuando nos escribe por correo electrónico, el contenido del mensaje y los datos del remitente son recibidos en los buzones del despacho y leídos por nuestro sistema de gestión, que <strong>clasifica automáticamente los correos por materia</strong> (sucesiones, civil, penal, laboral u otros) para encaminarlos al socio responsable.</p>
+          <div class="callout">
+            <div class="cl-label">Importante</div>
+            <p>La clasificación automática se limita a identificar la naturaleza del asunto y asignarlo a un buzón interno. <strong>Ningún correo recibe respuesta automática ni produce efecto jurídico alguno hasta que un abogado del despacho lo revisa y decide cómo actuar.</strong></p>
+          </div>
+
+          <h3>3. Expedientes y documentación de clientes</h3>
+          <p>Una vez aceptado el encargo profesional, tratamos los datos personales y documentales necesarios para la prestación del servicio jurídico: datos identificativos, económicos, familiares, patrimoniales, sanitarios, penales o de cualquier otra naturaleza que resulten relevantes para el caso. Estos datos se incorporan al expediente y, en su caso, son procesados por las herramientas internas del despacho descritas en la <a href="#s4">sección IV</a>.</p>
+
+          <h3>4. Datos de navegación</h3>
+          <p>Al navegar por la web se generan datos técnicos (dirección IP, tipo de navegador, páginas visitadas) que son tratados con fines estadísticos y de seguridad. Véase la <a href="#s9">sección IX</a> sobre cookies.</p>
+        </section>
+
+        <section id="s3">
+          <h2><span class="num">III.</span>Finalidades y base jurídica</h2>
+          <p>Cada tratamiento responde a una finalidad concreta y se ampara en una base de licitud del artículo 6 del RGPD:</p>
+          <table class="kv">
+            <tr>
+              <td>Atender consultas recibidas a través del formulario o por correo electrónico<span class="art">Web3Forms · IMAP</span></td>
+              <td>Consentimiento del interesado (art. 6.1.a RGPD) y aplicación de medidas precontractuales a petición del interesado (art. 6.1.b).</td>
+            </tr>
+            <tr>
+              <td>Prestación de servicios jurídicos contratados<span class="art">Expediente del cliente</span></td>
+              <td>Ejecución de un contrato en el que el interesado es parte (art. 6.1.b RGPD).</td>
+            </tr>
+            <tr>
+              <td>Gestión de citas y agenda<span class="art">Google Calendar</span></td>
+              <td>Ejecución del contrato o medidas precontractuales (art. 6.1.b RGPD).</td>
+            </tr>
+            <tr>
+              <td>Asistencia mediante inteligencia artificial en la elaboración de borradores de escritos<span class="art">Claude · Anthropic</span></td>
+              <td>Interés legítimo del responsable en mejorar la eficiencia del servicio jurídico (art. 6.1.f RGPD), debidamente ponderado, y consentimiento informado cuando proceda.</td>
+            </tr>
+            <tr>
+              <td>Cumplimiento de obligaciones legales (contables, fiscales, deontológicas, prevención de blanqueo)<span class="art">Ley 10/2010 · CCom · Estatuto General de la Abogacía</span></td>
+              <td>Cumplimiento de obligación legal aplicable al responsable (art. 6.1.c RGPD).</td>
+            </tr>
+            <tr>
+              <td>Envío de boletines o comunicaciones sobre novedades del despacho<span class="art">Solo si lo solicita</span></td>
+              <td>Consentimiento expreso del interesado (art. 6.1.a RGPD). Revocable en cualquier momento.</td>
+            </tr>
+          </table>
+        </section>
+
+        <section id="s4">
+          <h2><span class="num">IV.</span>Destinatarios y encargados del tratamiento</h2>
+          <p>Para la prestación de nuestros servicios y el funcionamiento de esta web, el despacho recurre a proveedores tecnológicos que tienen acceso a determinados datos en calidad de <strong>encargados del tratamiento</strong> (art. 28 RGPD). Cada uno de ellos está vinculado por contrato y por las garantías exigidas por la normativa.</p>
+
+          <table class="legal-table">
+            <thead>
+              <tr><th>Proveedor</th><th>Finalidad</th><th>Datos tratados</th><th>Ubicación</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="provider">Anthropic, PBC<small>Claude API · IA generativa</small></td>
+                <td>Procesa el contenido de correos y documentos del expediente para generar borradores de escritos que el abogado revisa antes de cualquier uso.</td>
+                <td>Texto del correo o documento, datos identificativos contenidos en el mismo. Sin acceso humano del proveedor por defecto.</td>
+                <td class="country">EE. UU. <span class="pill warn">Transferencia internacional</span></td>
+              </tr>
+              <tr>
+                <td class="provider">Google LLC<small>Google Calendar API</small></td>
+                <td>Gestión de citas, vistas y vencimientos del despacho.</td>
+                <td>Nombre del cliente, fecha y hora de la cita, breve referencia al asunto.</td>
+                <td class="country">EE. UU. <span class="pill warn">Transferencia internacional</span></td>
+              </tr>
+              <tr>
+                <td class="provider">Telegram FZ-LLC<small>Bot interno de notificaciones</small></td>
+                <td>Notificaciones internas al abogado sobre borradores generados y correos pendientes de revisión.</td>
+                <td>Datos del abogado del despacho. <strong>No se transmiten datos identificativos del cliente</strong>; únicamente referencias internas del sistema.</td>
+                <td class="country">EAU / Internacional</td>
+              </tr>
+              <tr>
+                <td class="provider">Web3Forms<small>Procesado de formularios</small></td>
+                <td>Recepción y reenvío de los formularios de contacto enviados desde la web.</td>
+                <td>Los datos del formulario (nombre, email, teléfono, consulta).</td>
+                <td class="country">EE. UU. / UE</td>
+              </tr>
+              <tr>
+                <td class="provider">IONOS SE<small>Hosting y correo</small></td>
+                <td>Alojamiento del sitio web y servidor de correo electrónico del despacho.</td>
+                <td>Todos los datos alojados en la web y en los buzones de correo del despacho.</td>
+                <td class="country">Alemania / UE</td>
+              </tr>
+              <tr>
+                <td class="provider">Google Ireland Ltd.<small>Google Tag Manager · Google Ads</small></td>
+                <td>Medición de tráfico y campañas publicitarias (cuando el usuario otorga su consentimiento).</td>
+                <td>Datos técnicos y de navegación, identificadores publicitarios.</td>
+                <td class="country">Irlanda / UE <span class="pill">Solo con consentimiento</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Además, podrán ser destinatarios de datos los <strong>Juzgados y Tribunales</strong>, organismos administrativos, notarías, registros públicos, entidades bancarias y peritos cuando la naturaleza del encargo profesional así lo requiera, siempre con su conocimiento y exclusivamente para la finalidad del servicio jurídico.</p>
+        </section>
+
+        <section id="s5">
+          <h2><span class="num">V.</span>Transferencias internacionales de datos</h2>
+          <p>Los proveedores marcados como <em>transferencia internacional</em> (Anthropic y Google) tienen su sede en los Estados Unidos. Estas transferencias se amparan en alguno de los mecanismos previstos en el Capítulo V del RGPD:</p>
+          <ul>
+            <li><strong>Marco de Privacidad de Datos UE-EE. UU.</strong> (<em>EU-US Data Privacy Framework</em>) cuando el proveedor está certificado y dicha certificación se encuentra en vigor.</li>
+            <li><strong>Cláusulas Contractuales Tipo</strong> aprobadas por la Comisión Europea (Decisión de Ejecución 2021/914), suscritas con cada proveedor.</li>
+            <li>Cuando proceda, medidas suplementarias técnicas y organizativas (cifrado en tránsito y en reposo, controles de acceso, segregación de entornos).</li>
+          </ul>
+          <p>Puede solicitarnos copia o referencia de las garantías aplicables escribiendo a <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a>.</p>
+        </section>
+
+        <section id="s6">
+          <h2><span class="num">VI.</span>Plazos de conservación</h2>
+          <p>Conservamos los datos durante el tiempo estrictamente necesario para cumplir con la finalidad para la que fueron recogidos y, posteriormente, durante los plazos legales de prescripción aplicables:</p>
+          <table class="kv">
+            <tr><td>Datos de consulta sin contratación posterior</td><td>2 años desde el último contacto, salvo solicitud anterior de supresión.</td></tr>
+            <tr><td>Expedientes de clientes</td><td>Durante toda la vigencia del encargo y, una vez finalizado, durante los plazos de prescripción de las acciones de responsabilidad profesional (general: <em>10 años</em>; específicos según la naturaleza del asunto).</td></tr>
+            <tr><td>Documentación contable y fiscal</td><td>6 años (art. 30 Código de Comercio) y los plazos tributarios aplicables.</td></tr>
+            <tr><td>Datos contenidos en expedientes penales</td><td>Los propios del proceso penal y plazos de prescripción del tipo delictivo afectado.</td></tr>
+            <tr><td>Datos de boletines o comunicaciones comerciales</td><td>Hasta que retire su consentimiento.</td></tr>
+            <tr><td>Logs técnicos y de seguridad</td><td>12 meses, salvo necesidad de conservación por incidente.</td></tr>
+          </table>
+          <p>Transcurridos los plazos indicados, los datos se suprimen o se bloquean a disposición exclusiva de Jueces y Tribunales, Ministerio Fiscal o Administraciones Públicas competentes durante los plazos de prescripción adicionales, conforme al art. 32 LOPDGDD.</p>
+        </section>
+
+        <section id="s7">
+          <h2><span class="num">VII.</span>Uso de inteligencia artificial y decisiones automatizadas</h2>
+          <p>El despacho utiliza herramientas de inteligencia artificial generativa — concretamente la API de <strong>Claude (Anthropic)</strong> — como auxilio técnico en la elaboración de borradores de correos, escritos y dictámenes. Por la importancia que este punto tiene para la confianza de nuestros clientes, queremos dejarlo claro de forma explícita:</p>
+          <div class="callout">
+            <div class="cl-label">Compromiso del despacho · IA como herramienta auxiliar</div>
+            <p>La inteligencia artificial es una <strong>herramienta auxiliar del abogado</strong>, no un sustituto de su criterio jurídico ni de su responsabilidad profesional.</p>
+            <p>Cualquier texto, dictamen, escrito o comunicación generada con asistencia de IA es <strong>siempre revisada, validada y firmada por un letrado del despacho</strong> antes de su envío o presentación. El sistema entrega los borradores al abogado como propuesta interna; nada se remite a clientes, contrapartes, tribunales o terceros de forma autónoma.</p>
+            <p>En consecuencia, <strong>no se adoptan decisiones automatizadas, incluida la elaboración de perfiles, que produzcan efectos jurídicos en el interesado o le afecten significativamente</strong>, en los términos del artículo 22 del RGPD.</p>
+          </div>
+          <p>Si lo desea, puede solicitar expresamente que sus datos no sean procesados por estas herramientas de IA, indicándolo por escrito; en tal caso, su expediente se tramitará exclusivamente mediante medios convencionales.</p>
+        </section>
+
+        <section id="s8">
+          <h2><span class="num">VIII.</span>Derechos de la persona interesada</h2>
+          <p>Como titular de los datos, le asisten los siguientes derechos reconocidos por el RGPD y la LOPDGDD:</p>
+          <ul>
+            <li><strong>Acceso</strong> — conocer qué datos suyos tratamos y obtener copia de los mismos.</li>
+            <li><strong>Rectificación</strong> — corregir datos inexactos o incompletos.</li>
+            <li><strong>Supresión (al «olvido»)</strong> — solicitar la eliminación de sus datos cuando ya no sean necesarios o concurra alguna otra causa legal.</li>
+            <li><strong>Limitación</strong> — pedir que sus datos se conserven pero no se traten mientras se resuelve una controversia.</li>
+            <li><strong>Oposición</strong> — oponerse a tratamientos basados en interés legítimo.</li>
+            <li><strong>Portabilidad</strong> — recibir sus datos en un formato estructurado, de uso común y lectura mecánica.</li>
+            <li><strong>No ser objeto de decisiones automatizadas</strong> — ya descrito en la sección anterior.</li>
+            <li><strong>Retirada del consentimiento</strong> — en cualquier momento, sin que ello afecte a la licitud del tratamiento previo.</li>
+          </ul>
+          <p>Para ejercer estos derechos puede dirigirse a <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a> indicando «Protección de Datos» en el asunto y acompañando copia de un documento que acredite su identidad. Responderemos en el plazo máximo de un mes.</p>
+          <p>Si considera que el tratamiento de sus datos no se ajusta a la normativa, también puede presentar una reclamación ante la <strong>Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>) o, en su caso, ante la <strong>Autoritat Catalana de Protecció de Dades</strong> (<a href="https://apdcat.gencat.cat" target="_blank" rel="noopener">apdcat.gencat.cat</a>).</p>
+        </section>
+
+        <section id="s9">
+          <h2><span class="num">IX.</span>Cookies y rastreadores</h2>
+          <p>Esta web utiliza cookies propias y de terceros con las siguientes finalidades:</p>
+          <ul>
+            <li><strong>Cookies técnicas</strong> — necesarias para el funcionamiento del sitio. No requieren consentimiento.</li>
+            <li><strong>Cookies de medición</strong> (Google Tag Manager + analítica) — para conocer cómo se utiliza la web. Requieren consentimiento previo.</li>
+            <li><strong>Cookies publicitarias</strong> (Google Ads) — para medir el rendimiento de nuestras campañas publicitarias. Requieren consentimiento previo y son independientes para cada finalidad.</li>
+          </ul>
+          <p>Al acceder por primera vez a la web aparece un <strong>banner de consentimiento</strong> que le permite aceptar, rechazar o configurar individualmente cada categoría de cookies. Puede revocar o modificar su consentimiento en cualquier momento desde el enlace <em>«Configuración de cookies»</em> del pie de página.</p>
+          <p>Para más detalle, consulte nuestra <a href="#">Política de cookies</a>.</p>
+        </section>
+
+        <section id="s10">
+          <h2><span class="num">X.</span>Seguridad y secreto profesional</h2>
+          <p>Aplicamos medidas técnicas y organizativas apropiadas al riesgo: cifrado en tránsito y en reposo cuando es factible, control de accesos por roles, copias de seguridad cifradas, segregación de entornos, formación interna y revisión periódica de proveedores.</p>
+          <p>Con independencia del régimen de protección de datos, todas las comunicaciones y documentación intercambiadas con el despacho están cubiertas por el <strong>secreto profesional</strong> del abogado (art. 542.3 LOPJ, Estatuto General de la Abogacía y Código Deontológico de la Abogacía Española), que prevalece y refuerza las garantías de confidencialidad.</p>
+        </section>
+
+        <section id="s11">
+          <h2><span class="num">XI.</span>Modificaciones de esta política</h2>
+          <p>El despacho podrá modificar esta política de privacidad para adaptarla a cambios normativos, jurisprudenciales o en la organización interna. Las modificaciones se publicarán en esta misma página, indicando la fecha de actualización. Si los cambios son sustanciales y afectan a tratamientos en curso, se lo comunicaremos por los canales habituales.</p>
+
+          <div class="legal-contact">
+            <h3>¿Dudas sobre el tratamiento de sus datos?</h3>
+            <p>Escríbanos a <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a> con el asunto «Protección de Datos» y le responderemos en menos de 24 horas hábiles.</p>
+            <p>Carrizosa y Almazor · Calle Pau Claris 171 · 08037 Barcelona · <a href="tel:934572123">+34 934 572 123</a></p>
+          </div>
+        </section>
+
+      </article>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-row">
+        <div class="brand-name">Carrizosa y Almazor <small>Abogados · Barcelona</small></div>
+        <div class="footer-links">
+          <a href="index.html">Inicio</a>
+          <a href="privacidad.html">Privacidad</a>
+          <a href="condiciones.html">Condiciones de uso</a>
+          <a href="#">Cookies</a>
+          <a href="#">Aviso legal</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Carrizosa y Almazor · Todos los derechos reservados</div>
+        <div>Inscrito en el ICAB · Barcelona</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

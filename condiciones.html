@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Condiciones de Uso · Carrizosa y Almazor</title>
+<meta name="description" content="Condiciones generales de uso y aviso legal del sitio web del despacho Carrizosa y Almazor, conforme a la LSSI-CE.">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#040465;--ink-2:#020342;--body:#161616;
+    --bg:#fbfaf6;--bg-2:#f3efe6;--line:#d9d3c4;
+    --gold:#a98643;--gold-soft:#c9a35a;--muted:#6b6a66;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Montserrat",-apple-system,sans-serif;
+    color:var(--body);background:var(--bg);
+    font-size:15.5px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3,h4{
+    font-family:"EB Garamond",Georgia,serif;color:var(--ink);
+    font-weight:500;letter-spacing:-0.005em;line-height:1.2;
+    margin:0;text-wrap:balance;
+  }
+  h1 em,h2 em{font-style:italic;color:var(--gold);font-weight:400}
+  p{margin:0 0 14px;text-wrap:pretty}
+  a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line);transition:text-decoration-color .2s}
+  a:hover{text-decoration-color:var(--ink)}
+
+  .container{max-width:1240px;margin:0 auto;padding:0 32px}
+  .eyebrow{
+    font-family:"Montserrat",sans-serif;font-size:11px;font-weight:600;
+    letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold)}
+
+  .topbar{border-bottom:1px solid var(--line);background:var(--bg);font-size:12.5px;color:var(--muted)}
+  .topbar-inner{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 32px;max-width:1240px;margin:0 auto;
+  }
+  .topbar-left{display:flex;gap:28px;align-items:center}
+  .topbar-right a{color:var(--muted);text-decoration:none}
+  .topbar-right a:hover{color:var(--ink)}
+
+  nav.main{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,250,246,0.94);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:24px 32px;max-width:1240px;margin:0 auto;gap:32px;
+  }
+  .brand{text-decoration:none}
+  .brand-name{
+    font-family:"EB Garamond",serif;color:var(--ink);
+    font-size:28px;line-height:1;font-weight:500;
+  }
+  .brand-name small{
+    font-family:"Montserrat",sans-serif;font-size:10px;letter-spacing:0.36em;
+    color:var(--muted);text-transform:uppercase;margin-left:12px;font-weight:500;
+  }
+  .nav-back{
+    font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--ink);font-weight:600;text-decoration:none;
+    display:inline-flex;align-items:center;gap:10px;
+    border-bottom:1px solid var(--line);padding-bottom:6px;
+  }
+  .nav-back:hover{border-color:var(--ink)}
+
+  .legal-header{padding:80px 0 56px;border-bottom:1px solid var(--line)}
+  .legal-header h1{font-size:clamp(40px,5vw,64px);margin:24px 0 18px;font-weight:500}
+  .legal-header p.lede{font-size:17px;line-height:1.7;color:var(--body);max-width:720px}
+  .legal-meta{
+    display:flex;flex-wrap:wrap;gap:32px;margin-top:36px;
+    padding-top:24px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--muted);letter-spacing:0.04em;
+  }
+  .legal-meta div{display:flex;flex-direction:column;gap:4px;min-width:0}
+  .legal-meta .lbl{
+    font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;
+  }
+  .legal-meta .val{
+    font-family:"EB Garamond",serif;color:var(--ink);font-size:17px;
+    line-height:1.3;font-weight:500;
+  }
+
+  .legal-body{padding:64px 0 96px}
+  .legal-grid{display:grid;grid-template-columns:280px 1fr;gap:64px;align-items:start}
+  .legal-grid > *{min-width:0}
+
+  aside.toc{position:sticky;top:96px;border-left:1px solid var(--line);padding-left:24px}
+  .toc-label{
+    font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:18px;
+  }
+  .toc ol{
+    list-style:none;padding:0;margin:0;
+    display:flex;flex-direction:column;gap:10px;
+    counter-reset:tocsec;
+  }
+  .toc li{counter-increment:tocsec;font-size:13px;line-height:1.5}
+  .toc li a{
+    display:flex;gap:12px;color:var(--body);
+    text-decoration:none;padding:4px 0;transition:color .2s;
+  }
+  .toc li a::before{
+    content:counter(tocsec,upper-roman)".";
+    color:var(--gold);font-family:"EB Garamond",serif;
+    font-style:italic;font-size:14px;flex-shrink:0;min-width:30px;
+  }
+  .toc li a:hover{color:var(--ink)}
+
+  article.legal{max-width:780px}
+  article.legal section{
+    padding:48px 0;border-bottom:1px solid var(--line);
+    scroll-margin-top:104px;
+  }
+  article.legal section:first-child{padding-top:0}
+  article.legal section:last-child{border-bottom:none}
+  article.legal h2{
+    font-size:clamp(28px,3vw,36px);font-weight:500;margin-bottom:20px;
+    display:flex;gap:16px;align-items:baseline;
+  }
+  article.legal h2 .num{
+    font-family:"EB Garamond",serif;font-style:italic;
+    color:var(--gold);font-size:22px;font-weight:400;min-width:36px;
+  }
+  article.legal h3{font-size:20px;font-weight:500;color:var(--ink);margin:32px 0 12px}
+  article.legal p{font-size:15.5px;line-height:1.75;color:var(--body)}
+  article.legal ul{padding-left:0;margin:8px 0 16px;list-style:none}
+  article.legal ul li{
+    padding-left:22px;position:relative;
+    font-size:15px;line-height:1.7;margin-bottom:8px;
+  }
+  article.legal ul li::before{
+    content:"";position:absolute;left:0;top:11px;
+    width:10px;height:1px;background:var(--gold);
+  }
+  article.legal strong{color:var(--ink);font-weight:600}
+  article.legal em{font-style:italic;color:var(--ink)}
+
+  /* Identification card */
+  .id-card{
+    border:1px solid var(--line);background:var(--bg-2);
+    padding:32px 36px;margin:8px 0 12px;
+  }
+  .id-card .id-label{
+    font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:18px;
+  }
+  .id-card dl{margin:0;display:grid;grid-template-columns:1fr 2fr;gap:14px 28px;font-size:14.5px}
+  .id-card dt{
+    font-size:10px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;padding-top:6px;
+  }
+  .id-card dd{
+    margin:0;font-family:"EB Garamond",serif;color:var(--ink);
+    font-size:17px;line-height:1.35;font-weight:500;
+    border-top:1px solid var(--line);padding-top:6px;
+  }
+  .id-card dd a{font-family:"EB Garamond",serif;text-decoration:none;border-bottom:1px solid var(--line)}
+  .id-card dd a:hover{border-color:var(--ink)}
+
+  .callout{
+    border:1px solid var(--line);background:var(--bg-2);
+    padding:24px 28px;margin:20px 0;border-left:3px solid var(--gold);
+  }
+  .callout .cl-label{
+    font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:10px;
+  }
+  .callout p{margin:0;font-size:14.5px;line-height:1.7}
+  .callout p + p{margin-top:10px}
+  .callout.warn{border-left-color:var(--ink);background:#fff}
+  .callout.warn .cl-label{color:var(--ink)}
+
+  /* Articulado */
+  .article-block{
+    margin-top:18px;padding:20px 24px;
+    border:1px solid var(--line);background:#fff;
+  }
+  .article-block .art-head{
+    font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:10px;
+  }
+  .article-block p{font-size:14.5px;line-height:1.7;margin:0 0 10px}
+  .article-block p:last-child{margin-bottom:0}
+
+  .legal-contact{
+    margin-top:48px;padding:32px 32px;background:var(--ink);color:#fff;
+  }
+  .legal-contact h3{color:#fff;font-size:24px;margin:0 0 14px}
+  .legal-contact p{color:rgba(255,255,255,.78);font-size:14.5px;margin:0 0 8px}
+  .legal-contact a{color:var(--gold-soft);text-decoration-color:rgba(201,163,90,.5)}
+  .legal-contact a:hover{text-decoration-color:var(--gold-soft)}
+
+  footer{background:#020342;color:rgba(255,255,255,.7);padding:48px 0 32px;font-size:13px}
+  .footer-row{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:24px;padding-bottom:24px;
+    border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .footer-row .brand-name{color:#fff;font-size:22px}
+  .footer-row .brand-name small{color:rgba(255,255,255,.5)}
+  .footer-links{display:flex;gap:24px;flex-wrap:wrap}
+  .footer-links a{color:rgba(255,255,255,.7);text-decoration:none;font-size:13px}
+  .footer-links a:hover{color:var(--gold-soft)}
+  .footer-bottom{padding-top:24px;color:rgba(255,255,255,.45);font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  @media(max-width:980px){
+    .legal-grid{grid-template-columns:1fr;gap:32px}
+    aside.toc{position:static;border-left:none;border-top:1px solid var(--line);padding:24px 0 0}
+    .toc ol{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .id-card dl{grid-template-columns:1fr}
+    .id-card dt{padding-top:0}
+    .topbar-left span:nth-child(n+2){display:none}
+  }
+  @media(max-width:680px){
+    .container{padding:0 22px}
+    .legal-header{padding:48px 0 36px}
+    .legal-header h1{font-size:34px}
+    .legal-body{padding:40px 0 64px}
+    article.legal section{padding:36px 0}
+    article.legal h2{font-size:24px;gap:10px}
+    .id-card{padding:24px 20px}
+    .toc ol{grid-template-columns:1fr}
+  }
+  @media print{
+    .topbar,nav.main,footer,aside.toc{display:none}
+    .legal-grid{display:block}
+    article.legal{max-width:none}
+    body{background:#fff;font-size:11pt}
+  }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span>📍 Calle Pau Claris 171, 08037 Barcelona</span>
+        <span>☎ +34 934 572 123</span>
+      </div>
+      <div class="topbar-right">
+        <a href="#">CAT</a>
+        <a href="#" style="color:var(--ink);font-weight:600">ES</a>
+      </div>
+    </div>
+  </div>
+
+  <nav class="main">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-name">Carrizosa y Almazor<small>Abogados · Barcelona</small></div>
+      </a>
+      <a href="index.html" class="nav-back">← Volver a la web</a>
+    </div>
+  </nav>
+
+  <header class="legal-header">
+    <div class="container">
+      <span class="eyebrow">Documento legal</span>
+      <h1>Condiciones de Uso y <em>Aviso Legal.</em></h1>
+      <p class="lede">Estas condiciones regulan el acceso y el uso del sitio web <strong>carrizosayalmazor.com</strong>, así como las garantías y responsabilidades de los servicios profesionales prestados por el despacho. Al utilizar este sitio acepta las presentes condiciones.</p>
+      <div class="legal-meta">
+        <div>
+          <span class="lbl">Última actualización</span>
+          <span class="val">11 de mayo de 2026</span>
+        </div>
+        <div>
+          <span class="lbl">Versión</span>
+          <span class="val">1.0</span>
+        </div>
+        <div>
+          <span class="lbl">Marco normativo</span>
+          <span class="val">LSSI-CE 34/2002 · EGA · LOPJ</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="legal-body">
+    <div class="container legal-grid">
+
+      <aside class="toc">
+        <div class="toc-label">Índice</div>
+        <ol>
+          <li><a href="#s1">Identificación del titular</a></li>
+          <li><a href="#s2">Datos de colegiación profesional</a></li>
+          <li><a href="#s3">Objeto y aceptación</a></li>
+          <li><a href="#s4">Uso del sitio web</a></li>
+          <li><a href="#s5">Servicios profesionales del despacho</a></li>
+          <li><a href="#s6">Uso de inteligencia artificial</a></li>
+          <li><a href="#s7">Secreto profesional</a></li>
+          <li><a href="#s8">Propiedad intelectual e industrial</a></li>
+          <li><a href="#s9">Exclusión de garantías y responsabilidad</a></li>
+          <li><a href="#s10">Enlaces a sitios de terceros</a></li>
+          <li><a href="#s11">Modificaciones</a></li>
+          <li><a href="#s12">Ley aplicable y jurisdicción</a></li>
+        </ol>
+      </aside>
+
+      <article class="legal">
+
+        <section id="s1">
+          <h2><span class="num">I.</span>Identificación del titular</h2>
+          <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se hacen constar los siguientes datos identificativos del titular del sitio web:</p>
+          <div class="id-card">
+            <div class="id-label">Titular</div>
+            <dl>
+              <dt>Denominación</dt><dd>Carrizosa y Almazor, Abogados</dd>
+              <dt>NIF / CIF</dt><dd>[NIF/CIF pendiente]</dd>
+              <dt>Domicilio profesional</dt><dd>Calle Pau Claris, 171 — 08037 Barcelona (España)</dd>
+              <dt>Correo electrónico</dt><dd><a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a></dd>
+              <dt>Teléfono</dt><dd><a href="tel:934572123">+34 934 572 123</a></dd>
+              <dt>Dominio</dt><dd>carrizosayalmazor.com</dd>
+            </dl>
+          </div>
+        </section>
+
+        <section id="s2">
+          <h2><span class="num">II.</span>Datos de colegiación profesional</h2>
+          <p>De conformidad con la normativa profesional aplicable a los abogados y con el artículo 10 LSSI-CE, los letrados que ejercen en el despacho están colegiados en el <strong>Il·lustre Col·legi de l'Advocacia de Barcelona (ICAB)</strong>, plaza de Roger de Llúria, 13 — 08010 Barcelona — <a href="https://www.icab.cat" target="_blank" rel="noopener">www.icab.cat</a>.</p>
+          <div class="id-card">
+            <div class="id-label">Letrados</div>
+            <dl>
+              <dt>Carlos Carrizosa Torres</dt><dd>Colegiado ICAB nº [pendiente]</dd>
+              <dt>Marisa Almazor López</dt><dd>Colegiada ICAB nº [pendiente]</dd>
+            </dl>
+          </div>
+          <p>La profesión se rige por el <strong>Estatuto General de la Abogacía Española</strong> (Real Decreto 135/2021), el <strong>Código Deontológico de la Abogacía Española</strong>, los estatutos del ICAB y, en lo que resulte aplicable, el Código Civil de Cataluña y la legislación procesal española.</p>
+        </section>
+
+        <section id="s3">
+          <h2><span class="num">III.</span>Objeto y aceptación</h2>
+          <p>El presente sitio web tiene por finalidad ofrecer información sobre el despacho y sus áreas de práctica, así como facilitar el contacto inicial entre potenciales clientes y los letrados. La navegación por el sitio web atribuye la condición de <em>usuario</em> e implica la aceptación plena y sin reservas de las presentes condiciones, en la versión publicada en cada momento.</p>
+          <div class="callout warn">
+            <div class="cl-label">Importante</div>
+            <p>La información publicada en esta web tiene <strong>carácter meramente informativo</strong> y no constituye, en ningún caso, asesoramiento jurídico personalizado. Para que exista relación profesional con el despacho es imprescindible la <strong>aceptación expresa y por escrito</strong> de un encargo profesional, mediante la correspondiente hoja de encargo.</p>
+          </div>
+        </section>
+
+        <section id="s4">
+          <h2><span class="num">IV.</span>Uso del sitio web</h2>
+          <p>El usuario se compromete a utilizar el sitio web y sus contenidos conforme a la ley, a la moral, al orden público y a las presentes condiciones, absteniéndose de:</p>
+          <ul>
+            <li>Utilizar el sitio con fines o efectos contrarios a la ley o lesivos para los derechos e intereses de terceros.</li>
+            <li>Introducir o difundir virus informáticos o cualquier otro elemento susceptible de alterar el normal funcionamiento del sitio.</li>
+            <li>Intentar acceder a zonas restringidas o realizar pruebas no autorizadas de penetración.</li>
+            <li>Recopilar datos con fines publicitarios sin contar con el consentimiento del despacho.</li>
+            <li>Reproducir, copiar, distribuir o transformar los contenidos del sitio sin autorización (véase la <a href="#s8">sección VIII</a>).</li>
+          </ul>
+        </section>
+
+        <section id="s5">
+          <h2><span class="num">V.</span>Servicios profesionales del despacho</h2>
+          <p>Los servicios profesionales del despacho se prestan en régimen de arrendamiento de servicios y obligación de medios, en los términos del artículo 1544 del Código Civil. El despacho actúa con la diligencia exigible al abogado en ejercicio (<em>lex artis</em>), sin que pueda garantizar un determinado resultado procesal o sustantivo.</p>
+
+          <h3>Hoja de encargo</h3>
+          <p>Antes del inicio efectivo de cualquier actuación profesional se formaliza una <strong>hoja de encargo por escrito</strong> en la que se detallan: el objeto del encargo, las actuaciones incluidas y excluidas, los honorarios y su forma de pago, las provisiones de fondos, las posibles tasas y suplidos, los plazos estimados y las causas de terminación.</p>
+
+          <h3>Honorarios</h3>
+          <p>Los honorarios se pactan libremente con cada cliente, bajo cualquiera de las modalidades admitidas: honorarios fijos por fases, presupuesto cerrado por asunto o porcentaje sobre el caudal hereditario o sobre la cuantía del procedimiento. No se aplican criterios orientadores del Colegio salvo a efectos de tasación de costas. Los honorarios devengan IVA conforme a la normativa vigente.</p>
+
+          <h3>Provisiones de fondos y suplidos</h3>
+          <p>Cuando el encargo implique gastos a abonar a terceros (tasas, peritos, registros, notarías, procuradores) podrán solicitarse provisiones de fondos. Los suplidos se justificarán documentalmente al cliente.</p>
+        </section>
+
+        <section id="s6">
+          <h2><span class="num">VI.</span>Uso de inteligencia artificial</h2>
+          <p>El despacho utiliza herramientas de inteligencia artificial generativa como apoyo técnico interno en la elaboración de borradores de correos, escritos, dictámenes y otros documentos. Por su trascendencia, este uso queda regulado expresamente:</p>
+          <div class="callout">
+            <div class="cl-label">Cláusula de uso de IA</div>
+            <p><strong>Carácter auxiliar.</strong> Los textos generados con asistencia de IA tienen siempre la consideración de <em>borradores internos</em>. El criterio jurídico, la estrategia, el contenido definitivo y la firma corresponden en todo caso al letrado responsable.</p>
+            <p><strong>Supervisión humana.</strong> Ningún documento, correo, escrito ni comunicación se remite a clientes, contrapartes, juzgados u organismos sin la previa revisión y aprobación expresa de un abogado del despacho.</p>
+            <p><strong>Responsabilidad profesional.</strong> El letrado responsable del expediente asume la totalidad de la responsabilidad civil profesional del trabajo prestado, con independencia de las herramientas técnicas empleadas para su elaboración.</p>
+            <p><strong>Derecho de oposición.</strong> El cliente puede solicitar, en cualquier momento y por escrito, que su expediente no sea procesado mediante herramientas de IA. Esta solicitud no afectará a la calidad ni al alcance del servicio.</p>
+          </div>
+          <p>Para más detalle sobre los proveedores de IA, las transferencias internacionales y las garantías aplicadas, consulte la <a href="Privacidad.html#s4">sección IV de la Política de Privacidad</a>.</p>
+        </section>
+
+        <section id="s7">
+          <h2><span class="num">VII.</span>Secreto profesional</h2>
+          <p>Toda la información, documentación y comunicación que el cliente facilite al despacho está amparada por el <strong>secreto profesional del abogado</strong>, en los términos previstos en:</p>
+          <ul>
+            <li>Artículo 542.3 de la <strong>Ley Orgánica del Poder Judicial</strong>.</li>
+            <li>Artículo 21 del <strong>Estatuto General de la Abogacía Española</strong> (RD 135/2021).</li>
+            <li>Código Deontológico de la Abogacía Española.</li>
+            <li>Artículo 199.2 del <strong>Código Penal</strong>, que tipifica la revelación de secretos profesionales.</li>
+          </ul>
+          <p>El secreto profesional alcanza a todos los letrados, empleados y colaboradores del despacho, así como a los proveedores tecnológicos que pudieran acceder a la información en el marco de sus funciones, vinculados mediante los correspondientes acuerdos de confidencialidad y de tratamiento de datos.</p>
+        </section>
+
+        <section id="s8">
+          <h2><span class="num">VIII.</span>Propiedad intelectual e industrial</h2>
+          <p>Todos los contenidos del sitio web — textos, fotografías, gráficos, imágenes, iconos, código fuente, diseño, selección y forma de presentación de los materiales — son <strong>titularidad exclusiva</strong> del despacho o de terceros que han autorizado su uso, y están protegidos por la normativa española e internacional sobre propiedad intelectual e industrial.</p>
+          <p>Queda prohibida la reproducción, distribución, comunicación pública, transformación o cualquier otra forma de explotación de los contenidos, total o parcial, sin la autorización expresa y por escrito del despacho. Se permite, sin necesidad de autorización, la <em>cita</em> con fines docentes o de investigación con indicación de la fuente.</p>
+          <p>La denominación <em>«Carrizosa y Almazor»</em>, así como los signos distintivos asociados, no podrán ser utilizados sin consentimiento expreso.</p>
+        </section>
+
+        <section id="s9">
+          <h2><span class="num">IX.</span>Exclusión de garantías y limitación de responsabilidad</h2>
+
+          <h3>Sobre el contenido informativo de la web</h3>
+          <p>El despacho procura que la información publicada sea actual, exacta y suficiente, pero no puede garantizar la inexistencia de errores ni la permanente actualización de los contenidos, dada la naturaleza cambiante de la legislación y la jurisprudencia. La utilización de la información publicada se realiza bajo la exclusiva responsabilidad del usuario.</p>
+
+          <h3>Sobre el funcionamiento técnico</h3>
+          <p>El despacho no responde por interrupciones, fallos o errores técnicos del sitio web, ni por los daños que puedan derivarse de su uso, salvo en los supuestos en los que tales daños sean imputables al despacho por dolo o culpa grave.</p>
+
+          <h3>Sobre el resultado de los servicios jurídicos</h3>
+          <p>La actuación profesional del despacho es una <strong>obligación de medios y no de resultado</strong>. El despacho no garantiza un determinado pronunciamiento judicial o administrativo, sino la prestación del servicio con la diligencia y la pericia exigibles a un abogado en ejercicio.</p>
+
+          <h3>Seguro de responsabilidad civil</h3>
+          <p>El despacho dispone del seguro obligatorio de responsabilidad civil profesional previsto en el artículo 25 del Estatuto General de la Abogacía. Las cuantías y aseguradora pueden consultarse en hoja de encargo o solicitarse por escrito.</p>
+        </section>
+
+        <section id="s10">
+          <h2><span class="num">X.</span>Enlaces a sitios de terceros</h2>
+          <p>El sitio web puede contener enlaces a páginas de terceros (instituciones, colegios profesionales, registros públicos, redes sociales). El despacho no asume responsabilidad alguna sobre los contenidos, políticas o prácticas de dichos sitios, ni recomienda implícitamente su uso. La inclusión del enlace se realiza con fines informativos o de referencia.</p>
+        </section>
+
+        <section id="s11">
+          <h2><span class="num">XI.</span>Modificaciones</h2>
+          <p>El despacho se reserva el derecho de modificar, en cualquier momento y sin previo aviso, la presentación y configuración del sitio web, así como las presentes condiciones de uso, para adaptarlas a cambios normativos, jurisprudenciales, técnicos u operativos. Las modificaciones serán de aplicación desde su publicación en la web. Se recomienda al usuario revisar periódicamente estas condiciones.</p>
+        </section>
+
+        <section id="s12">
+          <h2><span class="num">XII.</span>Ley aplicable y jurisdicción</h2>
+          <p>Las presentes condiciones se rigen por la <strong>legislación española</strong> y, en lo que resulte aplicable, por el Derecho Civil de Cataluña.</p>
+          <p>Para la resolución de cualquier controversia derivada del acceso o uso de este sitio web, las partes se someten, con renuncia expresa a cualquier otro fuero que pudiera corresponderles, a la jurisdicción de los <strong>Juzgados y Tribunales de Barcelona</strong>, salvo que la legislación aplicable imponga un fuero distinto para consumidores y usuarios, en cuyo caso prevalecerá éste.</p>
+          <div class="article-block">
+            <div class="art-head">Resolución extrajudicial</div>
+            <p>Con carácter previo a la vía judicial, las partes podrán acudir voluntariamente a los mecanismos de resolución extrajudicial de conflictos previstos por el ICAB (mediación y arbitraje colegial), conforme a su normativa interna.</p>
+          </div>
+
+          <div class="legal-contact">
+            <h3>¿Dudas sobre estas condiciones?</h3>
+            <p>Escríbanos a <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a> indicando «Condiciones de uso» en el asunto.</p>
+            <p>Carrizosa y Almazor · Calle Pau Claris 171 · 08037 Barcelona · <a href="tel:934572123">+34 934 572 123</a></p>
+          </div>
+        </section>
+
+      </article>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-row">
+        <div class="brand-name">Carrizosa y Almazor <small>Abogados · Barcelona</small></div>
+        <div class="footer-links">
+          <a href="index.html">Inicio</a>
+          <a href="privacidad.html">Privacidad</a>
+          <a href="condiciones.html">Condiciones de uso</a>
+          <a href="#">Cookies</a>
+          <a href="#">Aviso legal</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Carrizosa y Almazor · Todos los derechos reservados</div>
+        <div>Inscrito en el ICAB · Barcelona</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ley de eficiencia procesal: el primer balance | Carrizosa y Almazor — Abogados en Barcelona</title>
+<meta name="description" content="La Ley 1/2025 de eficiencia del Servicio Público de Justicia obliga a intentar un MASC antes de litigar. Un año después, analizamos qué ha funcionado y qué no en los juzgados de Barcelona." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#040465;--ink-2:#020342;--body:#161616;--bg:#fbfaf6;--bg-2:#f3efe6;--bg-3:#ece6d8;--line:#d9d3c4;--gold:#a98643;--gold-soft:#c9a35a;--muted:#6b6a66}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;overflow-x:hidden}
+html{scroll-behavior:smooth}
+body{font-family:"Montserrat",-apple-system,BlinkMacSystemFont,sans-serif;color:var(--body);background:var(--bg);font-weight:400;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:"EB Garamond",Georgia,serif;color:var(--ink);font-weight:500;letter-spacing:-0.005em;line-height:1.15;margin:0;text-wrap:balance}
+h1 em,h2 em,h3 em{font-style:italic;color:var(--gold);font-weight:400}
+p{margin:0;text-wrap:pretty}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%;height:auto}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+ul,ol{margin:0;padding:0}
+.container{max-width:1240px;margin:0 auto;padding:0 32px}
+.topbar{border-bottom:1px solid var(--line);background:var(--bg);font-size:12.5px;color:var(--muted)}
+.topbar-inner{display:flex;justify-content:space-between;align-items:center;padding:10px 32px;max-width:1240px;margin:0 auto}
+.topbar-left{display:flex;gap:28px;align-items:center}
+.topbar-left span{display:inline-flex;gap:8px;align-items:center}
+.topbar-right{display:flex;gap:20px}
+.topbar-right a:hover{color:var(--ink)}
+nav.main{position:sticky;top:0;z-index:50;background:rgba(251,250,246,0.94);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+.nav-inner{display:grid;grid-template-columns:1fr auto;align-items:center;padding:28px 32px 24px;max-width:1240px;margin:0 auto;gap:48px}
+.brand{display:flex;flex-direction:column}
+.brand-name{font-family:"EB Garamond",serif;color:var(--ink);font-size:clamp(28px,3vw,40px);line-height:0.98;letter-spacing:-0.005em;font-weight:500;white-space:nowrap}
+.brand-name small{display:inline;font-family:"Montserrat",sans-serif;font-size:10px;letter-spacing:0.42em;color:var(--muted);text-transform:uppercase;margin-left:12px;font-weight:500;vertical-align:middle}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:var(--body);letter-spacing:0.04em;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{background:var(--ink);color:#fff !important;padding:12px 20px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;transition:background .2s}
+.nav-cta:hover{background:var(--ink-2)}
+.nav-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.nav-toggle span{display:block;width:18px;height:1px;background:var(--ink);transition:transform .25s,opacity .25s}
+.nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.art-header{background:var(--ink);color:#fff;padding:64px 0 72px;border-bottom:1px solid var(--ink-2)}
+.breadcrumb{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:28px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.breadcrumb a{color:rgba(255,255,255,.45);transition:color .2s}
+.breadcrumb a:hover{color:#fff}
+.breadcrumb span{color:rgba(255,255,255,.25)}
+.art-meta{display:flex;gap:16px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
+.art-cat{background:var(--gold);color:#fff;padding:4px 12px;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600}
+.art-date{font-size:12px;color:rgba(255,255,255,.5);letter-spacing:0.08em}
+.art-header h1{font-size:clamp(32px,4.5vw,58px);font-weight:500;color:#fff;max-width:900px;line-height:1.1;margin-bottom:22px}
+.art-lede{font-size:17px;line-height:1.7;color:rgba(255,255,255,.78);max-width:760px;margin-bottom:28px;font-family:"EB Garamond",serif}
+.art-byline{font-size:11px;color:rgba(255,255,255,.35);letter-spacing:0.12em;text-transform:uppercase}
+.art-wrap{padding:80px 0 100px}
+.art-grid{display:grid;grid-template-columns:1fr 300px;gap:72px;align-items:start}
+.art-content h2{font-size:clamp(24px,2.8vw,32px);font-weight:500;margin:52px 0 16px;color:var(--ink);padding-bottom:14px;border-bottom:1px solid var(--line)}
+.art-content h2:first-child{margin-top:0}
+.art-content h3{font-size:21px;font-weight:500;color:var(--ink);margin:36px 0 12px}
+.art-content p{font-size:16px;line-height:1.78;color:var(--body);margin-bottom:20px}
+.art-content ul,.art-content ol{margin:0 0 24px;padding-left:24px;display:flex;flex-direction:column;gap:8px}
+.art-content li{font-size:15.5px;line-height:1.7;color:var(--body)}
+.art-content blockquote{border-left:3px solid var(--gold);margin:36px 0;padding:4px 0 4px 28px;font-family:"EB Garamond",serif;font-size:22px;line-height:1.45;color:var(--ink);font-style:italic}
+.nota-practica{background:var(--bg-2);border:1px solid var(--line);border-left:3px solid var(--gold);padding:24px 28px;margin:32px 0}
+.nota-practica .np-label{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:10px;display:block}
+.nota-practica p{margin-bottom:8px;font-size:15px}
+.nota-practica p:last-child{margin-bottom:0}
+.art-sidebar{position:sticky;top:96px;display:flex;flex-direction:column;gap:24px}
+.toc{background:var(--bg-2);border:1px solid var(--line);padding:28px}
+.toc-title{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:16px;display:block}
+.toc ol{padding-left:16px;display:flex;flex-direction:column;gap:10px;list-style:decimal}
+.toc li{font-size:13px;line-height:1.45;color:var(--body)}
+.toc a{color:var(--ink);font-weight:500;transition:color .2s;text-decoration:none}
+.toc a:hover{color:var(--gold)}
+.art-contact-box{background:var(--ink);color:#fff;padding:28px}
+.art-contact-box .cb-label{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:var(--gold-soft);margin-bottom:12px;display:block}
+.art-contact-box p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.78);margin-bottom:20px}
+.art-contact-box a.cb-btn{display:block;background:#fff;color:var(--ink);padding:14px 20px;text-align:center;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;transition:background .2s}
+.art-contact-box a.cb-btn:hover{background:var(--bg-2)}
+.art-cta{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0}
+.art-cta-inner{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+.art-cta h3{font-size:clamp(26px,3vw,36px);font-weight:500;max-width:520px}
+.art-cta-links{display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+.btn-primary{background:var(--ink);color:#fff;padding:16px 28px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;display:inline-flex;align-items:center;gap:10px;transition:background .2s}
+.btn-primary:hover{background:var(--ink-2)}
+.btn-back{color:var(--ink);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid var(--ink);padding-bottom:2px}
+footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+.footer-brand .brand-name{font-size:28px;margin-bottom:16px}
+.footer-brand p{font-size:13.5px;line-height:1.65;color:var(--muted);max-width:280px}
+.footer-col h4{font-family:"Montserrat",sans-serif;font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:var(--ink);margin-bottom:18px}
+.footer-col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+.footer-col a{font-size:13.5px;color:var(--body);transition:color .2s}
+.footer-col a:hover{color:var(--ink)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:12px;color:var(--muted);flex-wrap:wrap;gap:12px}
+.footer-bottom .legal{display:flex;gap:24px}
+.footer-bottom a{color:var(--muted);transition:color .2s}
+.footer-bottom a:hover{color:var(--ink)}
+@media(max-width:980px){
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .topbar-left span:nth-child(n+2){display:none}
+  .nav-toggle{display:flex}
+  .nav-inner{padding:20px 24px 18px;gap:16px}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 20px}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .nav-links a:last-child{border-bottom:none}
+  .nav-cta{margin-top:10px;text-align:center;padding:16px 20px}
+  .art-grid{grid-template-columns:1fr;gap:48px}
+  .art-sidebar{position:static}
+  .art-cta-inner{flex-direction:column;align-items:flex-start}
+  .art-cta-links{align-items:flex-start}
+}
+@media(max-width:680px){
+  body{font-size:15px}
+  .container{padding:0 20px}
+  .topbar-inner{padding:8px 20px}
+  .topbar-right{display:none}
+  .brand-name{font-size:24px;white-space:normal}
+  .art-header{padding:44px 0 52px}
+  .art-header h1{font-size:28px}
+  .art-lede{font-size:15px}
+  .art-wrap{padding:48px 0 64px}
+  .art-content h2{font-size:22px;margin-top:40px}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span>📍 Calle Pau Claris 171, 08037 Barcelona</span>
+      <span>☎ +34 934 572 123</span>
+      <span>✉ <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a></span>
+    </div>
+    <div class="topbar-right">
+      <a href="#">CAT</a>
+      <a href="#" style="color:var(--ink);font-weight:600">ES</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="main">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand">
+      <div class="brand-name">Carrizosa y Almazor<small>Abogados</small></div>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="../index.html#despacho">El despacho</a>
+      <a href="../index.html#areas">Áreas</a>
+      <a href="../sucesiones.html">Herencias</a>
+      <a href="../index.html#socios">Socios</a>
+      <a href="../index.html#proceso">Proceso</a>
+      <a href="../index.html#contacto" class="nav-cta">Contacto</a>
+    </div>
+    <button class="nav-toggle" aria-label="Abrir menú" onclick="this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ARTICLE HEADER -->
+<header class="art-header">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Ruta de navegación">
+      <a href="../index.html">Inicio</a>
+      <span>/</span>
+      <a href="../index.html#insights">Notas del despacho</a>
+      <span>/</span>
+      <span>Ley eficiencia procesal</span>
+    </nav>
+    <div class="art-meta">
+      <span class="art-cat">Procesal</span>
+      <span class="art-date">12 de marzo de 2026</span>
+    </div>
+    <h1>Ley de eficiencia procesal: el primer balance, un año después</h1>
+    <p class="art-lede">La Ley Orgánica 1/2025 de medidas de eficiencia del Servicio Público de Justicia obligó a intentar una vía alternativa de resolución del conflicto antes de poder acudir al juez en la mayoría de asuntos civiles y mercantiles. Un año de aplicación permite un primer balance: qué ha funcionado, qué no, y cómo estamos viendo los cambios en los juzgados de Barcelona.</p>
+    <div class="art-byline">Despacho Carrizosa y Almazor · Barcelona</div>
+  </div>
+</header>
+
+<!-- ARTICLE BODY -->
+<section class="art-wrap">
+  <div class="container">
+    <div class="art-grid">
+
+      <!-- CONTENT -->
+      <article class="art-content">
+
+        <h2 id="s1">Qué son los MASC y por qué son ahora obligatorios</h2>
+        <p>Los Medios Adecuados de Solución de Controversias —MASC— son los procedimientos de resolución extrajudicial de conflictos: mediación, conciliación, oferta vinculante confidencial y otros instrumentos reconocidos en el ordenamiento. La Ley Orgánica 1/2025, de 2 de enero, que entró en vigor el 3 de abril de 2025, los convirtió en una condición de procedibilidad en la gran mayoría de asuntos civiles y mercantiles.</p>
+        <p>La lógica del legislador es clara: los juzgados civiles españoles soportan una carga de trabajo que genera retrasos estructurales de varios años en muchos partidos judiciales. Si parte de los conflictos se resuelven antes de llegar al juicio, la saturación disminuye y los casos que sí necesitan decisión judicial se tramitan con mayor agilidad. El instrumento elegido para lograrlo es la obligación previa, no la mera recomendación.</p>
+
+        <h2 id="s2">Ámbito de aplicación: cuándo es obligatorio y cuándo no</h2>
+        <p>La exigencia del intento de MASC previo se aplica a los procesos civiles y mercantiles declarativos. Quedan expresamente excluidos, entre otros:</p>
+        <ul>
+          <li>Los procesos en materia de capacidad, filiación, matrimonio y menores (art. 748 LEC).</li>
+          <li>Los procesos de ejecución y las medidas cautelares de tramitación urgente.</li>
+          <li>Los procesos en que sea parte la Administración Pública.</li>
+          <li>Las materias en las que rija un procedimiento extrajudicial específico preexistente, como la conciliación laboral previa ante el SMAC.</li>
+          <li>Los supuestos de urgencia acreditada que hagan inviable el trámite previo.</li>
+        </ul>
+        <p>En la práctica, la gran mayoría de los conflictos civiles ordinarios —reclamaciones de cantidad, incumplimientos contractuales, conflictos entre socios, disputas vecinales, daños y perjuicios— quedan dentro del ámbito de aplicación de la Ley.</p>
+
+        <h2 id="s3">Las tres vías: mediación, conciliación y oferta vinculante</h2>
+
+        <h3>Mediación</h3>
+        <p>La mediación civil y mercantil, regulada por la Ley 5/2012, de 6 de julio, implica la intervención de un tercero imparcial que facilita el diálogo entre las partes sin imponer solución. El mediador puede ser una persona física inscrita en el Registro de Mediadores del Ministerio de Justicia o una institución de mediación acreditada. En Barcelona, el Centro de Mediación de Derecho Privado de Catalunya gestiona un volumen importante de estos procedimientos.</p>
+
+        <h3>Conciliación</h3>
+        <p>La conciliación ante notario o ante letrado de la administración de justicia es la vía más ágil para conflictos de menor cuantía o cuando la celeridad es prioritaria. El letrado de la administración de justicia del juzgado correspondiente puede actuar como conciliador en el marco de la nueva regulación, sin coste de arancel adicional para las partes.</p>
+
+        <h3>Oferta vinculante confidencial</h3>
+        <p>La Ley 1/2025 introduce como novedad la posibilidad de que una parte formule una oferta de resolución expresa, confidencial y vinculante para quien la hace. Si la otra parte la rechaza y el resultado del juicio posterior no mejora lo ofrecido, el rechazante puede ser condenado en costas aunque haya ganado el proceso en lo principal.</p>
+
+        <blockquote>«La ley no obliga a alcanzar un acuerdo; obliga a intentarlo de buena fe. Pero el coste de no intentarlo —o de rechazar una oferta razonable— ya no es neutro.»</blockquote>
+
+        <h2 id="s4">El coste de rechazar: la condena en costas del art. 395 LEC</h2>
+        <p>Este es el instrumento de presión más relevante de la reforma. El art. 395 LEC, en su nueva redacción, permite al juez condenar en costas a la parte que, habiendo rechazado una propuesta de acuerdo razonable formulada antes o durante el MASC, luego obtiene en el juicio un resultado igual o peor al que habría obtenido con ese acuerdo.</p>
+        <p>La consecuencia práctica es que el análisis de riesgo del litigio cambia de forma significativa. Ya no basta con tener razón en el fondo: si la otra parte formuló una oferta objetivamente razonable y se rechazó sin justificación suficiente, la victoria en juicio puede llegar acompañada de una condena en costas que anule económicamente el resultado favorable.</p>
+
+        <div class="nota-practica">
+          <span class="np-label">Nota práctica</span>
+          <p>La acreditación del intento de MASC se hace mediante certificado expedido por el mediador, conciliador o institución interviniente. Este documento debe adjuntarse con la demanda; su ausencia determina la inadmisión a trámite de la demanda conforme al nuevo art. 403.3 LEC. El certificado debe reflejar que las partes fueron convocadas y que el intento se realizó de buena fe, aunque no haya habido acuerdo.</p>
+          <p>En casos urgentes donde el intento previo causaría un perjuicio irreparable —medidas cautelares, acciones urgentes de protección— la ley prevé la posibilidad de presentar la demanda simultáneamente con la solicitud de MASC.</p>
+        </div>
+
+        <h2 id="s5">Plazos procesales más estrictos</h2>
+        <p>Más allá de los MASC, la Ley 1/2025 introduce una serie de ajustes procesales destinados a reducir la duración de los procedimientos declarativos:</p>
+        <ul>
+          <li><strong>Plazos de traslado más cortos</strong> para escritos no principales y diligencias de ordenación.</li>
+          <li><strong>Señalamiento de juicio oral en plazo máximo de seis meses</strong> desde la admisión de la demanda en los procedimientos ordinarios de cuantía media, con carácter preferente para asuntos con partes vulnerables.</li>
+          <li><strong>Tramitación electrónica obligatoria</strong> ampliada a todos los operadores jurídicos, con el sistema Lexnet como plataforma única de comunicaciones procesales.</li>
+          <li><strong>Concentración de vistas</strong>: el juicio oral incorpora con mayor frecuencia la práctica de prueba y el trámite de conclusiones en un mismo acto, reduciendo las vistas fraccionadas.</li>
+        </ul>
+
+        <h2 id="s6">Lo que estamos viendo en los juzgados de Barcelona</h2>
+        <p>Un año después de la entrada en vigor, el balance desde la perspectiva de la práctica en los juzgados de la ciudad permite algunas observaciones:</p>
+        <p>La mediación ha aumentado en número de asuntos, especialmente en conflictos civiles de cuantía media y en disputas entre empresas con relación comercial continuada, donde la preservación de la relación empresarial es un incentivo real para acordar. Los mediadores del Centre de Mediació de Dret Privat de Catalunya reportan un incremento de solicitudes desde abril de 2025.</p>
+        <p>Sin embargo, en reclamaciones de cantidad puras —deudas impagadas, daños con cuantía fija— el intento de MASC suele ser formal: se convoca, la parte deudora no comparece o rechaza sin contrapropuesta, y se obtiene el certificado de intento fallido que habilita la demanda. El sistema no consigue desatascar estos asuntos porque la voluntad de acordar no existe en uno de los polos.</p>
+        <p>La inadmisión de demandas por falta del certificado MASC ha generado incidencias en los primeros meses, especialmente en despachos que no habían adaptado sus protocolos internos. Los juzgados de primera instancia de Barcelona han sido, en general, estrictos en la exigencia del certificado, sin admitir documentos de contenido equivalente que no cumplan los requisitos formales.</p>
+
+        <h2 id="s7">Cómo preparamos los asuntos bajo el nuevo régimen</h2>
+        <p>La entrada en vigor de la Ley ha modificado el flujo de trabajo en el despacho. Antes de iniciar cualquier reclamación civil o mercantil, realizamos un análisis de procedibilidad que incluye:</p>
+        <ul>
+          <li>Identificación del procedimiento MASC más adecuado para el tipo de conflicto y el perfil de la contraparte.</li>
+          <li>Evaluación de si la urgencia del asunto justifica la excepción al intento previo.</li>
+          <li>Diseño de la estrategia de la fase extrajudicial: qué ofrecemos, qué aceptamos, y cómo documentamos el intento de forma que proteja al cliente en las costas del eventual litigio.</li>
+          <li>Coordinación con mediadores e instituciones acreditadas cuando la vía de mediación es la más adecuada.</li>
+        </ul>
+        <p>El cambio más relevante para el cliente no es el tiempo adicional que requiere el trámite previo —en la práctica, entre dos y seis semanas para la mayoría de asuntos— sino la necesidad de abordar el conflicto con una estrategia extrajudicial deliberada desde el primer momento, no como trámite formal sino como oportunidad real de resolución.</p>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="art-sidebar">
+        <div class="toc">
+          <span class="toc-title">En este análisis</span>
+          <ol>
+            <li><a href="#s1">Qué son los MASC</a></li>
+            <li><a href="#s2">Cuándo es obligatorio</a></li>
+            <li><a href="#s3">Las tres vías disponibles</a></li>
+            <li><a href="#s4">El coste de rechazar un acuerdo</a></li>
+            <li><a href="#s5">Plazos procesales más estrictos</a></li>
+            <li><a href="#s6">Lo que vemos en Barcelona</a></li>
+            <li><a href="#s7">Cómo preparamos los asuntos</a></li>
+          </ol>
+        </div>
+        <div class="art-contact-box">
+          <span class="cb-label">¿Tiene un conflicto civil o mercantil?</span>
+          <p>Le asesoramos sobre la vía más adecuada, incluyendo la estrategia extrajudicial previa. Contacte con nosotros antes de dar ningún paso.</p>
+          <a href="../index.html#contacto" class="cb-btn">Consultar con el despacho</a>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="art-cta">
+  <div class="container">
+    <div class="art-cta-inner">
+      <h3>¿Necesita resolver un conflicto <em>antes de litigar?</em></h3>
+      <div class="art-cta-links">
+        <a href="../index.html#contacto" class="btn-primary">Pedir cita →</a>
+        <a href="../index.html#insights" class="btn-back">← Volver a Notas del despacho</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-name">Carrizosa y Almazor<small>Abogados</small></div>
+        <p>Despacho de abogados en Barcelona desde 1989. Derecho civil, penal, laboral y sucesorio.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Áreas</h4>
+        <ul>
+          <li><a href="../index.html#areas">Derecho civil</a></li>
+          <li><a href="../index.html#areas">Derecho penal</a></li>
+          <li><a href="../index.html#areas">Derecho laboral</a></li>
+          <li><a href="../sucesiones.html">Herencias y sucesiones</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>El despacho</h4>
+        <ul>
+          <li><a href="../index.html#socios">Los socios</a></li>
+          <li><a href="../index.html#proceso">Cómo trabajamos</a></li>
+          <li><a href="../index.html#faq">Preguntas frecuentes</a></li>
+          <li><a href="../index.html#insights">Notas del despacho</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li>Calle Pau Claris 171<br/>08037 Barcelona</li>
+          <li><a href="tel:934572123">+34 934 572 123</a></li>
+          <li><a href="mailto:abogados@carrizosayalmazor.com">abogados@<br/>carrizosayalmazor.com</a></li>
+          <li>L–V · 9:30 – 19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Carrizosa y Almazor · Todos los derechos reservados</div>
+      <div class="legal">
+        <a href="../condiciones.html">Aviso legal</a>
+        <a href="../privacidad.html">Privacidad</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

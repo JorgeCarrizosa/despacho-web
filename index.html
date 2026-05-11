@@ -1,0 +1,1440 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Carrizosa y Almazor — Abogados en Barcelona · Civil, Penal, Laboral y Sucesorio</title>
+<meta name="description" content="Despacho de abogados en Barcelona desde 1989. Derecho civil, penal, laboral y sucesorio. Atención directa de los socios y presupuesto cerrado por escrito.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#040465;
+    --ink-2:#020342;
+    --body:#161616;
+    --bg:#fbfaf6;
+    --bg-2:#f3efe6;
+    --bg-3:#ece6d8;
+    --line:#d9d3c4;
+    --gold:#a98643;
+    --gold-soft:#c9a35a;
+    --muted:#6b6a66;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;overflow-x:hidden}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Montserrat",-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--body);background:var(--bg);
+    font-weight:400;font-size:16px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  h1,h2,h3,h4{
+    font-family:"EB Garamond",Georgia,serif;color:var(--ink);
+    font-weight:500;letter-spacing:-0.005em;line-height:1.15;
+    margin:0;text-wrap:balance;
+  }
+  h1 em,h2 em,h3 em{font-style:italic;color:var(--gold);font-weight:400}
+  p{margin:0;text-wrap:pretty}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%;height:auto}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  .container{max-width:1240px;margin:0 auto;padding:0 32px}
+
+  .eyebrow{
+    font-family:"Montserrat",sans-serif;font-size:11px;font-weight:600;
+    letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);
+    display:inline-flex;align-items:center;gap:14px;
+  }
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold);display:inline-block}
+  .eyebrow.center::before{display:none}
+  .eyebrow.center{justify-content:center}
+
+  /* TOP BAR */
+  .topbar{
+    border-bottom:1px solid var(--line);background:var(--bg);
+    font-size:12.5px;color:var(--muted);
+  }
+  .topbar-inner{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:10px 32px;max-width:1240px;margin:0 auto;
+  }
+  .topbar-left{display:flex;gap:28px;align-items:center}
+  .topbar-left span{display:inline-flex;gap:8px;align-items:center}
+  .topbar-right{display:flex;gap:20px}
+  .topbar-right a:hover{color:var(--ink)}
+
+  /* NAV */
+  nav.main{
+    position:sticky;top:0;z-index:50;
+    background:rgba(251,250,246,0.94);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:grid;grid-template-columns:1fr auto;align-items:center;
+    padding:32px 32px 28px;max-width:1240px;margin:0 auto;gap:48px;
+  }
+  .brand{display:flex;flex-direction:column;gap:0}
+  .brand-name{
+    font-family:"EB Garamond",serif;color:var(--ink);
+    font-size:clamp(34px,3.8vw,48px);line-height:0.98;
+    letter-spacing:-0.005em;font-weight:500;white-space:nowrap;
+  }
+  .brand-name small{
+    display:inline;font-family:"Montserrat",sans-serif;
+    font-size:11px;letter-spacing:0.42em;color:var(--muted);
+    text-transform:uppercase;margin-left:14px;font-weight:500;vertical-align:middle;
+  }
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{
+    font-size:13px;font-weight:500;color:var(--body);
+    letter-spacing:0.04em;transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{
+    background:var(--ink);color:#fff !important;
+    padding:13px 22px;font-size:12.5px;
+    letter-spacing:0.12em;text-transform:uppercase;
+    font-weight:600;transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--ink-2)}
+
+  .btn-primary{
+    background:var(--ink);color:#fff;padding:18px 32px;
+    font-size:13px;letter-spacing:0.14em;text-transform:uppercase;
+    font-weight:600;display:inline-flex;align-items:center;gap:12px;
+    transition:background .2s;
+  }
+  .btn-primary:hover{background:var(--ink-2)}
+  .btn-secondary{
+    color:var(--ink);padding:18px 4px;font-size:13px;
+    letter-spacing:0.14em;text-transform:uppercase;font-weight:600;
+    border-bottom:1px solid var(--ink);
+    display:inline-flex;align-items:center;gap:10px;
+  }
+
+  /* HERO */
+  .hero{padding:88px 0 96px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
+  .hero h1{font-size:clamp(48px,5.4vw,76px);margin:28px 0 28px;font-weight:500}
+  .hero-lede{font-size:17px;line-height:1.7;color:var(--body);max-width:540px;margin-bottom:40px}
+  .hero-cta-row{display:flex;gap:16px;align-items:center;margin-bottom:48px;flex-wrap:wrap}
+  .hero-meta{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+    padding-top:32px;border-top:1px solid var(--line);max-width:560px;
+  }
+  .hero-meta div{display:flex;flex-direction:column;gap:4px;min-width:0}
+  .hero-meta strong{
+    font-family:"EB Garamond",serif;font-size:34px;
+    font-weight:500;color:var(--ink);line-height:1;
+  }
+  .hero-meta span{
+    font-size:11px;text-transform:uppercase;letter-spacing:0.14em;
+    color:var(--muted);font-weight:500;
+  }
+
+  /* Editorial visual side */
+  .hero-side{position:relative}
+  .hero-card{
+    background:var(--bg-2);border:1px solid var(--line);
+    padding:40px 38px;position:relative;
+  }
+  .hero-card h3{
+    font-size:30px;font-weight:500;line-height:1.2;
+    color:var(--ink);margin-bottom:20px;
+  }
+  .hero-card .rota{
+    display:flex;flex-direction:column;gap:16px;
+    margin-top:24px;border-top:1px solid var(--line);padding-top:24px;
+  }
+  .rota-item{
+    display:grid;grid-template-columns:42px 1fr auto;gap:14px;
+    align-items:baseline;font-size:14.5px;
+  }
+  .rota-item .rn{
+    font-family:"EB Garamond",serif;font-style:italic;
+    color:var(--gold);font-size:18px;
+  }
+  .rota-item .rt{color:var(--ink);font-weight:500}
+  .rota-item .rd{font-size:12px;color:var(--muted);letter-spacing:0.04em}
+
+  .hero-tag{
+    position:absolute;top:-14px;right:24px;
+    background:var(--ink);color:#fff;padding:8px 16px;
+    font-size:10.5px;letter-spacing:0.22em;
+    text-transform:uppercase;font-weight:600;
+  }
+  .hero-foot{
+    margin-top:18px;display:flex;justify-content:space-between;
+    align-items:center;font-size:12px;color:var(--muted);
+    letter-spacing:0.04em;
+  }
+  .hero-foot strong{font-family:"EB Garamond",serif;color:var(--ink);font-weight:500;font-size:14px}
+
+  /* INTRO */
+  .intro{padding:104px 0;border-bottom:1px solid var(--line);text-align:center}
+  .intro h2{font-size:clamp(34px,3.6vw,46px);max-width:960px;margin:24px auto 28px;font-weight:500}
+  .intro p{max-width:680px;margin:0 auto;font-size:17px;line-height:1.75;color:var(--body)}
+
+  /* AREAS — 4 práctica */
+  section.areas{padding:120px 0;border-bottom:1px solid var(--line)}
+  .section-header{
+    display:grid;grid-template-columns:1fr 1.4fr;gap:80px;
+    margin-bottom:72px;align-items:end;
+  }
+  .section-header > *{min-width:0}
+  .section-header h2{font-size:clamp(38px,4vw,52px);font-weight:500}
+  .section-header p{color:var(--body);font-size:16px;line-height:1.7;max-width:560px}
+
+  .areas-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);
+  }
+  .area{
+    background:var(--bg);padding:52px 48px;
+    display:flex;flex-direction:column;gap:20px;
+    transition:background .25s;position:relative;min-height:420px;
+  }
+  .area:hover{background:var(--bg-2)}
+  .area-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+  .area-num{font-family:"EB Garamond",serif;font-style:italic;color:var(--gold);font-size:22px}
+  .area-mono{
+    font-family:"Montserrat",sans-serif;font-size:10px;
+    letter-spacing:0.24em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;
+  }
+  .area h3{font-size:30px;font-weight:500;line-height:1.15}
+  .area .area-sub{
+    font-family:"EB Garamond",serif;font-style:italic;
+    color:var(--gold);font-size:17px;margin-top:-8px;
+  }
+  .area ul{
+    list-style:none;padding:0;margin:0;
+    display:flex;flex-direction:column;gap:12px;flex:1;
+  }
+  .area li{
+    font-size:14.5px;line-height:1.6;color:var(--body);
+    padding-left:22px;position:relative;
+  }
+  .area li::before{
+    content:"";position:absolute;left:0;top:9px;
+    width:8px;height:1px;background:var(--gold);
+  }
+  .area-link{
+    color:var(--ink);font-size:11.5px;
+    letter-spacing:0.18em;text-transform:uppercase;font-weight:600;
+    display:inline-flex;gap:10px;align-items:center;
+    border-top:1px solid var(--line);
+    padding-top:20px;margin-top:8px;width:fit-content;
+  }
+  .area-link::after{content:"→";transition:transform .25s}
+  .area:hover .area-link::after{transform:translateX(5px)}
+
+  /* SUCESIONES SPOTLIGHT */
+  section.spotlight{
+    padding:0;background:var(--ink);color:#fff;
+    border-bottom:1px solid var(--ink-2);overflow:hidden;
+  }
+  .spotlight-grid{
+    display:grid;grid-template-columns:1.1fr 1fr;
+    align-items:stretch;
+  }
+  .spotlight-text{padding:96px 56px 96px 0;max-width:640px;margin-left:auto}
+  .spotlight-text .eyebrow{color:var(--gold-soft)}
+  .spotlight-text .eyebrow::before{background:var(--gold-soft)}
+  .spotlight-text h2{
+    color:#fff;font-size:clamp(38px,4vw,56px);
+    margin:24px 0 24px;font-weight:500;
+  }
+  .spotlight-text h2 em{color:var(--gold-soft)}
+  .spotlight-text p{
+    color:rgba(255,255,255,.78);font-size:16px;
+    line-height:1.7;margin-bottom:28px;
+  }
+  .spotlight-bullets{
+    list-style:none;padding:0;margin:0 0 36px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .spotlight-bullets li{
+    font-size:14px;color:rgba(255,255,255,.85);
+    padding-left:20px;position:relative;line-height:1.6;
+  }
+  .spotlight-bullets li::before{
+    content:"";position:absolute;left:0;top:9px;
+    width:10px;height:1px;background:var(--gold-soft);
+  }
+  .spot-cta-row{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .spot-primary{
+    background:var(--gold);color:#fff;padding:18px 30px;
+    font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;
+    font-weight:600;display:inline-flex;align-items:center;gap:10px;
+    transition:background .2s;
+  }
+  .spot-primary:hover{background:var(--gold-soft)}
+  .spot-ghost{
+    color:#fff;border-bottom:1px solid rgba(255,255,255,.5);
+    padding:8px 2px;font-size:12.5px;letter-spacing:0.14em;
+    text-transform:uppercase;font-weight:600;
+    transition:border-color .2s;
+  }
+  .spot-ghost:hover{border-color:var(--gold-soft)}
+
+  .spotlight-side{
+    background:#03033a;
+    padding:80px 56px 80px 56px;
+    border-left:1px solid rgba(255,255,255,.08);
+    display:flex;flex-direction:column;gap:24px;justify-content:center;
+  }
+  .spot-card{
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.12);
+    padding:32px 30px;
+    display:block;text-decoration:none;
+    transition:background .25s,border-color .25s;
+  }
+  a.spot-card:hover{
+    background:rgba(255,255,255,.08);
+    border-color:rgba(255,255,255,.28);
+  }
+  .spot-card .cl{
+    font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:600;margin-bottom:14px;
+  }
+  .spot-card h4{
+    color:#fff;font-family:"EB Garamond",serif;
+    font-size:24px;font-weight:500;line-height:1.25;margin-bottom:14px;
+  }
+  .spot-card p{
+    font-size:13.5px;line-height:1.7;color:rgba(255,255,255,.7);
+  }
+  .spot-stats{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:1px;background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.12);
+  }
+  .spot-stat{background:#03033a;padding:24px 26px}
+  .spot-stat strong{
+    font-family:"EB Garamond",serif;color:#fff;
+    font-size:36px;font-weight:500;line-height:1;display:block;
+  }
+  .spot-stat span{
+    display:block;margin-top:6px;font-size:10.5px;
+    letter-spacing:0.18em;text-transform:uppercase;
+    color:rgba(255,255,255,.55);font-weight:600;
+  }
+
+  /* PARTNERS */
+  section.partners{padding:120px 0;background:var(--bg-2);border-bottom:1px solid var(--line)}
+  .partner-row{
+    display:grid;grid-template-columns:1fr 1.3fr;gap:72px;
+    align-items:center;padding:64px 0;border-bottom:1px solid var(--line);
+  }
+  .partner-row:last-child{border-bottom:none}
+  .partner-row.reverse{grid-template-columns:1.3fr 1fr}
+  .partner-row.reverse .partner-photo{order:2}
+  .partner-row > *{min-width:0}
+  .partner-photo{
+    aspect-ratio:4/5;
+    background:linear-gradient(180deg,#e8e1d0 0%,#cfc7b3 100%);
+    border:1px solid var(--line);position:relative;overflow:hidden;
+  }
+  .partner-photo .ph-placeholder{
+    position:absolute;inset:0;display:grid;place-items:center;
+    color:rgba(4,4,101,.22);font-family:"EB Garamond",serif;
+    font-style:italic;font-size:14px;letter-spacing:0.04em;
+    text-align:center;padding:24px;
+  }
+  .partner-photo .ph-name{
+    position:absolute;left:14px;bottom:14px;right:14px;
+    background:rgba(251,250,246,0.94);
+    padding:12px 14px;border-left:2px solid var(--gold);
+    font-family:"EB Garamond",serif;color:var(--ink);font-size:17px;
+  }
+  .partner-info h3{font-size:44px;margin:8px 0 8px;font-weight:500}
+  .partner-role{
+    font-family:"EB Garamond",serif;font-style:italic;
+    color:var(--gold);font-size:19px;margin-bottom:28px;
+  }
+  .partner-bio{
+    font-size:15.5px;line-height:1.75;color:var(--body);
+    margin-bottom:28px;max-width:580px;
+  }
+  .partner-credentials{
+    display:flex;flex-direction:column;gap:12px;
+    border-top:1px solid var(--line);padding-top:24px;margin-bottom:28px;
+  }
+  .credential{
+    display:flex;gap:14px;align-items:flex-start;
+    font-size:13.5px;color:var(--body);
+  }
+  .credential::before{
+    content:"";width:6px;height:6px;background:var(--gold);
+    margin-top:8px;flex-shrink:0;transform:rotate(45deg);
+  }
+  .partner-contact{display:flex;gap:24px;flex-wrap:wrap;font-size:13px;color:var(--ink)}
+  .partner-contact a{
+    display:inline-flex;gap:8px;align-items:center;
+    border-bottom:1px solid var(--line);padding-bottom:6px;
+    transition:border-color .2s;overflow-wrap:break-word;word-break:break-all;
+  }
+  .partner-contact a:hover{border-color:var(--ink)}
+  .partner-contact .ic{width:14px;height:14px;color:var(--gold)}
+
+
+  /* INSIGHTS — publicaciones jurídicas */
+  section.insights{padding:120px 0;border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .insights-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);margin-top:8px;
+  }
+  .insight{
+    background:var(--bg);padding:36px 32px 32px;
+    display:flex;flex-direction:column;gap:16px;
+    min-height:320px;transition:background .25s;
+  }
+  .insight:hover{background:var(--bg-2)}
+  .insight-meta{
+    display:flex;justify-content:space-between;align-items:center;
+    font-size:10.5px;letter-spacing:0.18em;
+    text-transform:uppercase;font-weight:600;
+  }
+  .insight-cat{color:var(--gold)}
+  .insight-date{color:var(--muted);font-weight:500;letter-spacing:0.12em}
+  .insight h3{
+    font-size:22px;font-weight:500;line-height:1.28;
+    color:var(--ink);
+  }
+  .insight p{
+    font-size:14px;line-height:1.65;color:var(--body);
+    flex:1;
+  }
+  .insight::after{
+    content:"Leer →";display:block;margin-top:16px;padding-top:16px;
+    border-top:1px solid var(--line);
+    font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+    font-weight:600;color:var(--ink);
+    transition:letter-spacing .25s;
+  }
+  .insight:hover::after{letter-spacing:0.28em}
+  .insight.feature::after{display:none}
+  .insight.feature{
+    grid-column:span 2;
+    background:var(--ink);color:#fff;
+    display:grid;grid-template-columns:1.2fr 1fr;gap:48px;
+    padding:48px 44px;align-items:center;
+  }
+  .insight.feature:hover{background:var(--ink-2)}
+  .insight.feature > *{min-width:0}
+  .insight.feature h3{color:#fff;font-size:32px;line-height:1.2}
+  .insight.feature .insight-cat{color:var(--gold-soft)}
+  .insight.feature .insight-date{color:rgba(255,255,255,.5)}
+  .insight.feature p{color:rgba(255,255,255,.78);font-size:15px}
+  .insight.feature .feature-side{
+    border-left:1px solid rgba(255,255,255,.15);
+    padding-left:48px;height:100%;
+    display:flex;flex-direction:column;justify-content:center;gap:14px;
+  }
+  .insight.feature .feature-side .lbl{
+    font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:600;
+  }
+  .insight.feature .feature-side .val{
+    font-family:"EB Garamond",serif;font-size:22px;line-height:1.35;color:#fff;
+  }
+  .insights-foot{
+    margin-top:48px;display:flex;justify-content:space-between;
+    align-items:center;flex-wrap:wrap;gap:24px;
+    padding-top:32px;border-top:1px solid var(--line);
+  }
+  .insights-foot p{font-size:14px;color:var(--body);max-width:520px;line-height:1.65}
+  .insights-foot a{
+    color:var(--ink);font-size:11.5px;
+    letter-spacing:0.18em;text-transform:uppercase;font-weight:600;
+    border-bottom:1px solid var(--ink);padding-bottom:6px;
+    display:inline-flex;gap:10px;align-items:center;
+  }
+  .insights-foot a::after{content:"→"}
+
+  /* APPROACH / VALORES */
+  section.approach{padding:120px 0;border-bottom:1px solid var(--line)}
+  .approach-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:1px;background:var(--line);border:1px solid var(--line);
+    margin-top:48px;
+  }
+  .value{
+    background:var(--bg);padding:48px 42px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .value .rn{
+    font-family:"EB Garamond",serif;font-style:italic;
+    color:var(--gold);font-size:30px;line-height:1;
+  }
+  .value h3{font-size:24px;font-weight:500;line-height:1.2;margin-top:8px}
+  .value p{font-size:14.5px;line-height:1.7;color:var(--body)}
+
+  /* PROCESS */
+  section.process{padding:120px 0;border-bottom:1px solid var(--line);background:var(--bg-2)}
+  .process-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    margin-top:64px;border-top:1px solid var(--line);
+  }
+  .step{padding:36px 28px 36px 0;border-right:1px solid var(--line);position:relative}
+  .step:last-child{border-right:none;padding-right:0}
+  .step-num{
+    font-family:"EB Garamond",serif;font-style:italic;
+    color:var(--gold);font-size:14px;letter-spacing:0.2em;
+    text-transform:uppercase;margin-bottom:20px;
+    display:flex;align-items:center;gap:14px;
+  }
+  .step-num::after{content:"";flex:1;height:1px;background:var(--line)}
+  .step h3{font-size:24px;font-weight:500;margin-bottom:14px;line-height:1.2}
+  .step p{font-size:14.5px;line-height:1.7;color:var(--body)}
+
+  /* QUOTE */
+  section.quote{padding:120px 0;text-align:center;border-bottom:1px solid var(--line)}
+  .quote-mark{font-family:"EB Garamond",serif;color:var(--gold);font-size:96px;line-height:0.5;margin-bottom:24px}
+  blockquote{
+    font-family:"EB Garamond",serif;color:var(--ink);
+    font-size:clamp(28px,3vw,40px);line-height:1.35;
+    font-style:italic;font-weight:400;
+    max-width:920px;margin:0 auto 40px;
+  }
+  .quote-attr{
+    font-size:11.5px;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--muted);font-weight:600;
+  }
+  .quote-attr strong{color:var(--ink);display:block;margin-bottom:4px;font-weight:600}
+
+  /* FAQ */
+  section.faq{padding:120px 0;border-bottom:1px solid var(--line)}
+  .faq-list{max-width:880px;margin:48px auto 0;border-top:1px solid var(--line)}
+  details.qa{border-bottom:1px solid var(--line);padding:0}
+  details.qa summary{
+    list-style:none;cursor:pointer;
+    padding:28px 48px 28px 0;
+    font-family:"EB Garamond",serif;color:var(--ink);
+    font-size:22px;line-height:1.3;font-weight:500;
+    position:relative;transition:color .2s;
+  }
+  details.qa summary::-webkit-details-marker{display:none}
+  details.qa summary::after{
+    content:"";position:absolute;right:6px;top:50%;
+    width:14px;height:14px;border-right:1px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    transform:translateY(-70%) rotate(45deg);transition:transform .3s;
+  }
+  details.qa[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+  details.qa summary:hover{color:var(--gold)}
+  details.qa .answer{
+    padding:0 0 32px;font-size:15px;line-height:1.75;
+    color:var(--body);max-width:720px;
+    animation:fadeDown .35s ease;
+  }
+  @keyframes fadeDown{
+    from{opacity:0;transform:translateY(-8px)}
+    to{opacity:1;transform:none}
+  }
+
+  /* CONTACT */
+  section.contact{padding:120px 0;background:var(--ink);color:#fff}
+  section.contact h2{color:#fff}
+  section.contact .eyebrow{color:var(--gold-soft)}
+  section.contact .eyebrow::before{background:var(--gold-soft)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:80px}
+  .contact-grid > *{min-width:0}
+  .contact-info h2{font-size:clamp(38px,4vw,52px);margin:24px 0 24px;font-weight:500}
+  .contact-info h2 em{color:var(--gold-soft)}
+  .contact-info > p{color:rgba(255,255,255,.78);font-size:15.5px;line-height:1.75;margin-bottom:24px;max-width:480px}
+  .first-consult-badge{
+    display:inline-flex;gap:10px;align-items:center;
+    border:1px solid rgba(201,163,90,.5);padding:10px 18px;
+    font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:600;margin-bottom:48px;
+  }
+  .first-consult-badge::before{
+    content:"";width:6px;height:6px;background:var(--gold-soft);border-radius:50%;
+  }
+  .contact-detail{display:flex;gap:18px;padding:22px 0;border-top:1px solid rgba(255,255,255,.18)}
+  .contact-detail:last-child{border-bottom:1px solid rgba(255,255,255,.18)}
+  .contact-detail .lbl{
+    font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold-soft);font-weight:600;width:120px;
+    flex-shrink:0;padding-top:4px;
+  }
+  .contact-detail .val{
+    font-family:"EB Garamond",serif;font-size:20px;color:#fff;line-height:1.4;
+    overflow-wrap:break-word;word-break:break-word;min-width:0;
+  }
+  .contact-detail .val small{
+    display:block;font-family:"Montserrat",sans-serif;
+    font-size:13px;color:rgba(255,255,255,.6);margin-top:4px;
+  }
+  .contact-detail .val a:hover{color:var(--gold-soft)}
+
+  .form-card{
+    background:var(--bg);color:var(--body);
+    padding:52px 48px;border:1px solid rgba(255,255,255,.08);
+  }
+  .form-card h3{font-size:28px;margin-bottom:8px}
+  .form-card > p{color:var(--muted);font-size:13.5px;margin-bottom:32px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+  .field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+  .field label{
+    font-size:10.5px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--ink);font-weight:600;
+  }
+  .field input,.field select,.field textarea{
+    border:none;border-bottom:1px solid var(--line);background:transparent;
+    padding:10px 0;font-family:"Montserrat",sans-serif;font-size:15px;
+    color:var(--body);outline:none;transition:border-color .2s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--ink)}
+  .field textarea{resize:vertical;min-height:88px}
+  .checkbox-row{
+    display:flex;gap:12px;align-items:flex-start;margin:24px 0 28px;
+    font-size:12.5px;color:var(--muted);line-height:1.6;
+  }
+  .checkbox-row input{margin-top:4px;accent-color:var(--ink)}
+  .checkbox-row a{color:var(--ink);text-decoration:underline}
+  .form-submit{
+    width:100%;background:var(--ink);color:#fff;padding:20px;
+    font-size:12.5px;letter-spacing:0.18em;
+    text-transform:uppercase;font-weight:600;transition:background .2s;
+  }
+  .form-submit:hover{background:var(--ink-2)}
+  .form-note{text-align:center;margin-top:18px;font-size:11.5px;color:var(--muted);letter-spacing:0.04em}
+
+  /* FOOTER */
+  footer{background:#020342;color:rgba(255,255,255,.7);padding:80px 0 32px;font-size:13.5px}
+  .footer-grid{
+    display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;
+    padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .footer-grid > *{min-width:0}
+  .footer-brand .brand-name{color:#fff;font-size:34px;line-height:1;white-space:normal}
+  .footer-brand .brand-name small{color:rgba(255,255,255,.5);margin-left:14px}
+  .footer-brand p{margin-top:24px;color:rgba(255,255,255,.55);line-height:1.7;max-width:320px;font-size:13px}
+  .footer-col h4{
+    color:#fff;font-family:"Montserrat",sans-serif;
+    font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    margin-bottom:22px;font-weight:600;
+  }
+  .footer-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+  .footer-col a{color:rgba(255,255,255,.7);font-size:13.5px;transition:color .2s}
+  .footer-col a:hover{color:var(--gold-soft)}
+  .footer-bottom{
+    display:flex;justify-content:space-between;align-items:center;
+    padding-top:32px;color:rgba(255,255,255,.45);font-size:12px;
+    flex-wrap:wrap;gap:16px;
+  }
+  .footer-bottom .legal{display:flex;gap:24px}
+  .footer-bottom .legal a:hover{color:var(--gold-soft)}
+
+  /* WhatsApp */
+  .wa-fab{
+    position:fixed;bottom:24px;right:24px;width:60px;height:60px;
+    border-radius:50%;background:#25d366;color:#fff;
+    display:grid;place-items:center;
+    box-shadow:0 8px 28px rgba(37,211,102,.35),0 2px 8px rgba(0,0,0,.12);
+    z-index:90;transition:transform .25s,box-shadow .25s;
+    animation:waPulse 2.4s ease-out infinite;
+  }
+  .wa-fab:hover{transform:scale(1.08);box-shadow:0 12px 32px rgba(37,211,102,.45)}
+  .wa-fab svg{width:30px;height:30px;fill:#fff}
+  @keyframes waPulse{
+    0%{box-shadow:0 8px 28px rgba(37,211,102,.35),0 0 0 0 rgba(37,211,102,.5)}
+    70%{box-shadow:0 8px 28px rgba(37,211,102,.35),0 0 0 18px rgba(37,211,102,0)}
+    100%{box-shadow:0 8px 28px rgba(37,211,102,.35),0 0 0 0 rgba(37,211,102,0)}
+  }
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+  }
+
+  /* Nav toggle */
+  .nav-toggle{
+    display:none;width:44px;height:44px;
+    border:1px solid var(--line);background:transparent;
+    align-items:center;justify-content:center;
+    flex-direction:column;gap:5px;cursor:pointer;
+  }
+  .nav-toggle span{display:block;width:18px;height:1px;background:var(--ink);transition:transform .25s,opacity .25s}
+  .nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  .nav-toggle.open span:nth-child(2){opacity:0}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+  @media(max-width:980px){
+    .hero-grid,.section-header,.partner-row,.partner-row.reverse,.contact-grid,.footer-grid,.spotlight-grid{
+      grid-template-columns:1fr;gap:48px;
+    }
+    .partner-row.reverse .partner-photo{order:-1}
+    .partner-row.reverse .partner-info{order:0}
+    .areas-grid{grid-template-columns:1fr}
+    .approach-grid{grid-template-columns:1fr}
+    .insights-grid{grid-template-columns:1fr}
+    .insight.feature{grid-column:span 1;grid-template-columns:1fr;gap:24px;padding:36px 28px}
+    .insight.feature .feature-side{border-left:none;border-top:1px solid rgba(255,255,255,.15);padding-left:0;padding-top:24px}
+    .process-grid{grid-template-columns:repeat(2,1fr)}
+    .step{border-right:none;border-bottom:1px solid var(--line);padding:32px 0}
+    .step:last-child{border-bottom:none}
+    .spotlight-text{padding:72px 32px 72px 32px;margin:0}
+    .spotlight-side{padding:60px 32px}
+    .topbar-left span:nth-child(n+2){display:none}
+    .nav-toggle{display:flex}
+    .nav-inner{grid-template-columns:1fr auto;padding:22px 24px 20px;gap:20px}
+    .nav-links{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      background:var(--bg);border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+      flex-direction:column;align-items:stretch;gap:0;
+      padding:8px 24px 24px;
+    }
+    .nav-links.open{display:flex}
+    .nav-links a{padding:16px 0;border-bottom:1px solid var(--line);font-size:15px}
+    .nav-links a:last-child{border-bottom:none}
+    .nav-cta{margin-top:12px;text-align:center;padding:18px 22px}
+  }
+  @media(max-width:680px){
+    body{font-size:15px}
+    .container{padding:0 22px}
+    .topbar-inner{padding:8px 22px;flex-wrap:wrap;gap:8px;justify-content:center}
+    .topbar-left{gap:0;font-size:11.5px;text-align:center}
+    .topbar-right{display:none}
+    .brand-name{font-size:26px;white-space:normal}
+    .brand-name small{font-size:9px;letter-spacing:0.28em;margin-left:8px}
+    .hero{padding:56px 0 64px}
+    .hero-grid{gap:40px}
+    .hero h1{font-size:40px;margin:20px 0 22px}
+    .hero-lede{font-size:15.5px;margin-bottom:32px}
+    .hero-cta-row{gap:14px;margin-bottom:36px;flex-direction:column;align-items:stretch}
+    .btn-primary,.btn-secondary{width:100%;justify-content:center;text-align:center;padding:18px 24px;font-size:12px}
+    .btn-secondary{padding:14px 4px}
+    .hero-meta strong{font-size:24px}
+    .hero-meta span{font-size:9.5px;letter-spacing:0.1em}
+    .hero-card{padding:32px 26px}
+    .intro{padding:64px 0}
+    .intro h2{font-size:28px;margin:18px auto 20px}
+    .intro p{font-size:15px}
+    section.areas,section.partners,section.approach,
+    section.process,section.quote,section.insights,section.faq,section.contact{padding:72px 0}
+    .section-header{gap:24px;margin-bottom:48px}
+    .section-header h2{font-size:32px}
+    .area{padding:36px 28px;min-height:0}
+    .area h3{font-size:24px}
+    .partner-row{padding:48px 0;gap:32px}
+    .partner-info h3{font-size:32px}
+    .partner-role{font-size:16px;margin-bottom:20px}
+    .partner-bio{font-size:14.5px}
+    blockquote{font-size:24px;line-height:1.4}
+    .quote-mark{font-size:72px}
+    .contact-info h2{font-size:28px}
+    .contact-detail{gap:8px;padding:16px 0;flex-direction:column}
+    .contact-detail .lbl{width:auto;font-size:9px;letter-spacing:0.18em}
+    .contact-detail .val{font-size:17px}
+    .form-card{padding:36px 24px}
+    .form-card h3{font-size:24px}
+    .form-row{grid-template-columns:1fr;gap:0}
+    .first-consult-badge{font-size:10px;padding:9px 14px}
+    .process-grid{grid-template-columns:1fr}
+    details.qa summary{font-size:18px;padding:22px 40px 22px 0}
+    footer{padding:56px 0 24px}
+    .footer-grid{gap:36px;padding-bottom:40px}
+    .footer-brand .brand-name{font-size:26px}
+    .footer-bottom{flex-direction:column;align-items:flex-start;text-align:left;font-size:11.5px}
+    .footer-bottom .legal{flex-wrap:wrap;gap:16px}
+    .spot-stats{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span>📍 Calle Pau Claris 171, 08037 Barcelona</span>
+        <span>☎ +34 934 572 123</span>
+        <span>✉ <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a></span>
+      </div>
+      <div class="topbar-right">
+        <a href="#">CAT</a>
+        <a href="#" style="color:var(--ink);font-weight:600">ES</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="main">
+    <div class="nav-inner">
+      <a href="#" class="brand">
+        <div class="brand-name">
+          Carrizosa y Almazor
+          <small>Abogados · Barcelona</small>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" onclick="this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="#despacho">El despacho</a>
+        <a href="#areas">Áreas</a>
+        <a href="#socios">Los socios</a>
+        <a href="#metodo">Método</a>
+        <a href="#insights">Insights</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contacto" class="nav-cta">Pedir cita</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero reveal" id="inicio" data-screen-label="01 Hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Despacho de abogados · Barcelona · desde 1989</span>
+        <h1>Criterio jurídico y trato directo en <em>cada asunto.</em></h1>
+        <p class="hero-lede">
+          Asesoramos a personas, familias y empresas en derecho civil, penal, laboral y sucesorio. Atención personal de los socios desde la primera consulta hasta la resolución del caso.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#contacto" class="btn-primary">Pedir cita con el despacho</a>
+          <a href="#areas" class="btn-secondary">Áreas de práctica</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>35+</strong><span>años en ejercicio</span></div>
+          <div><strong>4</strong><span>áreas de práctica</span></div>
+          <div><strong>BCN</strong><span>Pau Claris 171</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div class="hero-card">
+          <div class="hero-tag">El despacho</div>
+          <h3>Dos socios. Una mesa. Cada caso, atendido en persona.</h3>
+          <div class="rota">
+            <div class="rota-item">
+              <span class="rn">I.</span>
+              <span class="rt">Civil</span>
+              <span class="rd">Sucesiones · Familia · Inmobiliario</span>
+            </div>
+            <div class="rota-item">
+              <span class="rn">II.</span>
+              <span class="rt">Penal</span>
+              <span class="rd">Defensa y acusación</span>
+            </div>
+            <div class="rota-item">
+              <span class="rn">III.</span>
+              <span class="rt">Laboral</span>
+              <span class="rd">Despidos · Reclamaciones</span>
+            </div>
+            <div class="rota-item">
+              <span class="rn">IV.</span>
+              <span class="rt">Sucesorio</span>
+              <span class="rd">Herencias y testamentos</span>
+            </div>
+          </div>
+          <div class="hero-foot">
+            <span>Horario de atención</span>
+            <strong>L–V · 9:30 – 19:00</strong>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro reveal" id="despacho" data-screen-label="02 El despacho">
+    <div class="container">
+      <span class="eyebrow center">El despacho</span>
+      <h2>Un bufete de proximidad con la experiencia <em>de un gran despacho.</em></h2>
+      <p>
+        Carrizosa y Almazor es un despacho de abogados con sede en Barcelona, fundado en 1989. Trabajamos casos exigentes en las jurisdicciones civil, penal, laboral y de sucesiones — con la cercanía de un bufete pequeño y la solvencia técnica que da más de tres décadas en tribunales.
+      </p>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section class="areas reveal" id="areas" data-screen-label="03 Áreas">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Áreas de práctica</span>
+          <h2 style="margin-top:24px">Cuatro áreas, <em>un mismo equipo.</em></h2>
+        </div>
+        <p>
+          Cada área la lleva uno de los socios o ambos conjuntamente, según el caso lo exija. No fragmentamos expedientes: el cliente trata siempre con quien decide y firma.
+        </p>
+      </div>
+
+      <div class="areas-grid">
+
+        <div class="area">
+          <div class="area-head">
+            <div class="area-num">I.</div>
+            <div class="area-mono">Civil</div>
+          </div>
+          <h3>Derecho Civil</h3>
+          <div class="area-sub">familia, propiedad e inmobiliario</div>
+          <ul>
+            <li>Separaciones, divorcios y convenios reguladores.</li>
+            <li>Custodia, alimentos y modificación de medidas.</li>
+            <li>Compraventas, arrendamientos y propiedad horizontal.</li>
+            <li>Reclamaciones de cantidad y responsabilidad civil.</li>
+          </ul>
+          <a href="#contacto" class="area-link">Solicitar consulta</a>
+        </div>
+
+        <div class="area">
+          <div class="area-head">
+            <div class="area-num">II.</div>
+            <div class="area-mono">Penal</div>
+          </div>
+          <h3>Derecho Penal</h3>
+          <div class="area-sub">defensa y acusación particular</div>
+          <ul>
+            <li>Defensa en delitos económicos, contra el patrimonio y societarios.</li>
+            <li>Delitos contra las personas y violencia intrafamiliar.</li>
+            <li>Asistencia letrada en sede policial y judicial 24 h.</li>
+            <li>Acusación particular y personación en procedimientos.</li>
+          </ul>
+          <a href="#contacto" class="area-link">Solicitar consulta</a>
+        </div>
+
+        <div class="area">
+          <div class="area-head">
+            <div class="area-num">III.</div>
+            <div class="area-mono">Laboral</div>
+          </div>
+          <h3>Derecho Laboral</h3>
+          <div class="area-sub">trabajador y empresa</div>
+          <ul>
+            <li>Despidos, modificaciones sustanciales y conciliaciones.</li>
+            <li>Reclamación de cantidad y derechos salariales.</li>
+            <li>Incapacidades, accidentes de trabajo y Seguridad Social.</li>
+            <li>Asesoramiento continuado a pequeña y mediana empresa.</li>
+          </ul>
+          <a href="#contacto" class="area-link">Solicitar consulta</a>
+        </div>
+
+        <div class="area" style="background:var(--bg-2)">
+          <div class="area-head">
+            <div class="area-num">IV.</div>
+            <div class="area-mono">Sucesorio</div>
+          </div>
+          <h3>Herencias y Sucesiones</h3>
+          <div class="area-sub">especialidad del despacho en derecho catalán</div>
+          <ul>
+            <li>Planificación en vida y redacción de testamentos.</li>
+            <li>Tramitación íntegra de herencias y cuadernos particionales.</li>
+            <li>Impuesto de Sucesiones y plusvalía municipal en Cataluña.</li>
+            <li>Conflictos entre herederos: negociación e impugnación.</li>
+          </ul>
+          <a href="sucesiones.html" class="area-link">Más sobre herencias y sucesiones</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SUCESIONES SPOTLIGHT -->
+  <section class="spotlight reveal" id="sucesiones" data-screen-label="04 Sucesiones spotlight">
+    <div class="container" style="max-width:1240px">
+      <div class="spotlight-grid">
+        <div class="spotlight-text">
+          <span class="eyebrow">Especialidad del despacho · Cataluña</span>
+          <h2>Una herencia bien tramitada es <em>un patrimonio bien protegido.</em></h2>
+          <p>
+            Hemos abierto una línea de trabajo específica para sucesiones en Cataluña: planificación, tramitación íntegra, fiscalidad y defensa de los derechos del heredero. Presupuesto cerrado por escrito antes de iniciar el encargo.
+          </p>
+          <ul class="spotlight-bullets">
+            <li>Atención directa de los socios, sin intermediarios.</li>
+            <li>Coordinación con notaría, Registro y Hisenda de Catalunya.</li>
+            <li>Simulador orientativo del Impuesto de Sucesiones.</li>
+            <li>Mediación familiar antes de acudir a tribunales.</li>
+          </ul>
+          <div class="spot-cta-row">
+            <a href="sucesiones.html" class="spot-primary">Ir a la web de sucesiones →</a>
+            <a href="#contacto" class="spot-ghost">Hablar con el despacho</a>
+          </div>
+        </div>
+
+        <div class="spotlight-side">
+          <a href="notas/impuesto-sucesiones-catalunya.html" class="spot-card">
+            <div class="cl">Nota del despacho</div>
+            <h4>El nuevo Impuesto de Sucesiones en Catalunya: qué cambia para descendientes y cónyuge</h4>
+            <p>Bonificaciones, reducciones, plazos y fiscalidad del ISD en Cataluña. Guía actualizada con la normativa vigente.</p>
+          </a>
+          <div class="spot-stats">
+            <div class="spot-stat">
+              <strong>6 m</strong>
+              <span>plazo legal para aceptar o repudiar</span>
+            </div>
+            <div class="spot-stat">
+              <strong>Art. 461</strong>
+              <span>CCCat · sucesiones en Catalunya</span>
+            </div>
+            <div class="spot-stat">
+              <strong>ISD · IIVTNU</strong>
+              <span>fiscalidad sucesoria que gestionamos</span>
+            </div>
+            <div class="spot-stat">
+              <strong>1989</strong>
+              <span>despacho en ejercicio desde</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners reveal" id="socios" data-screen-label="05 Los socios">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:24px">
+        <div>
+          <span class="eyebrow">Los socios</span>
+          <h2 style="margin-top:24px">Dos abogados al frente <em>de cada caso.</em></h2>
+        </div>
+        <p>
+          Cada cliente es atendido directamente por uno de los socios — desde la primera consulta hasta la última firma. Trato cercano, dedicación personal y criterio jurídico contrastado en cada expediente.
+        </p>
+      </div>
+
+      <div class="partner-row">
+        <div class="partner-photo">
+          <div class="ph-placeholder">— retrato pendiente —<br/>img/carlos-carrizosa.jpg</div>
+          <div class="ph-name">Carlos Carrizosa</div>
+        </div>
+        <div class="partner-info">
+          <span class="eyebrow">Socio fundador</span>
+          <h3>Carlos Carrizosa</h3>
+          <div class="partner-role">Litigación civil, penal y social</div>
+          <p class="partner-bio">
+            Socio fundador del despacho, es abogado desde 1989. Tiene amplia experiencia en asesoría y defensa en litigios en los Tribunales de Justicia. Ha sido diputado de 2012 a 2024 en el Parlamento de Cataluña y portavoz en su comisión de Justicia.
+          </p>
+          <div class="partner-credentials">
+            <div class="credential">Abogado en ejercicio desde 1989</div>
+            <div class="credential">Diputado en el Parlamento de Cataluña (2012–2024)</div>
+            <div class="credential">Portavoz en la Comisión de Justicia del Parlament</div>
+            <div class="credential">Defensa en jurisdicciones civil, penal y social</div>
+          </div>
+          <div class="partner-contact">
+            <a href="tel:934572123">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              +34 934 572 123
+            </a>
+            <a href="mailto:abogados@carrizosayalmazor.com">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8 8-8"/></svg>
+              abogados@carrizosayalmazor.com
+            </a>
+            <a href="https://www.linkedin.com/in/carloscarrizosatorres/" target="_blank" rel="noopener">
+              <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 8.98h4v12H3v-12zM10 8.98h3.83v1.64h.05a4.2 4.2 0 013.78-2.07c4.04 0 4.79 2.66 4.79 6.13v6.3H18.6V15.3c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.16v5.79H10V8.98z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="partner-row reverse">
+        <div class="partner-info">
+          <span class="eyebrow">Socia fundadora y directora</span>
+          <h3>Marisa Almazor</h3>
+          <div class="partner-role">Sucesiones, propiedad e inmobiliario</div>
+          <p class="partner-bio">
+            Socia fundadora y actual directora del despacho, es abogada desde 1991. Tiene amplia formación jurídica, con especialización en varias ramas del derecho civil, como sucesiones, derecho de la propiedad e inmobiliario. Cuenta con dilatada experiencia en litigios, principalmente en las jurisdicciones civil, penal y social.
+          </p>
+          <div class="partner-credentials">
+            <div class="credential">Abogada en ejercicio desde 1991</div>
+            <div class="credential">Directora del despacho Carrizosa y Almazor</div>
+            <div class="credential">Especialista en sucesiones, propiedad e inmobiliario</div>
+            <div class="credential">Litigación civil, penal y social</div>
+          </div>
+          <div class="partner-contact">
+            <a href="tel:934572123">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              +34 934 572 123
+            </a>
+            <a href="mailto:abogados@carrizosayalmazor.com">
+              <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 4l8 8 8-8"/></svg>
+              abogados@carrizosayalmazor.com
+            </a>
+            <a href="https://www.linkedin.com/in/marisa-almazor-lopez-58b2245b/" target="_blank" rel="noopener">
+              <svg class="ic" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 8.98h4v12H3v-12zM10 8.98h3.83v1.64h.05a4.2 4.2 0 013.78-2.07c4.04 0 4.79 2.66 4.79 6.13v6.3H18.6V15.3c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.16v5.79H10V8.98z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <div class="partner-photo">
+          <div class="ph-placeholder">— retrato pendiente —<br/>img/marisa-almazor.jpg</div>
+          <div class="ph-name">Marisa Almazor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- APPROACH -->
+  <section class="approach reveal" id="valores" data-screen-label="07 Cómo trabajamos">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Nuestra forma de trabajar</span>
+          <h2 style="margin-top:24px">Tres compromisos <em>con cada cliente.</em></h2>
+        </div>
+        <p>
+          No prometemos resultados imposibles. Sí garantizamos un trato adulto, presupuesto claro y la dedicación personal de quienes firman el escrito.
+        </p>
+      </div>
+      <div class="approach-grid">
+        <div class="value">
+          <div class="rn">I.</div>
+          <h3>Atención directa de los socios</h3>
+          <p>El abogado que estudia su caso es el que lo defiende y firma. Sin trasvases internos ni cadenas de juniors.</p>
+        </div>
+        <div class="value">
+          <div class="rn">II.</div>
+          <h3>Presupuesto cerrado por escrito</h3>
+          <p>Tras la primera consulta entregamos una propuesta con honorarios, fases y plazos. Sin facturas sorpresa.</p>
+        </div>
+        <div class="value">
+          <div class="rn">III.</div>
+          <h3>Negociar antes que litigar</h3>
+          <p>Cuando es posible, resolvemos por acuerdo. Cuando no, defendemos sus derechos en tribunales con la misma dedicación.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process reveal" id="metodo" data-screen-label="07 Método">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Método</span>
+          <h2 style="margin-top:24px">Cómo trabajamos <em>cada asunto.</em></h2>
+        </div>
+        <p>Un proceso claro, sin sorpresas. Desde la primera cita en el despacho hasta el cierre, sabrá en cada momento qué paso toca, qué documentación hace falta y qué plazos manejamos.</p>
+      </div>
+      <div class="process-grid">
+        <div class="step">
+          <div class="step-num">Paso 01</div>
+          <h3>Primera cita en el despacho</h3>
+          <p>Presencial o por videoconferencia. Entendemos el asunto, los plazos y los actores. Salimos con un diagnóstico claro y los siguientes pasos definidos.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">Paso 02</div>
+          <h3>Análisis y estrategia</h3>
+          <p>Estudiamos documentación y antecedentes. Le presentamos una propuesta cerrada con honorarios, fases y calendario.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">Paso 03</div>
+          <h3>Tramitación o defensa</h3>
+          <p>Coordinamos notaría, Registro, Hisenda, juzgados o la parte contraria. Le informamos en cada hito del expediente.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">Paso 04</div>
+          <h3>Cierre y entrega</h3>
+          <p>Resolución, sentencia firme o escritura. Entregamos dossier ordenado con todo el expediente. Sin frentes abiertos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote reveal" data-screen-label="08 Cita">
+    <div class="container">
+      <div class="quote-mark">“</div>
+      <blockquote>
+        Un buen abogado no es el que más promete, sino el que mejor entiende lo que está realmente en juego.
+      </blockquote>
+      <div class="quote-attr">
+        <strong>Carrizosa y Almazor</strong>
+        Abogados · Barcelona · desde 1989
+      </div>
+      <div style="margin-top:40px">
+        <a href="#contacto" class="btn-primary">Pedir cita con el despacho</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHTS · publicaciones -->
+  <section class="insights reveal" id="insights" data-screen-label="10 Insights jurídicos">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Insights jurídicos</span>
+          <h2 style="margin-top:24px">Notas del despacho <em>sobre lo que cambia.</em></h2>
+        </div>
+        <p>Comentamos las sentencias, reformas y normas que afectan a los asuntos que llevamos. Lectura corta, criterio claro, sin tecnicismos innecesarios.</p>
+      </div>
+
+      <div class="insights-grid">
+
+        <a href="notas/impuesto-sucesiones-catalunya.html" class="insight feature">
+          <div>
+            <div class="insight-meta">
+              <span class="insight-cat">Sucesiones · Catalunya</span>
+              <span class="insight-date">28 · 04 · 2026</span>
+            </div>
+            <h3>El nuevo Impuesto de Sucesiones de Catalunya: qué cambia para descendientes y cónyuge</h3>
+            <p>Las nuevas tarifas, las bonificaciones revisadas y los tramos donde el contribuyente perderá más respecto al régimen anterior. Un mapa práctico para planificar la herencia antes del cierre del ejercicio.</p>
+          </div>
+          <div class="feature-side">
+            <div class="lbl">En este análisis</div>
+            <div class="val">— Tramos y tipos efectivos comparados<br/>— Bonificación del 99% — ¿sigue ahí?<br/>— Operaciones a anticipar antes del cierre</div>
+          </div>
+        </a>
+
+        <a href="notas/ley-eficiencia-procesal.html" class="insight">
+          <div class="insight-meta">
+            <span class="insight-cat">Procesal</span>
+            <span class="insight-date">12 · 03 · 2026</span>
+          </div>
+          <h3>Ley de eficiencia procesal: el primer balance, un año después</h3>
+          <p>Mediación previa obligatoria, plazos más estrictos y cargas económicas para quien rechaza el acuerdo. Qué ha funcionado, qué no, y cómo lo estamos viendo en los juzgados de Barcelona.</p>
+        </a>
+
+        <a href="notas/desheredacion-maltrato-psicologico.html" class="insight">
+          <div class="insight-meta">
+            <span class="insight-cat">Sucesiones</span>
+            <span class="insight-date">02 · 02 · 2026</span>
+          </div>
+          <h3>Desheredación por maltrato psicológico: doctrina consolidada del Tribunal Supremo</h3>
+          <p>La causa de desheredación por maltrato de obra ya no exige violencia física. Cómo se acredita, qué prueba se admite y por qué conviene dejarlo motivado en el testamento.</p>
+        </a>
+
+        <a href="notas/custodia-compartida-traslado-menor.html" class="insight">
+          <div class="insight-meta">
+            <span class="insight-cat">Familia</span>
+            <span class="insight-date">19 · 12 · 2025</span>
+          </div>
+          <h3>Custodia compartida y traslado de residencia del menor: el criterio del TSJC en 2025</h3>
+          <p>La residencia habitual del menor como límite efectivo al traslado de uno de los progenitores. Recopilamos las resoluciones más recientes del Tribunal Superior de Justicia de Catalunya.</p>
+        </a>
+
+        <a href="notas/rebus-sic-stantibus-arrendamientos.html" class="insight">
+          <div class="insight-meta">
+            <span class="insight-cat">Civil</span>
+            <span class="insight-date">07 · 11 · 2025</span>
+          </div>
+          <h3>Cláusula <em>rebus sic stantibus</em> en arrendamientos comerciales</h3>
+          <p>Tras la doctrina post-pandemia, los tribunales han ido afinando los requisitos. Cuándo cabe pedir una revisión de renta y cómo prepararla con criterio.</p>
+        </a>
+
+        <a href="notas/despido-improcedente-carta-social-europea.html" class="insight">
+          <div class="insight-meta">
+            <span class="insight-cat">Laboral</span>
+            <span class="insight-date">14 · 10 · 2025</span>
+          </div>
+          <h3>Despido improcedente y cálculo de la indemnización: tras la Carta Social Europea</h3>
+          <p>La discusión sobre la indemnización tasada de los 33 días por año tras los pronunciamientos del CEDS y los primeros pronunciamientos de los TSJ. Cómo planteamos hoy una reclamación.</p>
+        </a>
+
+      </div>
+
+      <div class="insights-foot">
+        <p>Boletines y notas cuando publicamos algo relevante — nunca más de uno al mes, sin publicidad y siempre firmado por uno de los socios.</p>
+        <a href="#contacto">Suscribirse al boletín</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq reveal" id="faq" data-screen-label="11 FAQ">
+    <div class="container">
+      <div class="section-header" style="margin-bottom:24px">
+        <div>
+          <span class="eyebrow">Preguntas frecuentes</span>
+          <h2 style="margin-top:24px">Las dudas <em>más habituales.</em></h2>
+        </div>
+        <p>Las preguntas que recibimos cada semana en la primera consulta. Si la suya no está aquí, escríbanos — le respondemos en menos de 24 horas hábiles.</p>
+      </div>
+
+      <div class="faq-list">
+        <details class="qa" open>
+          <summary>¿Cómo es la primera cita con el despacho?</summary>
+          <div class="answer">Tras un breve contacto previo para encuadrar el asunto, le citamos en el despacho o por videoconferencia. La reunión dura entre 45 y 60 minutos. Salimos con un diagnóstico claro, una estimación de plazos y, si decide seguir, un presupuesto cerrado por escrito en 48 horas hábiles. Los honorarios de esa primera reunión se le comunican al concertarla.</div>
+        </details>
+        <details class="qa">
+          <summary>¿En qué áreas trabaja el despacho?</summary>
+          <div class="answer">Derecho civil (familia, sucesiones, propiedad e inmobiliario, reclamaciones), penal (defensa y acusación particular), laboral (despidos, reclamaciones, Seguridad Social) y, como especialidad, derecho de sucesiones en Cataluña. Para asuntos fuera de nuestras áreas, le derivamos a colegas de confianza.</div>
+        </details>
+        <details class="qa">
+          <summary>¿Cómo cobran sus honorarios?</summary>
+          <div class="answer">Trabajamos con honorarios fijos por fases o, en asuntos de cuantía, con porcentaje sobre el resultado, según convenga al cliente. Lo presentamos siempre por escrito antes de iniciar el encargo y no facturamos extras no acordados.</div>
+        </details>
+        <details class="qa">
+          <summary>¿Atienden en castellano y en catalán?</summary>
+          <div class="answer">Sí. Trabajamos indistintamente en castellano y en catalán, tanto en la atención al cliente como en los escritos y vistas judiciales. La web está disponible en ambos idiomas.</div>
+        </details>
+        <details class="qa">
+          <summary>¿Aceptan justicia gratuita o turno de oficio?</summary>
+          <div class="answer">Somos un despacho de libre designación. Para asuntos en los que proceda justicia gratuita le orientaremos sobre cómo solicitarla ante el Colegio de Abogados de Barcelona.</div>
+        </details>
+        <details class="qa">
+          <summary>¿Atienden urgencias y asistencia letrada inmediata?</summary>
+          <div class="answer">Atendemos urgencias penales (detención, asistencia en sede policial o judicial) y medidas cautelares civiles en plazos cortos. Llámenos al +34 934 572 123 o escríbanos por WhatsApp.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contacto" data-screen-label="10 Contacto">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <span class="eyebrow">Contacto</span>
+        <h2>Cuéntenos su caso. <em>Le respondemos en 24 horas hábiles.</em></h2>
+        <p>
+          Le escuchamos sin compromiso. Si decide trabajar con nosotros, le entregaremos un presupuesto cerrado por escrito en 48 horas hábiles.
+        </p>
+        <div class="first-consult-badge">Presupuesto cerrado por escrito</div>
+
+        <div class="contact-detail">
+          <div class="lbl">Despacho</div>
+          <div class="val">
+            Calle Pau Claris 171, planta principal
+            <small>08037 Barcelona · L'Eixample</small>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="lbl">Teléfono</div>
+          <div class="val">
+            <a href="tel:934572123">+34 934 572 123</a>
+            <small>Lunes a viernes · 9:30 – 19:00</small>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="lbl">Correo</div>
+          <div class="val">
+            <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a>
+            <small>Respondemos en menos de 24 h hábiles</small>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="lbl">WhatsApp</div>
+          <div class="val">
+            <a href="https://wa.me/34934572123">+34 934 572 123</a>
+            <small>Mensajes y envío de documentación</small>
+          </div>
+        </div>
+      </div>
+
+      <form class="form-card" onsubmit="event.preventDefault();this.querySelector('.form-submit').textContent='Enviado — gracias';">
+        <h3>Pedir cita con el despacho</h3>
+        <p>Cuéntenos brevemente su caso. Le contactamos en menos de 24 horas hábiles para encuadrar la primera reunión.</p>
+
+        <div class="form-row">
+          <div class="field">
+            <label>Nombre y apellidos</label>
+            <input type="text" required />
+          </div>
+          <div class="field">
+            <label>Teléfono</label>
+            <input type="tel" required />
+          </div>
+        </div>
+        <div class="field">
+          <label>Correo electrónico</label>
+          <input type="email" required />
+        </div>
+        <div class="field">
+          <label>Área de interés</label>
+          <select>
+            <option>Derecho civil — familia, propiedad, reclamaciones</option>
+            <option>Derecho penal — defensa o acusación</option>
+            <option>Derecho laboral — trabajador o empresa</option>
+            <option>Herencias y sucesiones</option>
+            <option>No estoy seguro / otra materia</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Cuéntenos brevemente</label>
+          <textarea placeholder="Describa el asunto en pocas líneas. Sin compromiso."></textarea>
+        </div>
+        <div class="checkbox-row">
+          <input type="checkbox" id="rgpd" required />
+          <label for="rgpd">He leído y acepto la <a href="privacidad.html">política de privacidad</a> y el tratamiento de mis datos para gestionar mi consulta.</label>
+        </div>
+        <button type="submit" class="form-submit">Enviar y pedir cita</button>
+        <div class="form-note">Comunicación cubierta por secreto profesional (art. 542.3 LOPJ).</div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer data-screen-label="11 Footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-name">
+            Carrizosa y Almazor
+            <small>Abogados · Barcelona</small>
+          </div>
+          <p>Despacho de abogados en Barcelona desde 1989. Civil, penal, laboral y sucesorio. Atención personal de los socios y trato directo en cada expediente.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Áreas</h4>
+          <ul>
+            <li><a href="#areas">Derecho civil</a></li>
+            <li><a href="#areas">Derecho penal</a></li>
+            <li><a href="#areas">Derecho laboral</a></li>
+            <li><a href="sucesiones.html">Herencias y sucesiones</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Despacho</h4>
+          <ul>
+            <li><a href="#despacho">El despacho</a></li>
+            <li><a href="#socios">Los socios</a></li>
+            <li><a href="#metodo">Método</a></li>
+            <li><a href="#insights">Insights jurídicos</a></li>
+            <li><a href="#faq">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>Calle Pau Claris 171<br/>08037 Barcelona</li>
+            <li><a href="tel:934572123">+34 934 572 123</a></li>
+            <li><a href="mailto:abogados@carrizosayalmazor.com">abogados@<br/>carrizosayalmazor.com</a></li>
+            <li>L–V · 9:30 – 19:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Carrizosa y Almazor · Todos los derechos reservados</div>
+        <div class="legal">
+          <a href="condiciones.html">Aviso legal</a>
+          <a href="privacidad.html">Privacidad</a>
+          <a href="#">Cookies</a>
+          <a href="#">ICAB · Colegio de Abogados</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP -->
+  <a class="wa-fab" href="https://wa.me/34934572123" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12c0 2.11.55 4.17 1.6 5.99L0 24l6.18-1.62A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zM12 21.82a9.8 9.8 0 01-5-1.37l-.36-.22-3.67.96.98-3.58-.23-.37A9.82 9.82 0 1121.82 12 9.83 9.83 0 0112 21.82zm5.42-7.34c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.11 3.23 5.12 4.53.71.31 1.27.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.13-.27-.2-.57-.35z"/></svg>
+  </a>
+
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
