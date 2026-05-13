@@ -82,7 +82,7 @@
   .brand{display:flex;flex-direction:column;gap:0}
   .brand-name{
     font-family:"EB Garamond",serif;color:var(--ink);
-    font-size:clamp(34px,3.8vw,48px);line-height:0.98;
+    font-size:clamp(36px,4.2vw,54px);line-height:0.98;
     letter-spacing:-0.005em;font-weight:500;white-space:nowrap;
   }
   .brand-name small{
@@ -689,8 +689,8 @@
     .step:last-child{border-bottom:none}
     .spotlight-text{padding:72px 32px 72px 32px;margin:0}
     .spotlight-side{padding:60px 32px}
-    .nav-toggle{display:flex}
-    .nav-inner{grid-template-columns:1fr auto;padding:22px 24px 20px;gap:20px}
+    .nav-toggle{display:flex;position:absolute;right:24px;top:50%;transform:translateY(-50%)}
+    .nav-inner{grid-template-columns:1fr;padding:20px 80px 20px 24px;position:relative;gap:0}
     .brand{min-width:0}
     .nav-links{
       display:none;position:absolute;top:100%;left:0;right:0;
@@ -708,8 +708,7 @@
     body{font-size:15px}
     .container{padding:0 22px}
     .topbar{display:none}
-    .brand-name{font-size:clamp(14px,4.4vw,22px);white-space:nowrap}
-    .brand-name small{font-size:9px;letter-spacing:0.28em;margin-left:8px}
+    .brand-name{font-size:clamp(20px,6vw,34px);white-space:nowrap}
     .hero{padding:56px 0 64px}
     .hero-grid{gap:40px}
     .hero h1{font-size:40px;margin:20px 0 22px}
@@ -772,10 +771,7 @@
   <nav class="main">
     <div class="nav-inner">
       <a href="#" class="brand">
-        <div class="brand-name">
-          CARRIZOSA Y ALMAZOR
-          <small>Abogados · Barcelona</small>
-        </div>
+        <div class="brand-name">CARRIZOSA Y ALMAZOR</div>
       </a>
       <button class="nav-toggle" aria-label="Abrir menú" onclick="this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open')">
         <span></span><span></span><span></span>
