@@ -60,7 +60,7 @@
     font-size:12.5px;color:var(--muted);
   }
   .topbar-inner{
-    display:flex;justify-content:space-between;align-items:center;
+    display:flex;justify-content:flex-end;align-items:center;
     padding:10px 32px;max-width:1240px;margin:0 auto;
   }
   .topbar-left{display:flex;gap:28px;align-items:center}
@@ -689,9 +689,9 @@
     .step:last-child{border-bottom:none}
     .spotlight-text{padding:72px 32px 72px 32px;margin:0}
     .spotlight-side{padding:60px 32px}
-    .topbar-left span:nth-child(n+2){display:none}
     .nav-toggle{display:flex}
     .nav-inner{grid-template-columns:1fr auto;padding:22px 24px 20px;gap:20px}
+    .brand{min-width:0}
     .nav-links{
       display:none;position:absolute;top:100%;left:0;right:0;
       background:var(--bg);border-top:1px solid var(--line);
@@ -707,10 +707,8 @@
   @media(max-width:680px){
     body{font-size:15px}
     .container{padding:0 22px}
-    .topbar-inner{padding:8px 22px;flex-wrap:wrap;gap:8px;justify-content:center}
-    .topbar-left{gap:0;font-size:11.5px;text-align:center}
-    .topbar-right{display:none}
-    .brand-name{font-size:clamp(15px,5.2vw,26px);white-space:nowrap}
+    .topbar{display:none}
+    .brand-name{font-size:clamp(14px,4.4vw,22px);white-space:nowrap}
     .brand-name small{font-size:9px;letter-spacing:0.28em;margin-left:8px}
     .hero{padding:56px 0 64px}
     .hero-grid{gap:40px}
@@ -763,10 +761,6 @@
   <!-- TOP BAR -->
   <div class="topbar">
     <div class="topbar-inner">
-      <div class="topbar-left">
-        <span>☎ +34 934 572 123</span>
-        <span>✉ <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a></span>
-      </div>
       <div class="topbar-right">
         <a href="#">CAT</a>
         <a href="#" style="color:var(--ink);font-weight:600">ES</a>
