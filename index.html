@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Carrizosa y Almazor — Abogados en Barcelona · Civil, Penal, Laboral y Sucesorio</title>
-<meta name="description" content="Despacho de abogados en Barcelona desde 1989. Derecho civil, penal, laboral y sucesorio. Atención directa de los socios y presupuesto cerrado por escrito.">
+<meta name="description" content="Despacho de abogados en Barcelona desde 1989. Derecho civil, penal, laboral, sucesorio y de empresa. Atención directa de los socios y presupuesto cerrado por escrito.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -242,6 +242,22 @@
   }
   .area-link::after{content:"→";transition:transform .25s}
   .area:hover .area-link::after{transform:translateX(5px)}
+  /* 5ª área — Empresa (tarjeta ancha, tratamiento destacado) */
+  .area-empresa{grid-column:1 / -1;background:var(--bg-2);min-height:auto}
+  .area-empresa:hover{background:var(--bg-2)}
+  .area-emp-inner{display:grid;grid-template-columns:0.85fr 1.45fr;gap:64px;align-items:center;width:100%}
+  .area-emp-left{display:flex;flex-direction:column;gap:14px}
+  .emp-patas{display:flex;flex-direction:column}
+  .emp-pata{display:flex;gap:22px;align-items:baseline;padding:22px 0;border-top:1px solid var(--line)}
+  .emp-pata:first-child{border-top:none;padding-top:0}
+  .emp-pata:last-child{padding-bottom:0}
+  .emp-pata .ep-n{font-family:"EB Garamond",serif;font-style:italic;color:var(--gold);font-size:28px;line-height:0.9;flex-shrink:0;width:26px}
+  .emp-pata .ep-txt{display:flex;flex-direction:column;gap:5px}
+  .emp-pata strong{font-size:17px;font-weight:600;color:var(--ink)}
+  .emp-pata .ep-d{font-size:13.5px;line-height:1.55;color:var(--body)}
+  @media(max-width:820px){
+    .area-emp-inner{grid-template-columns:1fr;gap:32px}
+  }
 
   /* SUCESIONES SPOTLIGHT */
   section.spotlight{
@@ -773,10 +789,6 @@
         <span>L–V 9–13:30 · L–J 15:30–19:30</span>
         <span>abogados@carrizosayalmazor.com</span>
       </div>
-      <div class="topbar-right">
-        <a href="#">CAT</a>
-        <a href="#" class="is-active">ES</a>
-      </div>
     </div>
   </div>
 
@@ -796,7 +808,6 @@
         <a href="#despacho">El despacho</a>
         <a href="#areas">Áreas</a>
         <a href="#socios">Los socios</a>
-        <a href="#parlament">Parlament</a>
         <a href="#metodo">Método</a>
         <a href="#insights">Insights</a>
         <a href="#faq">FAQ</a>
@@ -812,7 +823,7 @@
         <span class="eyebrow">Despacho de abogados · Barcelona · desde 1989</span>
         <h1>Criterio jurídico y trato directo en <em>cada asunto.</em></h1>
         <p class="hero-lede">
-          Asesoramos a personas, familias y empresas en derecho civil, penal, laboral y sucesorio. Atención personal de los socios desde la primera consulta hasta la resolución del caso.
+          Asesoramos a personas, familias y empresas en derecho civil, penal, laboral, sucesorio y de empresa. Atención personal de los socios desde la primera consulta hasta la resolución del caso.
         </p>
         <div class="hero-cta-row">
           <a href="#contacto" class="btn-primary">Pedir cita con el despacho</a>
@@ -820,7 +831,7 @@
         </div>
         <div class="hero-meta">
           <div><strong>35+</strong><span>años en ejercicio</span></div>
-          <div><strong>4</strong><span>áreas de práctica</span></div>
+          <div><strong>5</strong><span>áreas de práctica</span></div>
           <div><strong>BCN</strong><span>L'Eixample</span></div>
         </div>
       </div>
@@ -877,7 +888,7 @@
       <div class="section-header">
         <div>
           <span class="eyebrow">Áreas de práctica</span>
-          <h2 style="margin-top:24px">Cuatro áreas, <em>un mismo equipo.</em></h2>
+          <h2 style="margin-top:24px">Cinco áreas, <em>un mismo equipo.</em></h2>
         </div>
         <p>
           Cada área la lleva uno de los socios o ambos conjuntamente, según el caso lo exija. No fragmentamos expedientes: el cliente trata siempre con quien decide y firma.
@@ -940,7 +951,7 @@
             <div class="area-mono">Sucesorio</div>
           </div>
           <h3>Herencias y Sucesiones</h3>
-          <div class="area-sub">especialidad del despacho en derecho catalán</div>
+          <div class="area-sub">especialidad del despacho en derecho sucesorio</div>
           <ul>
             <li>Planificación en vida y redacción de testamentos.</li>
             <li>Tramitación íntegra de herencias y cuadernos particionales.</li>
@@ -948,6 +959,43 @@
             <li>Conflictos entre herederos: negociación e impugnación.</li>
           </ul>
           <a href="https://sucesiones.carrizosayalmazor.com/" class="area-link">Más sobre herencias y sucesiones</a>
+        </div>
+
+        <div class="area area-empresa">
+          <div class="area-emp-inner">
+            <div class="area-emp-left">
+              <div class="area-head">
+                <div class="area-num">V.</div>
+                <div class="area-mono">Empresa</div>
+              </div>
+              <h3>Derecho de Empresa</h3>
+              <div class="area-sub">societario, compliance penal y empresa familiar</div>
+              <a href="derecho-empresa.html" class="area-link" style="border-top:none;padding-top:8px;margin-top:0">Ver el área de empresa</a>
+            </div>
+            <div class="emp-patas">
+              <div class="emp-pata">
+                <span class="ep-n">1</span>
+                <div class="ep-txt">
+                  <strong>Societario y contencioso</strong>
+                  <span class="ep-d">Impugnación de acuerdos, conflictos entre socios, responsabilidad de administradores y contratación mercantil.</span>
+                </div>
+              </div>
+              <div class="emp-pata">
+                <span class="ep-n">2</span>
+                <div class="ep-txt">
+                  <strong>Compliance penal</strong>
+                  <span class="ep-d">Modelos de prevención (art. 31 bis CP), canal de denuncias (Ley 2/2023) y defensa penal de la empresa.</span>
+                </div>
+              </div>
+              <div class="emp-pata">
+                <span class="ep-n">3</span>
+                <div class="ep-txt">
+                  <strong>Empresa familiar</strong>
+                  <span class="ep-d">Protocolo familiar, órganos de gobierno, política de dividendos y relevo generacional.</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -1188,19 +1236,29 @@
 
       <div class="insights-grid">
 
-        <a href="notas/impuesto-sucesiones-catalunya.html" class="insight feature">
+        <a href="notas/confilegal-aldama-supremo.html" class="insight feature">
           <div>
             <div class="insight-meta">
-              <span class="insight-cat">Sucesiones · Catalunya</span>
-              <span class="insight-date">28 · 04 · 2026</span>
+              <span class="insight-cat">En prensa · Confilegal</span>
+              <span class="insight-date">23 · 06 · 2026</span>
             </div>
-            <h3>El nuevo Impuesto de Sucesiones de Catalunya: qué cambia para descendientes y cónyuge</h3>
-            <p>Las nuevas tarifas, las bonificaciones revisadas y los tramos donde el contribuyente perderá más respecto al régimen anterior. Un mapa práctico para planificar la herencia antes del cierre del ejercicio.</p>
+            <h3>La rebaja de la condena de Aldama: razones jurídicas de una decisión incómoda</h3>
+            <p>Carlos Carrizosa analiza en Confilegal por qué el Tribunal Supremo condena a Ábalos y Koldo y evita la entrada en prisión de Aldama: las claves jurídicas de una sentencia unánime y el peso de la colaboración con la Justicia.</p>
           </div>
           <div class="feature-side">
-            <div class="lbl">En este análisis</div>
-            <div class="val">— Tramos y tipos efectivos comparados<br/>— Bonificación del 99% — ¿sigue ahí?<br/>— Operaciones a anticipar antes del cierre</div>
+            <div class="lbl">Artículo de opinión</div>
+            <div class="val">Por Carlos Carrizosa<br/>Publicado en <strong>Confilegal</strong></div>
+            <span style="margin-top:8px;display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;font-weight:600;color:var(--gold-soft)">Ver la aparición →</span>
           </div>
+        </a>
+
+        <a href="notas/impuesto-sucesiones-catalunya.html" class="insight">
+          <div class="insight-meta">
+            <span class="insight-cat">Sucesiones · Catalunya</span>
+            <span class="insight-date">28 · 04 · 2026</span>
+          </div>
+          <h3>El nuevo Impuesto de Sucesiones de Catalunya: qué cambia para descendientes y cónyuge</h3>
+          <p>Las nuevas tarifas, las bonificaciones revisadas y los tramos donde el contribuyente perderá más respecto al régimen anterior. Un mapa práctico para planificar la herencia antes del cierre del ejercicio.</p>
         </a>
 
         <a href="notas/ley-eficiencia-procesal.html" class="insight">
@@ -1271,15 +1329,11 @@
         </details>
         <details class="qa">
           <summary>¿En qué áreas trabaja el despacho?</summary>
-          <div class="answer">Derecho civil (familia, sucesiones, propiedad e inmobiliario, reclamaciones), penal (defensa y acusación particular), laboral (despidos, reclamaciones, Seguridad Social) y, como especialidad, derecho de sucesiones en Cataluña. Para asuntos fuera de nuestras áreas, le derivamos a colegas de confianza.</div>
+          <div class="answer">Derecho civil (familia, sucesiones, propiedad e inmobiliario, reclamaciones), penal (defensa y acusación particular), laboral (despidos, reclamaciones, Seguridad Social), derecho de empresa (societario y contencioso, compliance penal y empresa familiar) y, como especialidad, derecho de sucesiones en Cataluña. Para asuntos fuera de nuestras áreas, le derivamos a colegas de confianza.</div>
         </details>
         <details class="qa">
           <summary>¿Cómo cobran sus honorarios?</summary>
           <div class="answer">Trabajamos con honorarios fijos por fases o, en asuntos de cuantía, con porcentaje sobre el resultado, según convenga al cliente. Lo presentamos siempre por escrito antes de iniciar el encargo y no facturamos extras no acordados.</div>
-        </details>
-        <details class="qa">
-          <summary>¿Atienden en castellano y en catalán?</summary>
-          <div class="answer">Sí. Trabajamos indistintamente en castellano y en catalán, tanto en la atención al cliente como en los escritos y vistas judiciales. La web está disponible en ambos idiomas.</div>
         </details>
         <details class="qa">
           <summary>¿Aceptan justicia gratuita o turno de oficio?</summary>

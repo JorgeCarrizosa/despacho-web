@@ -42,20 +42,21 @@
   }
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold)}
 
-  .topbar{border-bottom:1px solid var(--line);background:var(--bg);font-size:12.5px;color:var(--muted)}
+  .topbar{border-bottom:1px solid rgba(255,255,255,.06);background:var(--ink-2);font-size:12px;color:rgba(201,200,208,.65);letter-spacing:0.04em}
   .topbar-inner{
     display:flex;justify-content:space-between;align-items:center;
     padding:10px 32px;max-width:1240px;margin:0 auto;
   }
   .topbar-left{display:flex;gap:28px;align-items:center}
-  .topbar-right a{color:var(--muted);text-decoration:none}
-  .topbar-right a:hover{color:var(--ink)}
+  .topbar-right a{color:rgba(201,200,208,.65);text-decoration:none;font-weight:500;letter-spacing:0.18em;font-size:10.5px;text-transform:uppercase}
+  .topbar-right a:hover{color:var(--gold-soft)}
+  .topbar-right a.is-active{color:#fff}
 
   nav.main{
     position:sticky;top:0;z-index:50;
-    background:rgba(251,250,246,0.94);
-    backdrop-filter:saturate(140%) blur(10px);
-    border-bottom:1px solid var(--line);
+    background:var(--ink);
+    border-bottom:1px solid rgba(255,255,255,.08);
+    box-shadow:0 1px 0 rgba(0,0,0,.08);
   }
   .nav-inner{
     display:flex;justify-content:space-between;align-items:center;
@@ -63,20 +64,21 @@
   }
   .brand{text-decoration:none}
   .brand-name{
-    font-family:"EB Garamond",serif;color:var(--ink);
+    font-family:"EB Garamond",serif;color:#c9c8d0;
     font-size:28px;line-height:1;font-weight:500;
+    text-transform:uppercase;letter-spacing:0.05em;
   }
   .brand-name small{
     font-family:"Montserrat",sans-serif;font-size:10px;letter-spacing:0.36em;
-    color:var(--muted);text-transform:uppercase;margin-left:12px;font-weight:500;
+    color:#c9c8d0;text-transform:uppercase;margin-left:12px;font-weight:500;
   }
   .nav-back{
     font-size:12px;letter-spacing:0.14em;text-transform:uppercase;
-    color:var(--ink);font-weight:600;text-decoration:none;
+    color:#fff;font-weight:600;text-decoration:none;
     display:inline-flex;align-items:center;gap:10px;
-    border-bottom:1px solid var(--line);padding-bottom:6px;
+    border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:6px;
   }
-  .nav-back:hover{border-color:var(--ink)}
+  .nav-back:hover{color:var(--gold-soft);border-color:var(--gold-soft)}
 
   .legal-header{padding:80px 0 56px;border-bottom:1px solid var(--line)}
   .legal-header h1{font-size:clamp(40px,5vw,64px);margin:24px 0 18px;font-weight:500}
@@ -250,12 +252,9 @@
   <div class="topbar">
     <div class="topbar-inner">
       <div class="topbar-left">
-        <span>📍 Calle Pau Claris 171, 08037 Barcelona</span>
-        <span>☎ +34 934 572 123</span>
-      </div>
-      <div class="topbar-right">
-        <a href="#">CAT</a>
-        <a href="#" style="color:var(--ink);font-weight:600">ES</a>
+        <span>+34 934 572 123</span>
+        <span>L–V 9–13:30 · L–J 15:30–19:30</span>
+        <span>abogados@carrizosayalmazor.com</span>
       </div>
     </div>
   </div>

@@ -3,8 +3,15 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>El nuevo Impuesto de Sucesiones de Catalunya | Carrizosa y Almazor — Abogados en Barcelona</title>
-<meta name="description" content="La reforma del ISD en Catalunya cambia las bonificaciones para descendientes y cónyuge. Analizamos los nuevos tramos, la bonificación del 99% y las operaciones que conviene anticipar." />
+<title>Carlos Carrizosa en Confilegal: la rebaja de la condena de Aldama | Carrizosa y Almazor — Abogados en Barcelona</title>
+<meta name="description" content="Carlos Carrizosa publica en Confilegal un análisis de la sentencia 418/2026 del Tribunal Supremo: por qué condena a Ábalos y Koldo y evita la entrada en prisión de Aldama." />
+
+<!-- Open Graph: así se ve la tarjeta al compartir el enlace en LinkedIn -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Carlos Carrizosa en Confilegal: la rebaja de la condena de Aldama" />
+<meta property="og:description" content="Análisis de la sentencia 418/2026 del Tribunal Supremo: por qué condena a Ábalos y Koldo y evita la prisión de Aldama. Las claves jurídicas de una decisión incómoda." />
+<meta property="og:site_name" content="Carrizosa y Almazor — Abogados" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -68,6 +75,13 @@ nav.main{position:sticky;top:0;z-index:50;background:var(--ink);border-bottom:1p
 .nota-practica{background:var(--bg-2);border:1px solid var(--line);border-left:3px solid var(--gold);padding:24px 28px;margin:32px 0}
 .nota-practica .np-label{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:10px;display:block}
 .nota-practica p{margin-bottom:0;font-size:15px}
+/* Bloque destacado: leer en el medio */
+.source-box{background:var(--ink);color:#fff;border-left:3px solid var(--gold);padding:36px 36px;margin:40px 0 8px;display:flex;flex-direction:column;gap:18px}
+.source-box .sb-label{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:700;color:var(--gold-soft)}
+.source-box .sb-title{font-family:"EB Garamond",serif;font-size:24px;line-height:1.3;color:#fff}
+.source-box p{font-size:14.5px;line-height:1.7;color:rgba(255,255,255,.78);margin:0}
+.source-box a.sb-btn{align-self:flex-start;background:var(--gold);color:#fff;padding:16px 28px;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;display:inline-flex;align-items:center;gap:10px;transition:background .2s}
+.source-box a.sb-btn:hover{background:var(--gold-soft)}
 .art-sidebar{position:sticky;top:96px;display:flex;flex-direction:column;gap:24px}
 .toc{background:var(--bg-2);border:1px solid var(--line);padding:28px}
 .toc-title{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:var(--gold);margin-bottom:16px;display:block}
@@ -80,11 +94,6 @@ nav.main{position:sticky;top:0;z-index:50;background:var(--ink);border-bottom:1p
 .art-contact-box p{font-size:14px;line-height:1.65;color:rgba(255,255,255,.78);margin-bottom:20px}
 .art-contact-box a.cb-btn{display:block;background:#fff;color:var(--ink);padding:14px 20px;text-align:center;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;transition:background .2s}
 .art-contact-box a.cb-btn:hover{background:var(--bg-2)}
-.tax-table{width:100%;border-collapse:collapse;margin:0 0 24px;font-size:14.5px}
-.tax-table th{background:var(--ink);color:#fff;padding:10px 14px;text-align:left;font-family:"Montserrat",sans-serif;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600}
-.tax-table td{padding:10px 14px;border-bottom:1px solid var(--line);color:var(--body)}
-.tax-table tr:last-child td{border-bottom:none}
-.tax-table tr:nth-child(even) td{background:var(--bg-2)}
 .art-cta{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0}
 .art-cta-inner{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
 .art-cta h3{font-size:clamp(26px,3vw,36px);font-weight:500;max-width:520px}
@@ -131,10 +140,9 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
   .art-lede{font-size:15px}
   .art-wrap{padding:48px 0 64px}
   .art-content h2{font-size:22px;margin-top:40px}
+  .source-box{padding:28px 24px}
   .footer-grid{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;align-items:flex-start}
-  .tax-table{font-size:13px}
-  .tax-table th,.tax-table td{padding:8px 10px}
 }
 </style>
 </head>
@@ -180,17 +188,17 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
     <nav class="breadcrumb" aria-label="Ruta de navegación">
       <a href="../index.html">Inicio</a>
       <span>/</span>
-      <a href="../index.html#insights">Notas del despacho</a>
+      <a href="../index.html#insights">En prensa</a>
       <span>/</span>
-      <span>ISD Catalunya</span>
+      <span>Confilegal · Caso Koldo</span>
     </nav>
     <div class="art-meta">
-      <span class="art-cat">Sucesiones · Catalunya</span>
-      <span class="art-date">28 de abril de 2026</span>
+      <span class="art-cat">En prensa · Confilegal</span>
+      <span class="art-date">23 de junio de 2026</span>
     </div>
-    <h1>El nuevo Impuesto de Sucesiones de Catalunya: qué cambia para descendientes y cónyuge</h1>
-    <p class="art-lede">La reforma fiscal aprobada por la Generalitat ha reescrito buena parte del régimen de la Llei 19/2010. Para algunos herederos, la carga fiscal se reduce drásticamente; para otros, los coeficientes multiplicadores y los nuevos tramos pueden encarecer la herencia respecto al régimen anterior. Este análisis repasa los cambios con criterio práctico.</p>
-    <div class="art-byline">Despacho Carrizosa y Almazor · Barcelona</div>
+    <h1>La rebaja de la condena de Aldama: razones jurídicas de una decisión incómoda</h1>
+    <p class="art-lede">Nuestro socio Carlos Carrizosa analiza en Confilegal la sentencia 418/2026 del Tribunal Supremo: por qué condena a Ábalos y Koldo y evita la prisión de Aldama.</p>
+    <div class="art-byline">Por Carlos Carrizosa · Publicado en Confilegal</div>
   </div>
 </header>
 
@@ -202,123 +210,22 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
       <!-- CONTENT -->
       <article class="art-content">
 
-        <h2 id="s1">La presión para reformar: el agravio comparativo</h2>
-        <p>Durante años, Catalunya ha mantenido uno de los regímenes del Impuesto sobre Sucesiones y Donaciones más gravosos de España para herederos directos. La comparación con comunidades como Madrid —con bonificación del 99% en cuota para grupos I y II desde 2006— o Andalucía —que equiparó ese modelo en 2019— generaba una percepción de penalización fiscal para los herederos catalanes y un argumento recurrente en el debate político de la Generalitat.</p>
-        <p>La reforma, articulada mediante la Llei de mesures fiscals, financeres i administratives, introduce cambios significativos aunque no alcanza el modelo de bonificación total que existe en otras autonomías. El resultado es un régimen que favorece claramente a los grupos más cercanos al causante pero mantiene la carga para colaterales y terceros.</p>
+        <p>La sentencia 418/2026 del Tribunal Supremo condena por unanimidad a un exministro, a su asesor y al empresario que los corrompió. Pero el debate se ha centrado en que el corruptor no ingresa en prisión. Carlos Carrizosa, socio fundador del despacho, explica en <strong>Confilegal</strong> la lógica jurídica de una decisión incómoda en lo político y coherente en lo técnico.</p>
 
-        <h2 id="s2">Los grupos de parentesco: la base de todo el sistema</h2>
-        <p>El impuesto opera a través de grupos de parentesco. A efectos del ISD catalán:</p>
-        <ul>
-          <li><strong>Grup I:</strong> Descendents i adoptats menors de 21 anys.</li>
-          <li><strong>Grup II:</strong> Descendents i adoptats majors de 21 anys; cònjuge o parella estable registrada; ascendents i adoptants.</li>
-          <li><strong>Grup III:</strong> Col·laterals de segon i tercer grau i ascendents i descendents per afinitat.</li>
-          <li><strong>Grup IV:</strong> La resta de parents i estranys.</li>
-        </ul>
-        <p>La distinción entre los grupos I y II es la palanca principal del impuesto. Los grupos más próximos al causante disfrutan de reducciones de base más elevadas y, ahora, de una bonificación en cuota más relevante. Los grupos III y IV quedan al margen de la bonificación y soportan la tarifa íntegra.</p>
-
-        <h2 id="s3">Las reducciones de la base imponible</h2>
-        <p>Antes de aplicar los tipos de gravamen, cada heredero puede deducir de la base imponible una reducción por razón de parentesco. Estas reducciones no se han modificado en la reforma:</p>
-        <table class="tax-table">
-          <thead>
-            <tr><th>Grupo</th><th>Reducción por parentesco</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Grup I (descendiente &lt; 21 años)</td><td>275.000 € + 5.500 € por cada año menos de 21 (máximo 539.000 €)</td></tr>
-            <tr><td>Grup II (descendiente ≥ 21 años, cónyuge, ascendiente)</td><td>100.000 €</td></tr>
-            <tr><td>Grup III (colaterales 2.º y 3.er grado)</td><td>50.000 €</td></tr>
-            <tr><td>Grup IV (resto)</td><td>Sin reducción por parentesco</td></tr>
-          </tbody>
-        </table>
-        <p>Además de esta reducción por parentesco, existen otras reducciones específicas: por discapacidad del heredero, por transmisión de empresa familiar, por seguros de vida y por adquisición de la vivienda habitual del causante. Cada una tiene sus propios requisitos y límites.</p>
-
-        <h2 id="s4">La tarifa: tipos progresivos y ajuste en tramos intermedios</h2>
-        <p>Una vez aplicadas las reducciones, la base liquidable se somete a la tarifa progresiva del ISD catalán. La reforma ajusta los tramos intermedios a favor del heredero, aunque el tipo máximo del 32% se mantiene para las bases más elevadas:</p>
-        <table class="tax-table">
-          <thead>
-            <tr><th>Base liquidable</th><th>Tipo marginal</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>De 0 a 50.000 €</td><td>7 %</td></tr>
-            <tr><td>De 50.000 a 150.000 €</td><td>11 %</td></tr>
-            <tr><td>De 150.000 a 400.000 €</td><td>15 %</td></tr>
-            <tr><td>De 400.000 a 800.000 €</td><td>20 %</td></tr>
-            <tr><td>De 800.000 a 1.600.000 €</td><td>25 %</td></tr>
-            <tr><td>Más de 1.600.000 €</td><td>32 %</td></tr>
-          </tbody>
-        </table>
-        <p>Esta cuota íntegra es el punto de partida. Sobre ella opera la bonificación, que es el cambio más relevante de la reforma.</p>
-
-        <h2 id="s5">La bonificación en cuota: el cambio principal</h2>
-        <p>La novedad de mayor calado es la extensión de la bonificación en la cuota tributaria para los grupos I y II:</p>
-
-        <h3>Grup I (descendientes menores de 21 años)</h3>
-        <p>Bonificación del 99% de la cuota íntegra, sin límite de base imponible. En la práctica, un descendiente menor de 21 años tributará únicamente el 1% de la cuota resultante de aplicar la tarifa. Para la mayoría de herencias familiares con este perfil de heredero, la carga fiscal real es mínima.</p>
-
-        <h3>Grup II — descendientes mayores de 21 años y ascendientes</h3>
-        <p>Bonificación del 60% de la cuota íntegra para bases liquidables de hasta 500.000 €. Por encima de ese umbral, la bonificación se reduce de forma proporcional. Para patrimonios hereditarios moderados —la mayor parte de las herencias familiares ordinarias— la carga fiscal se reduce a menos de la mitad respecto al régimen anterior.</p>
-
-        <h3>Grup II — cónyuge o parella estable registrada</h3>
-        <p>Bonificación del 99% de la cuota, sin límite de base imponible. Esta equiparación al tratamiento del cónyuge en otras comunidades es uno de los cambios más esperados y elimina prácticamente la carga fiscal en la herencia entre cónyuges.</p>
-
-        <blockquote>«La planificación sucesoria eficiente no consiste en eludir impuestos, sino en conocer los instrumentos legales disponibles para que el patrimonio llegue a quien el causante quiere, en la forma en que lo quiere, con la menor fricción fiscal posible.»</blockquote>
-
-        <h2 id="s6">El patrimonio preexistente: el factor que más sorprende</h2>
-        <p>Uno de los aspectos del ISD catalán que mayor desconcierto genera en los herederos son los coeficientes multiplicadores por patrimonio preexistente. El funcionamiento es el siguiente: cuanto mayor sea el patrimonio del heredero antes de recibir la herencia, mayor es el coeficiente que se aplica sobre la cuota íntegra y, por tanto, mayor la deuda tributaria antes de la bonificación.</p>
-        <p>La reforma no modifica estos coeficientes. Esto significa que, incluso con la bonificación del 60% para descendientes mayores de 21 años, un heredero con patrimonio preexistente elevado puede ver cómo su deuda tributaria final es más alta de lo esperado. El efecto es especialmente relevante en herencias entre hermanos u otros familiares del grupo III, donde no existe bonificación en cuota.</p>
-
-        <h2 id="s7">Dónde puede salir más caro que antes</h2>
-        <p>A pesar del titular de la bonificación, la reforma no beneficia a todos por igual:</p>
-        <ul>
-          <li>Los herederos del grupo II con base liquidable superior a 500.000 € verán cómo la reducción de la bonificación al superar el umbral puede no compensar el ahorro esperado.</li>
-          <li>Los herederos de los grupos III y IV —sobrinos, primos, personas no vinculadas por matrimonio o descendencia directa— no disfrutan de la bonificación en cuota y soportan la tarifa íntegra.</li>
-          <li>Las herencias en las que el causante era titular de participaciones en sociedades con actividad profesional tienen su propio régimen de reducción (art. 41 de la Llei 19/2010, reducción del 95%), que no se modifica pero sí endurece algunos requisitos de acceso.</li>
-        </ul>
-
-        <h2 id="s8">Operaciones que conviene anticipar</h2>
-        <p>Para herencias que no se han abierto todavía, la reforma abre ventanas de planificación que conviene valorar con tiempo suficiente:</p>
-        <ul>
-          <li><strong>Donaciones en vida.</strong> La reforma también modifica el régimen de donaciones entre grupos I y II, con bonificaciones análogas a las de la sucesión. Anticipar patrimonio en vida puede ser fiscalmente eficiente siempre que el donante disponga de liquidez suficiente para sus necesidades futuras.</li>
-          <li><strong>Testamento actualizado.</strong> La distribución de la herencia entre herederos debe revisarse a la luz de los nuevos umbrales de bonificación. Si coexisten herederos de grupos distintos, la distribución puede optimizarse para minimizar la carga fiscal global.</li>
-          <li><strong>Seguros de vida.</strong> Los seguros con beneficiarios de los grupos I y II tributan con una reducción específica en Catalunya. En combinación con la bonificación en cuota, pueden ser un instrumento eficiente de transmisión de capital.</li>
-          <li><strong>Pactes successoris.</strong> El Codi Civil de Catalunya (arts. 431-1 i ss.) permite la transmisión patrimonial en vida mediante pacto sucesorio, con un tratamiento fiscal propio que, en determinadas circunstancias, resulta más ventajoso que la donación ordinaria.</li>
-        </ul>
-
-        <div class="nota-practica">
-          <span class="np-label">Nota práctica</span>
-          <p>Si la herencia incluye inmuebles en Catalunya, recuerde que además del ISD deberá liquidarse el <strong>Impost sobre l'Increment de Valor dels Terrenys de Naturalesa Urbana (IIVTNU)</strong> ante el ayuntamiento correspondiente, cuyo cálculo ha variado significativamente tras la STC 182/2021 y la reforma operada por el Real Decreto-ley 26/2021. Verificar la tributación conjunta —ISD más plusvalía municipal— es imprescindible para una planificación completa.</p>
+        <div class="source-box">
+          <span class="sb-label">Artículo completo</span>
+          <div class="sb-title">Lea el análisis íntegro de Carlos Carrizosa en Confilegal</div>
+          <p>El artículo se publicó originalmente en Confilegal, medio jurídico de referencia. Pulse para leerlo completo en su web.</p>
+          <a href="https://confilegal.com/20260623-supremo-abalos-koldo-aldama-colaboracion-justicia-corrupcion/" target="_blank" rel="noopener" class="sb-btn">Leer el artículo completo en Confilegal →</a>
         </div>
-
-        <h2 id="s9">Si la herencia ya está abierta: plazos y opciones</h2>
-        <p>El heredero que ya ha iniciado el trámite puede acogerse al nuevo régimen si el fallecimiento del causante se produjo con posterioridad a la entrada en vigor de la reforma. El plazo ordinario para presentar la autoliquidación del ISD en Catalunya es de <strong>seis meses desde el fallecimiento</strong>, prorrogable otros seis meses mediante solicitud motivada presentada antes de que expire el plazo inicial.</p>
-        <p>Es importante no dejar transcurrir los plazos sin actuar. El recargo por presentación extemporánea en Catalunya oscila entre el 5% y el 20% de la deuda tributaria según el retraso, y la prescripción del impuesto no se produce hasta los cuatro años desde el fin del plazo voluntario de presentación.</p>
-        <p>Si la herencia presenta complejidades —bienes en el extranjero, sociedades, conflictos entre herederos, incertidumbre sobre el inventario de deudas— el asesoramiento profesional previo a la autoliquidación puede evitar liquidaciones incorrectas que generen intereses de demora o sanciones.</p>
-
-        <h2 id="s10">La recomendación del despacho</h2>
-        <p>La reforma es positiva para la mayoría de las herencias familiares directas en Catalunya. Sin embargo, su aplicación concreta depende de factores que solo se pueden evaluar con el expediente en mano: valor neto del caudal relicto, patrimonio preexistente del heredero, tipo de bienes, estructura familiar y vínculos de parentesco. Una planificación sucesoria realizada con anticipación, cuando el causante todavía puede expresar su voluntad de forma clara, puede reducir la carga fiscal de forma muy significativa y evitar los conflictos entre herederos que con frecuencia acompañan a las herencias mal ordenadas.</p>
-        <p>Estamos a su disposición para valorar su caso sin compromiso.</p>
 
       </article>
 
       <!-- SIDEBAR -->
       <aside class="art-sidebar">
-        <div class="toc">
-          <span class="toc-title">En este análisis</span>
-          <ol>
-            <li><a href="#s1">El contexto de la reforma</a></li>
-            <li><a href="#s2">Grupos de parentesco</a></li>
-            <li><a href="#s3">Reducciones de la base</a></li>
-            <li><a href="#s4">Tramos y tipos efectivos</a></li>
-            <li><a href="#s5">Bonificación del 99% — ¿sigue ahí?</a></li>
-            <li><a href="#s6">Patrimonio preexistente</a></li>
-            <li><a href="#s7">Dónde sale más caro</a></li>
-            <li><a href="#s8">Operaciones a anticipar</a></li>
-            <li><a href="#s9">Si la herencia ya está abierta</a></li>
-            <li><a href="#s10">Recomendación del despacho</a></li>
-          </ol>
-        </div>
         <div class="art-contact-box">
-          <span class="cb-label">¿Le afecta esta reforma?</span>
-          <p>Revisamos su situación concreta: composición del caudal relicto, grupos de parentesco implicados y oportunidades de planificación. Sin compromiso.</p>
+          <span class="cb-label">Defensa penal y acusación</span>
+          <p>Asumimos la defensa y la acusación particular en procedimientos penales, incluidos los delitos económicos y contra la Administración. Atención directa de los socios.</p>
           <a href="../index.html#contacto" class="cb-btn">Consultar con el despacho</a>
         </div>
       </aside>
@@ -331,10 +238,10 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
 <section class="art-cta">
   <div class="container">
     <div class="art-cta-inner">
-      <h3>¿Tiene una herencia abierta <em>en Catalunya?</em></h3>
+      <h3>¿Necesita asesoramiento <em>en derecho penal?</em></h3>
       <div class="art-cta-links">
         <a href="../index.html#contacto" class="btn-primary">Pedir cita →</a>
-        <a href="../index.html#insights" class="btn-back">← Volver a Notas del despacho</a>
+        <a href="../index.html#insights" class="btn-back">← Volver a Insights</a>
       </div>
     </div>
   </div>
@@ -363,7 +270,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
           <li><a href="../index.html#socios">Los socios</a></li>
           <li><a href="../index.html#proceso">Cómo trabajamos</a></li>
           <li><a href="../index.html#faq">Preguntas frecuentes</a></li>
-          <li><a href="../index.html#insights">Notas del despacho</a></li>
+          <li><a href="../index.html#insights">Insights</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -387,11 +294,5 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
   </div>
 </footer>
 
-<script>
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  },{threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
 </body>
 </html>

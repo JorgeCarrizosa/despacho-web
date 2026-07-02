@@ -22,24 +22,26 @@ img{display:block;max-width:100%;height:auto}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
 ul,ol{margin:0;padding:0}
 .container{max-width:1240px;margin:0 auto;padding:0 32px}
-.topbar{border-bottom:1px solid var(--line);background:var(--bg);font-size:12.5px;color:var(--muted)}
+.topbar{border-bottom:1px solid rgba(255,255,255,.06);background:var(--ink-2);font-size:12px;color:rgba(201,200,208,.65);letter-spacing:0.04em}
 .topbar-inner{display:flex;justify-content:space-between;align-items:center;padding:10px 32px;max-width:1240px;margin:0 auto}
 .topbar-left{display:flex;gap:28px;align-items:center}
 .topbar-left span{display:inline-flex;gap:8px;align-items:center}
 .topbar-right{display:flex;gap:20px}
-.topbar-right a:hover{color:var(--ink)}
-nav.main{position:sticky;top:0;z-index:50;background:rgba(251,250,246,0.94);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
-.nav-inner{display:grid;grid-template-columns:1fr auto;align-items:center;padding:28px 32px 24px;max-width:1240px;margin:0 auto;gap:48px}
-.brand{display:flex;flex-direction:column}
-.brand-name{font-family:"EB Garamond",serif;color:var(--ink);font-size:clamp(28px,3vw,40px);line-height:0.98;letter-spacing:-0.005em;font-weight:500;white-space:nowrap}
-.brand-name small{display:inline;font-family:"Montserrat",sans-serif;font-size:10px;letter-spacing:0.42em;color:var(--muted);text-transform:uppercase;margin-left:12px;font-weight:500;vertical-align:middle}
+.topbar-right a{color:rgba(201,200,208,.65);font-weight:500;letter-spacing:0.18em;font-size:10.5px;text-transform:uppercase}
+    .topbar-right a:hover{color:var(--gold-soft)}
+    .topbar-right a.is-active{color:#fff}
+nav.main{position:sticky;top:0;z-index:50;background:var(--ink);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.nav-inner{display:grid;grid-template-columns:1fr auto;align-items:center;padding:32px 32px 28px;max-width:1240px;margin:0 auto;gap:48px}
+.brand{display:flex;flex-direction:column;gap:6px;text-decoration:none}
+.brand-name{font-family:"EB Garamond",serif;color:#c9c8d0;font-size:clamp(34px,4.2vw,56px);line-height:1;letter-spacing:0.05em;font-weight:500;white-space:nowrap;text-transform:uppercase;width:fit-content;text-align:center}
+.brand-name small{display:block;font-family:"Montserrat",sans-serif;font-size:10.5px;color:#c9c8d0;text-transform:uppercase;font-weight:500;margin-top:10px;text-align:center;letter-spacing:0.6em;text-indent:0.6em}
 .nav-links{display:flex;gap:34px;align-items:center}
-.nav-links a{font-size:13px;font-weight:500;color:var(--body);letter-spacing:0.04em;transition:color .2s}
-.nav-links a:hover{color:var(--ink)}
-.nav-cta{background:var(--ink);color:#fff !important;padding:12px 20px;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;transition:background .2s}
-.nav-cta:hover{background:var(--ink-2)}
-.nav-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;align-items:center;justify-content:center;flex-direction:column;gap:5px}
-.nav-toggle span{display:block;width:18px;height:1px;background:var(--ink);transition:transform .25s,opacity .25s}
+.nav-links a{font-size:13px;font-weight:500;color:#fff;letter-spacing:0.04em;transition:color .2s}
+.nav-links a:hover{color:var(--gold-soft)}
+.nav-cta{background:var(--gold);color:#fff !important;padding:13px 22px;font-size:12.5px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;transition:background .2s,color .2s,border-color .2s;border:1px solid var(--gold)}
+.nav-cta:hover{background:transparent;color:var(--gold-soft) !important;border-color:var(--gold-soft)}
+.nav-toggle{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);background:transparent;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer}
+.nav-toggle span{display:block;width:18px;height:1px;background:#c9c8d0;transition:transform .25s,opacity .25s}
 .nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
 .nav-toggle.open span:nth-child(2){opacity:0}
 .nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
@@ -101,11 +103,11 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
 @media(max-width:980px){
   .footer-grid{grid-template-columns:1fr 1fr}
   .topbar-left span:nth-child(n+2){display:none}
-  .nav-toggle{display:flex}
-  .nav-inner{padding:20px 24px 18px;gap:16px}
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 20px}
+  .nav-toggle{display:flex;position:absolute;right:24px;top:50%;transform:translateY(-50%)}
+  .nav-inner{grid-template-columns:1fr;padding:20px 80px 20px 24px;position:relative;gap:0}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ink);border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 24px}
   .nav-links.open{display:flex}
-  .nav-links a{padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .nav-links a{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:15px}
   .nav-links a:last-child{border-bottom:none}
   .nav-cta{margin-top:10px;text-align:center;padding:16px 20px}
   .art-grid{grid-template-columns:1fr;gap:48px}
@@ -117,7 +119,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
   body{font-size:15px}
   .container{padding:0 20px}
   .topbar-inner{padding:8px 20px}
-  .topbar-right{display:none}
+  .topbar{display:none}
   .brand-name{font-size:24px;white-space:normal}
   .art-header{padding:44px 0 52px}
   .art-header h1{font-size:28px}
@@ -131,40 +133,39 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
 </head>
 <body>
 
-<!-- TOP BAR -->
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="topbar-left">
-      <span>📍 Calle Pau Claris 171, 08037 Barcelona</span>
-      <span>☎ +34 934 572 123</span>
-      <span>✉ <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a></span>
-    </div>
-    <div class="topbar-right">
-      <a href="#">CAT</a>
-      <a href="#" style="color:var(--ink);font-weight:600">ES</a>
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span>+34 934 572 123</span>
+        <span>L–V 9–13:30 · L–J 15:30–19:30</span>
+        <span>abogados@carrizosayalmazor.com</span>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- NAV -->
-<nav class="main">
-  <div class="nav-inner">
-    <a href="../index.html" class="brand">
-      <div class="brand-name">Carrizosa y Almazor<small>Abogados</small></div>
-    </a>
-    <div class="nav-links" id="navLinks">
-      <a href="../index.html#despacho">El despacho</a>
-      <a href="../index.html#areas">Áreas</a>
-      <a href="../sucesiones.html">Herencias</a>
-      <a href="../index.html#socios">Socios</a>
-      <a href="../index.html#proceso">Proceso</a>
-      <a href="../index.html#contacto" class="nav-cta">Contacto</a>
+  <nav class="main">
+    <div class="nav-inner">
+      <a href="../index.html" class="brand">
+        <div class="brand-name">
+          Carrizosa y Almazor
+          <small>Abogados&nbsp;&nbsp;·&nbsp;&nbsp;Barcelona</small>
+        </div>
+      </a>
+      <button class="nav-toggle" aria-label="Abrir menú" onclick="this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="../index.html#despacho">El despacho</a>
+        <a href="../index.html#areas">Áreas</a>
+        <a href="../index.html#socios">Los socios</a>
+        <a href="../index.html#metodo">Método</a>
+        <a href="../index.html#insights">Insights</a>
+        <a href="../index.html#faq">FAQ</a>
+        <a href="../index.html#contacto" class="nav-cta">Pedir cita</a>
+      </div>
     </div>
-    <button class="nav-toggle" aria-label="Abrir menú" onclick="this.classList.toggle('open');document.getElementById('navLinks').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+  </nav>
 
 <!-- ARTICLE HEADER -->
 <header class="art-header">

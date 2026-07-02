@@ -1,3 +1,8 @@
 # Archivos de desarrollo — no se publican en la web
 _fix.py
 _standby/
+
+# Backups locales (copias .bak antes de editar) — no publicar
+*.bak
+*.bak-*
+*.bak_*

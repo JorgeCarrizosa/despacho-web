@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Derecho de Empresa · Carrizosa y Almazor Abogados</title>
+  <meta name="description" content="Servicios de Derecho de Empresa del despacho: societario y contencioso mercantil, compliance penal (Ley 2/2023) y empresa familiar. Prevención del conflicto y defensa del administrador y de la sociedad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#040465;--ink-2:#020342;--body:#161616;
+      --bg:#fbfaf6;--bg-2:#f3efe6;--bg-3:#ece6d8;
+      --line:#d9d3c4;--gold:#a98643;--gold-soft:#c9a35a;--muted:#6b6a66;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;overflow-x:hidden}
+    html{scroll-behavior:smooth}
+    body{font-family:"Montserrat",-apple-system,BlinkMacSystemFont,sans-serif;color:var(--body);background:var(--bg);font-weight:400;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,h4{font-family:"EB Garamond",Georgia,serif;color:var(--ink);font-weight:500;letter-spacing:-0.005em;line-height:1.15;margin:0;text-wrap:balance}
+    h1 em,h2 em,h3 em{font-style:italic;color:var(--gold);font-weight:400}
+    p{margin:0;text-wrap:pretty}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%;height:auto}
+    button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+    ul,ol{margin:0;padding:0}
+    .container{max-width:1240px;margin:0 auto;padding:0 32px}
+    /* TOP BAR — idéntico a la web principal (oscuro) */
+    .topbar{border-bottom:1px solid rgba(255,255,255,.06);background:var(--ink-2);font-size:12px;color:rgba(201,200,208,.65);letter-spacing:0.04em}
+    .topbar-inner{display:flex;justify-content:space-between;align-items:center;padding:10px 32px;max-width:1240px;margin:0 auto}
+    .topbar-left{display:flex;gap:28px;align-items:center}
+    .topbar-left span{display:inline-flex;gap:8px;align-items:center}
+    .topbar-right{display:flex;gap:20px}
+    .topbar-right a{color:rgba(201,200,208,.65);font-weight:500;letter-spacing:0.18em;font-size:10.5px;text-transform:uppercase}
+    .topbar-right a:hover{color:var(--gold-soft)}
+    .topbar-right a.is-active{color:#fff}
+    /* NAV — idéntico a la web principal (oscuro) */
+    nav.main{position:sticky;top:0;z-index:50;background:var(--ink);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 1px 0 rgba(0,0,0,.08)}
+    .nav-inner{display:grid;grid-template-columns:1fr auto;align-items:center;padding:32px 32px 28px;max-width:1240px;margin:0 auto;gap:48px}
+    .brand{display:flex;flex-direction:column;gap:6px;text-decoration:none}
+    .brand-name{font-family:"EB Garamond",serif;color:#c9c8d0;font-size:clamp(34px,4.2vw,56px);line-height:1;letter-spacing:0.05em;font-weight:500;white-space:nowrap;text-transform:uppercase;width:fit-content;text-align:center}
+    .brand-name small{display:block;font-family:"Montserrat",sans-serif;font-size:10.5px;color:#c9c8d0;text-transform:uppercase;font-weight:500;margin-top:10px;text-align:center;letter-spacing:0.6em;text-indent:0.6em}
+    .nav-links{display:flex;gap:34px;align-items:center}
+    .nav-links a{font-size:13px;font-weight:500;color:#fff;letter-spacing:0.04em;transition:color .2s}
+    .nav-links a:hover{color:var(--gold-soft)}
+    .nav-cta{background:var(--gold);color:#fff !important;padding:13px 22px;font-size:12.5px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;transition:background .2s,color .2s,border-color .2s;border:1px solid var(--gold)}
+    .nav-cta:hover{background:transparent;color:var(--gold-soft) !important;border-color:var(--gold-soft)}
+    .nav-toggle{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.25);background:transparent;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer}
+    .nav-toggle span{display:block;width:18px;height:1px;background:#c9c8d0;transition:transform .25s,opacity .25s}
+    .nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .nav-toggle.open span:nth-child(2){opacity:0}
+    .nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+    /* HEADER */
+    .art-header{background:var(--ink);color:#fff;padding:64px 0 72px;border-bottom:1px solid var(--ink-2)}
+    .breadcrumb{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:28px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .breadcrumb a{color:rgba(255,255,255,.45);transition:color .2s}
+    .breadcrumb a:hover{color:#fff}
+    .breadcrumb span{color:rgba(255,255,255,.25)}
+    .art-meta{display:flex;gap:16px;align-items:center;margin-bottom:18px;flex-wrap:wrap}
+    .art-cat{background:var(--gold);color:#fff;padding:4px 12px;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600}
+    .art-header h1{font-size:clamp(32px,4.5vw,58px);font-weight:500;color:#fff;max-width:900px;line-height:1.1;margin-bottom:22px}
+    .art-lede{font-size:17px;line-height:1.7;color:rgba(255,255,255,.78);max-width:820px;margin-bottom:0;font-family:"EB Garamond",serif}
+
+    /* PATA NAV (anclas) */
+    .pata-nav{background:var(--bg-2);border-bottom:1px solid var(--line)}
+    .pata-nav-inner{display:flex;gap:12px;flex-wrap:wrap;padding:20px 32px;max-width:1240px;margin:0 auto}
+    .pata-nav a{font-size:12px;letter-spacing:0.06em;font-weight:600;color:var(--ink);border:1px solid var(--line);background:var(--bg);padding:10px 18px;transition:background .2s,border-color .2s}
+    .pata-nav a:hover{background:var(--bg-3);border-color:var(--gold)}
+    .pata-nav a span{color:var(--gold);font-family:"EB Garamond",serif;font-style:italic;margin-right:8px}
+
+    /* INTRO */
+    .emp-intro{padding:72px 0 8px}
+    .emp-intro .eyebrow{font-family:"Montserrat",sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;display:inline-flex;align-items:center;gap:10px;margin-bottom:24px}
+    .emp-intro .eyebrow::before{content:"";width:24px;height:1px;background:var(--gold)}
+    .emp-intro h2{font-size:clamp(28px,3.4vw,42px);font-weight:500;max-width:820px;margin-bottom:24px}
+    .emp-intro p{font-size:16.5px;line-height:1.8;color:var(--body);max-width:760px}
+
+    /* PATA SECTIONS */
+    .pata{padding:72px 0;border-top:1px solid var(--line)}
+    .pata:first-of-type{border-top:none}
+    .pata-head{display:flex;align-items:flex-start;gap:24px;margin-bottom:44px;max-width:900px}
+    .pata-num{font-family:"EB Garamond",serif;font-style:italic;color:var(--gold);font-size:clamp(40px,5vw,64px);line-height:0.9;flex-shrink:0}
+    .pata-titles h3{font-size:clamp(26px,3vw,36px);font-weight:500;margin-bottom:12px}
+    .pata-titles p{font-size:15.5px;line-height:1.7;color:var(--muted);max-width:640px}
+    .serv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+    .serv{background:var(--bg);padding:34px 32px;display:flex;flex-direction:column;gap:14px;transition:background .25s}
+    .serv:hover{background:var(--bg-2)}
+    .serv h4{font-size:20px;font-weight:500;line-height:1.2}
+    .serv .serv-what{font-size:14.5px;line-height:1.65;color:var(--body)}
+    .serv .serv-deliver{font-size:13px;line-height:1.6;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;margin-top:auto}
+    .serv .serv-deliver strong{color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;font-size:10px;display:block;margin-bottom:6px}
+
+    /* NOTA FISCAL */
+    .nota-fiscal{background:#fbf6ea;border:1px solid var(--line);border-left:3px solid var(--gold-soft);padding:28px 32px;margin:8px 0 0}
+    .nota-fiscal .nf-label{font-size:10px;letter-spacing:0.22em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:12px;display:block}
+    .nota-fiscal p{font-size:15px;line-height:1.75;color:var(--body)}
+
+    /* CIERRE */
+    .emp-cierre{padding:80px 0;background:var(--bg-2);border-top:1px solid var(--line)}
+    .emp-cierre h2{font-size:clamp(26px,3vw,38px);font-weight:500;max-width:760px;margin-bottom:24px}
+    .emp-cierre p{font-size:16.5px;line-height:1.8;color:var(--body);max-width:800px}
+    .emp-cierre p + p{margin-top:20px}
+
+    /* CTA */
+    .art-cta{background:var(--ink);color:#fff;border-top:1px solid var(--ink-2);padding:72px 0}
+    .art-cta-inner{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+    .art-cta h3{font-size:clamp(26px,3vw,38px);font-weight:500;color:#fff;max-width:560px}
+    .art-cta h3 em{color:var(--gold-soft)}
+    .art-cta-links{display:flex;flex-direction:column;gap:14px;align-items:flex-end}
+    .btn-primary{background:#fff;color:var(--ink);padding:16px 28px;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;display:inline-flex;align-items:center;gap:10px;transition:background .2s}
+    .btn-primary:hover{background:var(--bg-2)}
+    .btn-back{color:rgba(255,255,255,.7);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:2px}
+    .btn-back:hover{color:#fff}
+
+    /* FOOTER */
+    footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px}
+    .footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--line)}
+    .footer-brand .brand-name{font-size:28px;margin-bottom:16px}
+    .footer-brand p{font-size:13.5px;line-height:1.65;color:var(--muted);max-width:280px}
+    .footer-col h4{font-family:"Montserrat",sans-serif;font-size:10.5px;letter-spacing:0.22em;text-transform:uppercase;font-weight:600;color:var(--ink);margin-bottom:18px}
+    .footer-col ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px}
+    .footer-col a{font-size:13.5px;color:var(--body);transition:color .2s}
+    .footer-col a:hover{color:var(--ink)}
+    .footer-col li:not(:has(a)){font-size:13.5px;color:var(--muted)}
+    .footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:12px;color:var(--muted);flex-wrap:wrap;gap:12px}
+    .footer-bottom .legal{display:flex;gap:24px}
+    .footer-bottom a{color:var(--muted);transition:color .2s}
+    .footer-bottom a:hover{color:var(--ink)}
+
+    @media(max-width:980px){
+      .footer-grid{grid-template-columns:1fr 1fr}
+      .nav-toggle{display:flex;position:absolute;right:24px;top:50%;transform:translateY(-50%)}
+      .nav-inner{grid-template-columns:1fr;padding:20px 80px 20px 24px;position:relative;gap:0}
+      .brand{min-width:0}
+      .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ink);border-top:1px solid rgba(255,255,255,.12);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;padding:8px 24px 24px}
+      .nav-links.open{display:flex}
+      .nav-links a{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:15px}
+      .nav-links a:last-child{border-bottom:none}
+      .nav-cta{margin-top:12px;text-align:center;padding:18px 22px}
+      .serv-grid{grid-template-columns:1fr}
+      .art-cta-inner{flex-direction:column;align-items:flex-start}
+      .art-cta-links{align-items:flex-start}
+    }
+    @media(max-width:680px){
+      body{font-size:15px}
+      .container{padding:0 20px}
+      .topbar{display:none}
+      .brand-name{font-size:clamp(20px,6vw,34px);white-space:nowrap}
+      .art-header{padding:44px 0 52px}
+      .art-header h1{font-size:30px}
+      .art-lede{font-size:15px}
+      .pata{padding:52px 0}
+      .pata-head{gap:16px}
+      .footer-grid{grid-template-columns:1fr}
+      .footer-bottom{flex-direction:column;align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span>+34 934 572 123</span>
+        <span>L–V 9–13:30 · L–J 15:30–19:30</span>
+        <span>abogados@carrizosayalmazor.com</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="main">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">
+        <div class="brand-name">
+          Carrizosa y Almazor
+          <small>Abogados&nbsp;&nbsp;·&nbsp;&nbsp;Barcelona</small>
+        </div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html#despacho">El despacho</a>
+        <a href="index.html#areas">Áreas</a>
+        <a href="index.html#socios">Los socios</a>
+        <a href="index.html#metodo">Método</a>
+        <a href="index.html#insights">Insights</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#contacto" class="nav-cta">Pedir cita</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="art-header">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">Inicio</a>
+        <span>&#8250;</span>
+        <a href="index.html#areas">Áreas de práctica</a>
+        <span>&#8250;</span>
+        <span>Derecho de Empresa</span>
+      </div>
+      <div class="art-meta">
+        <span class="art-cat">Empresa</span>
+      </div>
+      <h1>Derecho de <em>Empresa</em></h1>
+      <p class="art-lede">Acompañamos a la empresa en las tres etapas donde más se juega: cuando ordena su gobierno y previene el conflicto, cuando protege su responsabilidad penal, y cuando afronta el relevo generacional. Un mismo equipo, con el perfil litigante del despacho detrás de cada consejo.</p>
+    </div>
+  </header>
+
+  <!-- PATA NAV -->
+  <div class="pata-nav">
+    <div class="pata-nav-inner">
+      <a href="#societario"><span>1</span>Societario y contencioso</a>
+      <a href="#compliance"><span>2</span>Compliance penal</a>
+      <a href="#familiar"><span>3</span>Empresa familiar</a>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <section class="emp-intro">
+    <div class="container">
+      <span class="eyebrow">Catálogo de servicios</span>
+      <h2>El área de empresa, ordenada en <em>tres patas.</em></h2>
+      <p>No son compartimentos estancos: se alimentan entre sí. El pacto de socios y el protocolo familiar previenen los conflictos que, si estallan, se litigan en la pata societaria. El compliance protege a los administradores cuya responsabilidad se reclama. Y la empresa familiar conecta con la especialidad del despacho en sucesiones. Un mismo cliente puede recorrer las tres a lo largo de su relación con nosotros.</p>
+    </div>
+  </section>
+
+  <!-- PATA 1 -->
+  <section class="pata" id="societario">
+    <div class="container">
+      <div class="pata-head">
+        <div class="pata-num">1</div>
+        <div class="pata-titles">
+          <h3>Societario y contencioso</h3>
+          <p>El terreno del litigio mercantil y la contratación. Aquí aprovechamos el perfil litigante del despacho, en los asuntos de mayor cuantía.</p>
+        </div>
+      </div>
+      <div class="serv-grid">
+
+        <div class="serv">
+          <h4>Impugnación de acuerdos sociales</h4>
+          <p class="serv-what">Ataque o defensa de acuerdos de junta o consejo contrarios a la ley, a los estatutos o al interés social, incluido el abuso de la mayoría.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Demanda o contestación de impugnación, con la estrategia procesal y, en su caso, la medida cautelar de suspensión del acuerdo.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Conflictos entre socios</h4>
+          <p class="serv-what">Gestión de la disputa entre quienes comparten una sociedad: bloqueo, ejercicio de derechos de minoría y uso desleal de la condición de socio.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Estrategia de conflicto, ejercicio del derecho de información y las acciones de separación o exclusión de socios que procedan.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Responsabilidad de administradores</h4>
+          <p class="serv-what">Reclamación frente al administrador por los daños causados a la sociedad, a los socios o a terceros, y por las deudas sociales cuando no promovió la disolución debiendo hacerlo.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>La acción que corresponda: social, individual o la reclamación de deudas del art. 367 LSC contra el patrimonio personal del administrador.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Defensa de administradores</h4>
+          <p class="serv-what">Defensa del administrador demandado o investigado, apoyada en la regla de la discrecionalidad empresarial y en la documentación del proceso de decisión.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Estrategia de defensa civil y, cuando haya vertiente penal, coordinación con la defensa penal de la empresa.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Contratación mercantil</h4>
+          <p class="serv-what">Redacción, negociación y revisión de los contratos entre empresas, a medida del cliente.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Contratos de compraventa, distribución, agencia, suministro o servicios; condiciones generales y acuerdos de confidencialidad.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Pactos de socios</h4>
+          <p class="serv-what">Diseño del acuerdo que ordena las relaciones entre los socios y previene el conflicto futuro.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Pacto de socios con reglas de gobierno, transmisión de participaciones, mayorías, salida y resolución de conflictos, con su blindaje.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Negociación extrajudicial de conflictos</h4>
+          <p class="serv-what">Resolución del conflicto societario antes o al margen del pleito, por vía negociada, por rapidez, coste o para preservar la relación.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Estrategia de negociación, acuerdos transaccionales y su formalización con eficacia jurídica.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PATA 2 -->
+  <section class="pata" id="compliance">
+    <div class="container">
+      <div class="pata-head">
+        <div class="pata-num">2</div>
+        <div class="pata-titles">
+          <h3>Compliance penal</h3>
+          <p>Prevención de la responsabilidad penal de la empresa y de sus administradores, y defensa cuando el modelo se pone a prueba. Se calibra por sector; la estructura que exige es asumible.</p>
+        </div>
+      </div>
+      <div class="serv-grid">
+
+        <div class="serv">
+          <h4>Modelo de prevención de delitos</h4>
+          <p class="serv-what">Diseño e implantación del sistema que permite a la empresa quedar exenta o atenuar su responsabilidad penal (art. 31 bis CP).</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>El modelo completo: mapa de riesgos, protocolos de las áreas sensibles, régimen disciplinario y sistema de verificación periódica.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Mapa de riesgos penales</h4>
+          <p class="serv-what">Identificación de los delitos que de verdad amenazan a esa empresa concreta y de las actividades donde pueden cometerse.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Informe de riesgos penales calibrado al sector y a la operativa real de la empresa.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Código ético y protocolos</h4>
+          <p class="serv-what">Las reglas de conducta que asume la organización y los protocolos de las áreas de riesgo (pagos, regalos, intermediarios, relación con lo público).</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Código ético o de conducta y los protocolos específicos, con las conductas prohibidas que firman los empleados de zonas de riesgo.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Canal de denuncias (Ley 2/2023)</h4>
+          <p class="serv-what">Implantación del sistema interno de información obligatorio para empresas de 50 o más trabajadores (y de cierto volumen).</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>El canal con todos sus requisitos: confidencialidad, denuncia anónima, acuse en plazo y procedimiento de gestión de la denuncia.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Formación a directivos y empleados</h4>
+          <p class="serv-what">Formación sobre el modelo y las conductas de riesgo, con constancia de que se ha recibido.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Sesiones formativas a medida del sector y registro documental de asistencia, parte de la eficacia del modelo.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Compliance officer externo y mantenimiento</h4>
+          <p class="serv-what">Asunción o apoyo externo de la función de supervisión del modelo, y su revisión y actualización periódica.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Ejercicio de la función de cumplimiento externa o de apoyo al responsable interno, con revisión anual del modelo.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Defensa penal de empresa y administradores</h4>
+          <p class="serv-what">Defensa jurídica cuando se abre una investigación o un procedimiento penal contra la empresa o sus directivos.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Estrategia de defensa, preservación de evidencias y acreditación del modelo que existía y se aplicaba antes del hecho.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PATA 3 -->
+  <section class="pata" id="familiar">
+    <div class="container">
+      <div class="pata-head">
+        <div class="pata-num">3</div>
+        <div class="pata-titles">
+          <h3>Empresa familiar</h3>
+          <p>El punto donde se cruzan las sucesiones y el societario. Ordena la relación entre familia, propiedad y empresa para que el negocio sobreviva al relevo generacional.</p>
+        </div>
+      </div>
+      <div class="serv-grid">
+
+        <div class="serv">
+          <h4>Protocolo familiar</h4>
+          <p class="serv-what">El pacto marco que ordena las relaciones entre familia, propiedad y empresa, y previene el conflicto familiar que suele acabar con la empresa.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>El protocolo redactado a medida y blindado (traslado a estatutos de lo posible, cláusulas penales, prestación accesoria) y, si se desea, su publicidad registral.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Diseño de órganos de gobierno</h4>
+          <p class="serv-what">Separación y diseño del gobierno de la empresa (consejo profesionalizado, consejeros independientes) y del gobierno de la familia (consejo de familia, asamblea familiar).</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>La estructura de órganos con sus reglas de composición, competencias y funcionamiento, en estatutos y en el protocolo.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Órganos de información para socios no gestores</h4>
+          <p class="serv-what">Cauce de voz e información para los socios de la familia que no forman parte del consejo de administración: el conflicto más común.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Comité consultivo estatutario y/o consejo de familia con derecho de información reglado, que da voz sin dar el mando operativo.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Mecanismos de resolución de conflictos</h4>
+          <p class="serv-what">Previsión, dentro del protocolo y los estatutos, de qué se hace cuando el conflicto familiar estalla, sin que paralice o destruya la empresa.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Cláusulas de mediación, arbitraje societario y desbloqueo (compra/venta forzosa, salida pactada), y el litigio si es inevitable.</p>
+        </div>
+
+        <div class="serv">
+          <h4>Pactos de reparto y política de dividendos</h4>
+          <p class="serv-what">Reglas estables de reparto que separan la retribución del capital (dividendo) de la retribución del trabajo (salario).</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Política de dividendos pactada, reglas para socios trabajadores y prevención del derecho de separación por no reparto (art. 348 bis LSC).</p>
+        </div>
+
+        <div class="serv">
+          <h4>Sucesión y relevo generacional</h4>
+          <p class="serv-what">Ordenación jurídica del traspaso del control y la propiedad a la siguiente generación, planificada en vida.</p>
+          <p class="serv-deliver"><strong>Entregamos</strong>Los instrumentos civiles que procedan: pacto sucesorio catalán, testamento, donación de participaciones con reserva de control o usufructo.</p>
+        </div>
+
+      </div>
+
+      <div class="nota-fiscal">
+        <span class="nf-label">Nota sobre la parte fiscal</span>
+        <p>Diseñamos el gobierno, los pactos y los instrumentos civiles de la empresa familiar. La optimización fiscal de la transmisión (reducción del 95% en Sucesiones y Donaciones, exención en Patrimonio, estructuras de holding) se coordina y valida con un asesor fiscal especializado, donde el error es catastrófico e irreversible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="emp-cierre">
+    <div class="container">
+      <h2>Cómo encajan las <em>tres patas.</em></h2>
+      <p>Prevenir y litigar no son mundos separados. El pacto de socios y el protocolo familiar previenen los conflictos que, si estallan, se litigan en la pata societaria. El compliance protege a los administradores cuya responsabilidad se reclama en esa misma vía. Y la empresa familiar conecta con el nicho de sucesiones que es especialidad del despacho.</p>
+      <p>Es lo que convierte un encargo puntual en una relación duradera: un mismo cliente puede recorrer las tres patas a lo largo de su vida empresarial, siempre con el mismo equipo detrás.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="art-cta">
+    <div class="container">
+      <div class="art-cta-inner">
+        <h3>¿Su empresa afronta un conflicto, un riesgo penal o el <em>relevo generacional</em>?</h3>
+        <div class="art-cta-links">
+          <a href="index.html#contacto" class="btn-primary">Hablar con un abogado &#8594;</a>
+          <a href="index.html#areas" class="btn-back">&#8592; Volver a áreas de práctica</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-name">Carrizosa &amp; Almazor <small>Abogados</small></div>
+          <p>Despacho de abogados en Barcelona desde 1989. Derecho civil, penal, laboral, sucesorio y de empresa. Atención directa de los socios.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Áreas de práctica</h4>
+          <ul>
+            <li><a href="index.html#areas">Derecho Civil</a></li>
+            <li><a href="index.html#areas">Derecho Penal</a></li>
+            <li><a href="index.html#areas">Derecho Laboral</a></li>
+            <li><a href="index.html#areas">Herencias y Sucesiones</a></li>
+            <li><a href="derecho-empresa.html">Derecho de Empresa</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>El despacho</h4>
+          <ul>
+            <li><a href="index.html#despacho">Quiénes somos</a></li>
+            <li><a href="notas/">Notas jurídicas</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <li>abogados@carrizosayalmazor.com</li>
+            <li>Lunes a viernes, 9:00&ndash;19:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Carrizosa y Almazor Abogados. Todos los derechos reservados.</span>
+        <div class="legal">
+          <a href="privacidad.html">Política de privacidad</a>
+          <a href="condiciones.html">Aviso legal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+  </script>
+
+</body>
+</html>
