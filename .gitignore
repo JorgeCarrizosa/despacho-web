@@ -6,3 +6,6 @@ _standby/
 *.bak
 *.bak-*
 *.bak_*
+
+# Nota interna de operacion (Claude) - NO publicar en la web
+CLAUDE.md
