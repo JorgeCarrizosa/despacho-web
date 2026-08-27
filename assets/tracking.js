@@ -15,8 +15,8 @@
    la etiqueta de Google Ads sigue funcionando igual que hasta ahora.  */
 
 window.CYA_MEDICION = {
-  ga4:     '',   /* <-- pegar aqui el ID de GA4, formato  G-XXXXXXXXXX  */
-  clarity: ''    /* <-- pegar aqui el ID de Microsoft Clarity (10 caracteres) */
+  ga4:     'G-V75SJGHLB6',   /* GA4 - propiedad "Carrizosa y Almazor", flujo "Web principal" */
+  clarity: 'y91ikd7crb'      /* Microsoft Clarity - proyecto "Carrizosa y Almazor" */
 };
 
 window.dataLayer = window.dataLayer || [];
