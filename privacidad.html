@@ -345,11 +345,10 @@
           <li><a href="#s4">Destinatarios y subencargados</a></li>
           <li><a href="#s5">Transferencias internacionales</a></li>
           <li><a href="#s6">Plazos de conservación</a></li>
-          <li><a href="#s7">Uso de IA y decisiones automatizadas</a></li>
-          <li><a href="#s8">Derechos de la persona interesada</a></li>
-          <li><a href="#s9">Cookies y rastreadores</a></li>
-          <li><a href="#s10">Seguridad y secreto profesional</a></li>
-          <li><a href="#s11">Modificaciones</a></li>
+          <li><a href="#s7">Derechos de la persona interesada</a></li>
+          <li><a href="#s8">Cookies y rastreadores</a></li>
+          <li><a href="#s9">Seguridad y secreto profesional</a></li>
+          <li><a href="#s10">Modificaciones</a></li>
         </ol>
       </aside>
 
@@ -395,7 +394,7 @@
           <p>Una vez aceptado el encargo profesional, tratamos los datos personales y documentales necesarios para la prestación del servicio jurídico: datos identificativos, económicos, familiares, patrimoniales, sanitarios, penales o de cualquier otra naturaleza que resulten relevantes para el caso. Estos datos se incorporan al expediente y, en su caso, son procesados por las herramientas internas del despacho descritas en la <a href="#s4">sección IV</a>.</p>
 
           <h3>4. Datos de navegación</h3>
-          <p>Al navegar por la web se generan datos técnicos (dirección IP, tipo de navegador, páginas visitadas) que son tratados con fines estadísticos y de seguridad. Véase la <a href="#s9">sección IX</a> sobre cookies.</p>
+          <p>Al navegar por la web se generan datos técnicos (dirección IP, tipo de navegador, páginas visitadas) que son tratados con fines estadísticos y de seguridad. Véase la <a href="#s8">sección VIII</a> sobre cookies.</p>
         </section>
 
         <section id="s3">
@@ -415,7 +414,7 @@
               <td>Ejecución del contrato o medidas precontractuales (art. 6.1.b RGPD).</td>
             </tr>
             <tr>
-              <td>Asistencia mediante inteligencia artificial en la elaboración de borradores de escritos<span class="art">Claude · Anthropic</span></td>
+              <td>Clasificación de los correos entrantes y asistencia interna en su tramitación (agenda, archivado y facturación)<span class="art">Claude · Anthropic</span></td>
               <td>Interés legítimo del responsable en mejorar la eficiencia del servicio jurídico (art. 6.1.f RGPD), debidamente ponderado, y consentimiento informado cuando proceda.</td>
             </tr>
             <tr>
@@ -440,8 +439,14 @@
             <tbody>
               <tr>
                 <td class="provider">Anthropic, PBC<small>Claude API · IA generativa</small></td>
-                <td>Procesa el contenido de correos y documentos del expediente para generar borradores de escritos que el abogado revisa antes de cualquier uso.</td>
-                <td>Texto del correo o documento, datos identificativos contenidos en el mismo. Sin acceso humano del proveedor por defecto.</td>
+                <td>Clasificación de los correos entrantes del despacho y asistencia interna en su tramitación: extracción de eventos y tareas para la agenda, archivado de la documentación en el gestor de expedientes y apoyo a la facturación. A petición expresa de un letrado, elaboración de borradores que él revisa y firma.</td>
+                <td>Asunto, remitente, fecha y contenido de los correos, y los documentos que se archivan. Sin acceso humano del proveedor por defecto.</td>
+                <td class="country">EE. UU. <span class="pill warn">Transferencia internacional</span></td>
+              </tr>
+              <tr>
+                <td class="provider">Groq, Inc.<small>Whisper API · transcripción</small></td>
+                <td>Transcribe a texto las notas de voz que el personal del despacho envía al asistente interno.</td>
+                <td>Grabaciones de voz del personal del despacho y su transcripción, que pueden referirse a asuntos de clientes.</td>
                 <td class="country">EE. UU. <span class="pill warn">Transferencia internacional</span></td>
               </tr>
               <tr>
@@ -488,7 +493,7 @@
 
         <section id="s5">
           <h2><span class="num">V.</span>Transferencias internacionales de datos</h2>
-          <p>Los proveedores marcados como <em>transferencia internacional</em> (Anthropic, Google y Microsoft) tienen su matriz en los Estados Unidos, aunque la contratación de los servicios de medición se realiza con sus filiales irlandesas. Estas transferencias se amparan en alguno de los mecanismos previstos en el Capítulo V del RGPD:</p>
+          <p>Los proveedores marcados como <em>transferencia internacional</em> (Anthropic, Groq, Google y Microsoft) tienen su matriz en los Estados Unidos, aunque la contratación de los servicios de medición se realiza con sus filiales irlandesas. Estas transferencias se amparan en alguno de los mecanismos previstos en el Capítulo V del RGPD:</p>
           <ul>
             <li><strong>Marco de Privacidad de Datos UE-EE. UU.</strong> (<em>EU-US Data Privacy Framework</em>) cuando el proveedor está certificado y dicha certificación se encuentra en vigor.</li>
             <li><strong>Cláusulas Contractuales Tipo</strong> aprobadas por la Comisión Europea (Decisión de Ejecución 2021/914), suscritas con cada proveedor.</li>
@@ -512,19 +517,7 @@
         </section>
 
         <section id="s7">
-          <h2><span class="num">VII.</span>Uso de inteligencia artificial y decisiones automatizadas</h2>
-          <p>El despacho utiliza herramientas de inteligencia artificial generativa — concretamente la API de <strong>Claude (Anthropic)</strong> — como auxilio técnico en la elaboración de borradores de correos, escritos y dictámenes. Por la importancia que este punto tiene para la confianza de nuestros clientes, queremos dejarlo claro de forma explícita:</p>
-          <div class="callout">
-            <div class="cl-label">Compromiso del despacho · IA como herramienta auxiliar</div>
-            <p>La inteligencia artificial es una <strong>herramienta auxiliar del abogado</strong>, no un sustituto de su criterio jurídico ni de su responsabilidad profesional.</p>
-            <p>Cualquier texto, dictamen, escrito o comunicación generada con asistencia de IA es <strong>siempre revisada, validada y firmada por un letrado del despacho</strong> antes de su envío o presentación. El sistema entrega los borradores al abogado como propuesta interna; nada se remite a clientes, contrapartes, tribunales o terceros de forma autónoma.</p>
-            <p>En consecuencia, <strong>no se adoptan decisiones automatizadas, incluida la elaboración de perfiles, que produzcan efectos jurídicos en el interesado o le afecten significativamente</strong>, en los términos del artículo 22 del RGPD.</p>
-          </div>
-          <p>Si lo desea, puede solicitar expresamente que sus datos no sean procesados por estas herramientas de IA, indicándolo por escrito; en tal caso, su expediente se tramitará exclusivamente mediante medios convencionales.</p>
-        </section>
-
-        <section id="s8">
-          <h2><span class="num">VIII.</span>Derechos de la persona interesada</h2>
+          <h2><span class="num">VII.</span>Derechos de la persona interesada</h2>
           <p>Como titular de los datos, le asisten los siguientes derechos reconocidos por el RGPD y la LOPDGDD:</p>
           <ul>
             <li><strong>Acceso</strong> — conocer qué datos suyos tratamos y obtener copia de los mismos.</li>
@@ -533,15 +526,15 @@
             <li><strong>Limitación</strong> — pedir que sus datos se conserven pero no se traten mientras se resuelve una controversia.</li>
             <li><strong>Oposición</strong> — oponerse a tratamientos basados en interés legítimo.</li>
             <li><strong>Portabilidad</strong> — recibir sus datos en un formato estructurado, de uso común y lectura mecánica.</li>
-            <li><strong>No ser objeto de decisiones automatizadas</strong> — ya descrito en la sección anterior.</li>
+            <li><strong>No ser objeto de decisiones automatizadas</strong> — el despacho no adopta decisiones automatizadas, incluida la elaboración de perfiles, que produzcan efectos jurídicos sobre el interesado o le afecten significativamente, en los términos del artículo 22 del RGPD.</li>
             <li><strong>Retirada del consentimiento</strong> — en cualquier momento, sin que ello afecte a la licitud del tratamiento previo.</li>
           </ul>
           <p>Para ejercer estos derechos puede dirigirse a <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a> indicando «Protección de Datos» en el asunto y acompañando copia de un documento que acredite su identidad. Responderemos en el plazo máximo de un mes.</p>
           <p>Si considera que el tratamiento de sus datos no se ajusta a la normativa, también puede presentar una reclamación ante la <strong>Agencia Española de Protección de Datos</strong> (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>) o, en su caso, ante la <strong>Autoritat Catalana de Protecció de Dades</strong> (<a href="https://apdcat.gencat.cat" target="_blank" rel="noopener">apdcat.gencat.cat</a>).</p>
         </section>
 
-        <section id="s9">
-          <h2><span class="num">IX.</span>Cookies y rastreadores</h2>
+        <section id="s8">
+          <h2><span class="num">VIII.</span>Cookies y rastreadores</h2>
           <p>Esta web utiliza cookies propias y de terceros con las siguientes finalidades:</p>
           <ul>
             <li><strong>Cookies técnicas</strong> — necesarias para el funcionamiento del sitio y para recordar la elección que usted haga sobre las cookies. No requieren consentimiento.</li>
@@ -552,14 +545,14 @@
           <p>Al acceder por primera vez a la web aparece un <strong>banner de consentimiento</strong> con dos opciones, <em>Aceptar</em> y <em>Rechazar</em>, que se aplican de forma conjunta a todas las cookies que no sean técnicas. Mientras usted no acepte, ninguna de ellas se activa. Puede revocar o modificar su elección en cualquier momento desde el enlace <em>«Cookies»</em> del pie de página; su elección se conserva durante doce meses.</p>
         </section>
 
-        <section id="s10">
-          <h2><span class="num">X.</span>Seguridad y secreto profesional</h2>
+        <section id="s9">
+          <h2><span class="num">IX.</span>Seguridad y secreto profesional</h2>
           <p>Aplicamos medidas técnicas y organizativas apropiadas al riesgo: cifrado en tránsito y en reposo cuando es factible, control de accesos por roles, copias de seguridad cifradas, segregación de entornos, formación interna y revisión periódica de proveedores.</p>
           <p>Con independencia del régimen de protección de datos, todas las comunicaciones y documentación intercambiadas con el despacho están cubiertas por el <strong>secreto profesional</strong> del abogado (art. 542.3 LOPJ, Estatuto General de la Abogacía y Código Deontológico de la Abogacía Española), que prevalece y refuerza las garantías de confidencialidad.</p>
         </section>
 
-        <section id="s11">
-          <h2><span class="num">XI.</span>Modificaciones de esta política</h2>
+        <section id="s10">
+          <h2><span class="num">X.</span>Modificaciones de esta política</h2>
           <p>El despacho podrá modificar esta política de privacidad para adaptarla a cambios normativos, jurisprudenciales o en la organización interna. Las modificaciones se publicarán en esta misma página, indicando la fecha de actualización. Si los cambios son sustanciales y afectan a tratamientos en curso, se lo comunicaremos por los canales habituales.</p>
 
           <div class="legal-contact">
