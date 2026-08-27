@@ -1,7 +1,23 @@
-/* Tracking compartido — Google Ads (gtag) + Consent Mode v2 + banner de cookies.
-   Lo usan las páginas interiores; index.html lleva su propia copia inline.
-   Cargar con <script src="/assets/tracking.js"></script> en el <head> (síncrono,
-   para que el consent default quede fijado antes de que cargue gtag.js). */
+/* Tracking compartido de TODO el sitio carrizosayalmazor.com
+   (web principal + /sucesiones). Google Ads + GA4 + Microsoft Clarity,
+   los tres bajo Consent Mode v2 y el banner de cookies.
+
+   Cargar en el <head> de cada pagina, SIN async:
+       <script src="/assets/tracking.js"></script>
+   Tiene que ser sincrono para que el consent por defecto (denegado) quede
+   fijado ANTES de que cargue gtag.js.
+
+   El banner y su CSS se inyectan solos si la pagina no los trae, asi que
+   este fichero funciona tal cual en cualquier pagina del sitio.
+   -------------------------------------------------------------------------
+   PARA ACTIVAR LA MEDICION: rellenar los dos IDs de aqui debajo.
+   Mientras esten vacios, GA4 y Clarity NO se cargan y no pasa nada:
+   la etiqueta de Google Ads sigue funcionando igual que hasta ahora.  */
+
+window.CYA_MEDICION = {
+  ga4:     '',   /* <-- pegar aqui el ID de GA4, formato  G-XXXXXXXXXX  */
+  clarity: ''    /* <-- pegar aqui el ID de Microsoft Clarity (10 caracteres) */
+};
 
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -24,6 +40,26 @@ gtag('set', 'url_passthrough', true);
 })();
 gtag('js', new Date());
 gtag('config', 'AW-17531743025');
+
+/* GA4: se configura sobre el mismo gtag. Consent Mode se encarga de que no
+   escriba cookies mientras el visitante no acepte. */
+if (window.CYA_MEDICION.ga4) {
+  gtag('config', window.CYA_MEDICION.ga4);
+}
+
+/* Clarity graba sesiones (dato personal), asi que NO se carga hasta que el
+   visitante acepta. Se llama desde cyaConsent.guardar() y al cargar si ya
+   habia aceptado antes. */
+window.cyaCargarClarity = function(){
+  var id = window.CYA_MEDICION.clarity;
+  if (!id || window.__cyaClarityCargado) return;
+  window.__cyaClarityCargado = true;
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, 'clarity', 'script', id);
+};
 
 window.CYA_ADS = {
   id: 'AW-17531743025',
@@ -56,6 +92,7 @@ window.cyaConsent = {
         'ad_personalization': 'granted',
         'analytics_storage': 'granted'
       });
+      window.cyaCargarClarity();
     }
   }
 };
@@ -65,9 +102,10 @@ window.cyaConsent = {
 })();
 
 document.addEventListener('DOMContentLoaded', function(){
-  // Estilos del banner autocontenidos: las guias interiores llevan su CSS inline
-  // y no cargan estilo.css, asi que sin esto el banner sale sin estilo y el
-  // Aceptar/Rechazar no lo oculta (quitar .visible no hace nada sin display:none).
+  // Estilos del banner autocontenidos: las paginas interiores llevan su CSS
+  // inline y no cargan estilo.css, asi que sin esto el banner sale sin estilo
+  // y el Aceptar/Rechazar no lo oculta (quitar .visible no hace nada sin
+  // display:none).
   if (!document.getElementById('cya-cookie-css')) {
     var css = document.createElement('style');
     css.id = 'cya-cookie-css';
@@ -83,13 +121,13 @@ document.addEventListener('DOMContentLoaded', function(){
       '.cookie-btn.aceptar{background:#c9a35a;border-color:#c9a35a;color:#040465}' +
       '.cookie-btn.rechazar{background:transparent;color:#fff}' +
       '@media(max-width:680px){.cookie-banner{padding:16px 22px}.cookie-inner{gap:14px}.cookie-actions{width:100%}.cookie-btn{flex:1;text-align:center;padding:14px 10px}}' +
-      /* Con el banner abierto (z-index 100 > 90), el FAB de WhatsApp quedaba tapado
-         justo en la primera visita — la del clic de Ads. Se eleva mientras dure. */
+      /* Con el banner abierto (z-index 100 > 90), el FAB de WhatsApp quedaba
+         tapado justo en la primera visita. Se eleva mientras dure. */
       'body.cookie-abierta .wa-fab{bottom:130px}' +
       '@media(max-width:680px){body.cookie-abierta .wa-fab{bottom:205px}}';
     document.head.appendChild(css);
   }
-  // Banner de cookies (mismo markup y clases que index.html)
+  // Banner de cookies (mismo markup y clases que las paginas que lo traen)
   var banner = document.getElementById('cookie-banner');
   if (!banner) {
     banner = document.createElement('div');
@@ -99,9 +137,9 @@ document.addEventListener('DOMContentLoaded', function(){
     banner.setAttribute('aria-label', 'Aviso de cookies');
     banner.innerHTML =
       '<div class="cookie-inner">' +
-      '<p class="cookie-text">Utilizamos cookies de Google Ads únicamente para medir la eficacia de nuestra publicidad. ' +
-      'No se activan si usted no lo acepta, y puede cambiar su elección en cualquier momento desde el enlace «Cookies» del pie de página. ' +
-      '<a href="https://www.carrizosayalmazor.com/privacidad.html" target="_blank" rel="noopener">Más información</a></p>' +
+      '<p class="cookie-text">Utilizamos cookies propias y de terceros para medir la audiencia del sitio y la eficacia de nuestra publicidad. ' +
+      'No se activan si usted no lo acepta, y puede cambiar su elecci&oacute;n en cualquier momento desde el enlace &laquo;Cookies&raquo; del pie de p&aacute;gina. ' +
+      '<a href="/privacidad.html" target="_blank" rel="noopener">M&aacute;s informaci&oacute;n</a></p>' +
       '<div class="cookie-actions">' +
       '<button class="cookie-btn rechazar" id="cookie-rechazar">Rechazar</button>' +
       '<button class="cookie-btn aceptar" id="cookie-aceptar">Aceptar</button>' +
@@ -122,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function(){
   window.cyaCookiePrefs = abrir;
   if (window.cyaConsent.leer() === null) abrir();
 
-  // Conversiones por clic: teléfono y WhatsApp
+  // Conversiones por clic: telefono y WhatsApp
   document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
     a.addEventListener('click', function(){ cyaConversion('telefono'); });
   });

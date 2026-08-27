@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Carrizosa y Almazor — Abogados de Herencias y Sucesiones · Barcelona</title>
 <meta name="description" content="Abogados especialistas en herencias y sucesiones en Barcelona. Tramitación completa, Impuesto de Sucesiones de Cataluña, conflictos entre herederos. Primera consulta gratuita.">
-<link rel="canonical" href="https://sucesiones.carrizosayalmazor.com/">
-<link rel="alternate" hreflang="es" href="https://sucesiones.carrizosayalmazor.com/">
-<link rel="alternate" hreflang="ca" href="https://sucesiones.carrizosayalmazor.com/ca/">
+<link rel="canonical" href="https://carrizosayalmazor.com/sucesiones/">
+<link rel="alternate" hreflang="es" href="https://carrizosayalmazor.com/sucesiones/">
+<link rel="alternate" hreflang="ca" href="https://carrizosayalmazor.com/sucesiones/ca/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Carrizosa y Almazor Abogados">
 <meta property="og:title" content="Abogados de Herencias y Sucesiones en Barcelona — Carrizosa y Almazor">
 <meta property="og:description" content="Especialistas en derecho sucesorio catalán. Tramitación de herencias, Impuesto de Sucesiones y conflictos entre herederos. Primera consulta gratuita.">
-<meta property="og:url" content="https://sucesiones.carrizosayalmazor.com/">
+<meta property="og:url" content="https://carrizosayalmazor.com/sucesiones/">
 
 <!-- Datos estructurados: despacho -->
 <script type="application/ld+json">
@@ -24,7 +24,7 @@
   "@type": "LegalService",
   "name": "Carrizosa y Almazor Abogados",
   "description": "Despacho de abogados especializado en derecho de sucesiones en Cataluña: testamentos, tramitación de herencias, Impuesto de Sucesiones y conflictos entre herederos.",
-  "url": "https://sucesiones.carrizosayalmazor.com/",
+  "url": "https://carrizosayalmazor.com/sucesiones/",
   "telephone": "+34934572123",
   "email": "abogados@carrizosayalmazor.com",
   "address": {
@@ -38,7 +38,7 @@
   "geo": { "@type": "GeoCoordinates", "latitude": 41.39588, "longitude": 2.1627 },
   "areaServed": "Provincia de Barcelona",
   "knowsLanguage": ["es", "ca"],
-  "sameAs": ["https://www.carrizosayalmazor.com/"]
+  "sameAs": ["/"]
 }
 </script>
 
@@ -87,75 +87,10 @@
 }
 </script>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       TRACKING — Etiqueta de Google (gtag.js) directa, sin GTM
-       Cuenta Google Ads: AW-17531743025
-       Etiquetas de conversión (Google Ads → Objetivos → Conversiones):
-         formulario → "Envío de formulario para clientes potenciales"
-         telefono   → "Clic teléfono landing"
-         whatsapp   → "Clic WhatsApp landing"
-       (etiqueta vacía en CYA_ADS.labels = esa conversión no se dispara)
-  ═══════════════════════════════════════════════════════════════ -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    /* Consent Mode v2 (RGPD/EEE): todo denegado por defecto.
-       Solo se activa si el visitante acepta en el banner de cookies. */
-    gtag('consent', 'default', {
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied',
-      'analytics_storage': 'denied',
-      'wait_for_update': 500
-    });
-    gtag('set', 'ads_data_redaction', true);
-    gtag('set', 'url_passthrough', true);
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17531743025"></script>
-  <script>
-    gtag('js', new Date());
-    gtag('config', 'AW-17531743025');
-
-    window.CYA_ADS = {
-      id: 'AW-17531743025',
-      labels: {
-        formulario: '-y4FCJbXs6QcELHW5KdB',
-        telefono:   'fgGVCOjVicocELHW5KdB',
-        whatsapp:   'cpHyCOvVicocELHW5KdB'
-      }
-    };
-    window.cyaConversion = function(tipo){
-      var etiqueta = window.CYA_ADS.labels[tipo];
-      if(!etiqueta) return;
-      gtag('event','conversion',{'send_to': window.CYA_ADS.id + '/' + etiqueta});
-    };
-
-    /* Consentimiento: la elección se guarda 12 meses en localStorage */
-    window.cyaConsent = {
-      leer: function(){
-        try {
-          var c = JSON.parse(localStorage.getItem('cya_consent') || 'null');
-          if (c && (Date.now() - c.ts) < 365*24*60*60*1000) return c;
-        } catch(e) {}
-        return null;
-      },
-      guardar: function(acepta){
-        try { localStorage.setItem('cya_consent', JSON.stringify({granted: acepta, ts: Date.now()})); } catch(e) {}
-        if (acepta) {
-          gtag('consent', 'update', {
-            'ad_storage': 'granted',
-            'ad_user_data': 'granted',
-            'ad_personalization': 'granted',
-            'analytics_storage': 'granted'
-          });
-        }
-      }
-    };
-    (function(){
-      var c = window.cyaConsent.leer();
-      if (c && c.granted) window.cyaConsent.guardar(true);
-    })();
-  </script>
+  <!-- Tracking del sitio: Google Ads + GA4 + Clarity bajo Consent Mode v2.
+       Fichero compartido por toda la web (/assets/tracking.js); inyecta el
+       banner de cookies y engancha las conversiones por si solo. -->
+  <script src="/assets/tracking.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1127,8 +1062,8 @@
         <span>Primera consulta gratuita</span>
       </div>
       <div class="topbar-right">
-        <a href="/ca/">CAT</a>
-        <a href="/" class="is-active">ES</a>
+        <a href="/sucesiones/ca/">CAT</a>
+        <a href="/sucesiones/" class="is-active">ES</a>
       </div>
     </div>
   </div>
@@ -1467,7 +1402,7 @@
       <div class="faq-list">
         <details class="qa" open>
           <summary>¿Qué documentación necesito para iniciar una herencia?</summary>
-          <div class="answer">Certificado de defunción, certificado de Últimas Voluntades, copia del testamento (si existe), DNI del fallecido y de los herederos, escrituras de inmuebles, certificados bancarios de saldos a fecha de fallecimiento, pólizas de seguros de vida y documentación de vehículos. Le entregaremos un listado personalizado en la primera consulta; también puede adelantar trabajo con nuestro <a href="/documentos-herencia/">checklist de documentos</a>.</div>
+          <div class="answer">Certificado de defunción, certificado de Últimas Voluntades, copia del testamento (si existe), DNI del fallecido y de los herederos, escrituras de inmuebles, certificados bancarios de saldos a fecha de fallecimiento, pólizas de seguros de vida y documentación de vehículos. Le entregaremos un listado personalizado en la primera consulta; también puede adelantar trabajo con nuestro <a href="/sucesiones/documentos-herencia/">checklist de documentos</a>.</div>
         </details>
         <details class="qa">
           <summary>¿Cuánto tarda en tramitarse una herencia?</summary>
@@ -1483,7 +1418,7 @@
         </details>
         <details class="qa">
           <summary>¿Cuánto se paga de Impuesto de Sucesiones en Cataluña?</summary>
-          <div class="answer">Depende del parentesco: el cónyuge o pareja estable tiene una bonificación del 99% de la cuota; los hijos menores de 21 años, bonificaciones por tramos del 99% al 20%; los hijos mayores de 21 y los ascendientes, del 60% al 0% según el importe heredado; y hermanos o sobrinos no tienen bonificación (aunque sí una pequeña reducción). Use nuestro <a href="/impuesto-de-sucesiones/">simulador orientativo</a> o agéndenos una consulta para un cálculo exacto.</div>
+          <div class="answer">Depende del parentesco: el cónyuge o pareja estable tiene una bonificación del 99% de la cuota; los hijos menores de 21 años, bonificaciones por tramos del 99% al 20%; los hijos mayores de 21 y los ascendientes, del 60% al 0% según el importe heredado; y hermanos o sobrinos no tienen bonificación (aunque sí una pequeña reducción). Use nuestro <a href="/sucesiones/impuesto-de-sucesiones/">simulador orientativo</a> o agéndenos una consulta para un cálculo exacto.</div>
         </details>
         <details class="qa">
           <summary>¿Qué hago si hay desacuerdo entre los herederos?</summary>
@@ -1586,7 +1521,7 @@
 
         <label class="checkbox-row">
           <input type="checkbox" id="privacidad" name="privacidad" required />
-          <span>He leído y acepto las <a href="https://www.carrizosayalmazor.com/condiciones.html" target="_blank" rel="noopener">Condiciones de Uso</a> y la <a href="https://www.carrizosayalmazor.com/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>, y consiento el tratamiento de mis datos, conforme al RGPD, para gestionar mi consulta.</span>
+          <span>He leído y acepto las <a href="/condiciones.html" target="_blank" rel="noopener">Condiciones de Uso</a> y la <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>, y consiento el tratamiento de mis datos, conforme al RGPD, para gestionar mi consulta.</span>
         </label>
 
         <button type="submit" class="form-submit" id="btn-enviar">Enviar mensaje</button>
@@ -1609,31 +1544,31 @@
       <span class="eyebrow">Guías y herramientas gratuitas</span>
       <h2>Resuelva sus dudas antes de la consulta</h2>
       <div class="guias-grid">
-        <a class="guia-link destacada" href="/guia-herencias-cataluna/">
+        <a class="guia-link destacada" href="/sucesiones/guia-herencias-cataluna/">
           <div class="gt">Guía completa de la herencia en Cataluña</div>
           <div class="gd">Los ocho pasos, los plazos y los costes de todo el proceso, explicados en orden.</div>
         </a>
-        <a class="guia-link" href="/herencia-sin-testamento/">
+        <a class="guia-link" href="/sucesiones/herencia-sin-testamento/">
           <div class="gt">Herencia sin testamento</div>
           <div class="gd">Quién hereda según el orden legal catalán y cómo se tramita la declaración de herederos.</div>
         </a>
-        <a class="guia-link" href="/impugnar-testamento/">
+        <a class="guia-link" href="/sucesiones/impugnar-testamento/">
           <div class="gt">Impugnar un testamento</div>
           <div class="gd">Nulidad, reclamación de legítima y desheredación injusta: cuándo hay caso.</div>
         </a>
-        <a class="guia-link" href="/impuesto-de-sucesiones/">
+        <a class="guia-link" href="/sucesiones/impuesto-de-sucesiones/">
           <div class="gt">Impuesto de Sucesiones</div>
           <div class="gd">Calculadora, tablas de bonificación vigentes y los plazos que no conviene pasar.</div>
         </a>
-        <a class="guia-link" href="/herencia-con-deudas/">
+        <a class="guia-link" href="/sucesiones/herencia-con-deudas/">
           <div class="gt">Herencia con deudas</div>
           <div class="gd">Antes de renunciar: el beneficio de inventario catalán y sus 6 meses de plazo.</div>
         </a>
-        <a class="guia-link" href="/calculadora-legitima/">
+        <a class="guia-link" href="/sucesiones/calculadora-legitima/">
           <div class="gt">Calculadora de legítima</div>
           <div class="gd">Estime en un minuto cuánto le corresponde aunque el testamento le deje fuera.</div>
         </a>
-        <a class="guia-link" href="/documentos-herencia/">
+        <a class="guia-link" href="/sucesiones/documentos-herencia/">
           <div class="gt">Checklist de documentos</div>
           <div class="gd">Responda seis preguntas y obtenga la lista de papeles exacta para su caso.</div>
         </a>
@@ -1685,8 +1620,8 @@
       <div class="footer-bottom">
         <div>© 2026 Carrizosa y Almazor · Todos los derechos reservados</div>
         <div class="legal">
-          <a href="https://www.carrizosayalmazor.com/condiciones.html" target="_blank" rel="noopener">Condiciones de Uso</a>
-          <a href="https://www.carrizosayalmazor.com/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>
+          <a href="/condiciones.html" target="_blank" rel="noopener">Condiciones de Uso</a>
+          <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>
           <a href="#" onclick="cyaCookiePrefs();return false;">Cookies</a>
         </div>
       </div>
@@ -1706,7 +1641,7 @@
         Utilizamos cookies de Google Ads únicamente para medir la eficacia de nuestra
         publicidad. No se activan si usted no lo acepta, y puede cambiar su elección en
         cualquier momento desde el enlace «Cookies» del pie de página.
-        <a href="https://www.carrizosayalmazor.com/privacidad.html" target="_blank" rel="noopener">Más información</a>
+        <a href="/privacidad.html" target="_blank" rel="noopener">Más información</a>
       </p>
       <div class="cookie-actions">
         <button class="cookie-btn rechazar" id="cookie-rechazar">Rechazar</button>
@@ -1717,33 +1652,9 @@
 
   <!-- SCRIPTS -->
   <script>
-    // Banner de cookies — Consent Mode v2
-    (function(){
-      var banner = document.getElementById('cookie-banner');
-      if(!banner) return;
-      function abrir(){
-        banner.classList.add('visible');
-        document.body.classList.add('cookie-abierta');
-      }
-      function cerrar(acepta){
-        window.cyaConsent.guardar(acepta);
-        banner.classList.remove('visible');
-        document.body.classList.remove('cookie-abierta');
-      }
-      document.getElementById('cookie-aceptar').addEventListener('click', function(){ cerrar(true); });
-      document.getElementById('cookie-rechazar').addEventListener('click', function(){ cerrar(false); });
-      window.cyaCookiePrefs = abrir;
-      if (window.cyaConsent.leer() === null) abrir();
-    })();
-
-    // Conversiones Google Ads por clic: teléfono y WhatsApp
-    (function(){
-      document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
-        a.addEventListener('click', function(){ cyaConversion('telefono'); });
-      });
-      var wa = document.querySelector('.wa-fab');
-      if(wa) wa.addEventListener('click', function(){ cyaConversion('whatsapp'); });
-    })();
+    // El banner de cookies y las conversiones por clic (teléfono/WhatsApp)
+    // los gestiona /assets/tracking.js, compartido por todo el sitio.
+    // El markup del banner sigue en esta página; el script lo detecta y reusa.
 
     // Reveal-on-scroll
     (function(){
