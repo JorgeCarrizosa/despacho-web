@@ -69,7 +69,24 @@ window.CYA_ADS = {
     whatsapp:   'cpHyCOvVicocELHW5KdB'
   }
 };
+/* Dispara un contacto a los DOS destinos.
+
+   Hasta el 28-ago-2026 esta funcion solo avisaba a Google Ads, asi que GA4
+   media audiencia pero NO media contactos: formulario, telefono y WhatsApp no
+   salian en ningun informe suyo. Se añade el evento de GA4 aqui mismo.
+
+   Cada tipo lleva nombre de evento propio (contacto_formulario, etc.) a
+   proposito: los nombres nuevos aparecen solos en el informe de Eventos de
+   GA4, mientras que un parametro requiere darlo de alta como dimension
+   personalizada. Y va con send_to explicito para que el evento de GA4 no se
+   cuele en la etiqueta de Ads, que comparte el mismo gtag.  */
 window.cyaConversion = function(tipo){
+  if (window.CYA_MEDICION && window.CYA_MEDICION.ga4) {
+    gtag('event', 'contacto_' + tipo, {
+      'send_to': window.CYA_MEDICION.ga4,
+      'metodo': tipo
+    });
+  }
   var etiqueta = window.CYA_ADS.labels[tipo];
   if(!etiqueta) return;
   gtag('event','conversion',{'send_to': window.CYA_ADS.id + '/' + etiqueta});
