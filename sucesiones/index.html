@@ -94,7 +94,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#040465;
@@ -707,8 +707,8 @@
   .wa-fab:hover .wa-tooltip{opacity:1}
   /* Con el banner de cookies abierto (z-index 100 > 90), el FAB quedaba tapado
      justo en la primera visita — la del clic de Ads. Se eleva mientras dure. */
-  body.cookie-abierta .wa-fab{bottom:130px}
-  @media(max-width:680px){body.cookie-abierta .wa-fab{bottom:205px}}
+  body.cookie-abierta .wa-fab{opacity:0;pointer-events:none;visibility:hidden}/* Mientras el banner esta abierto el FAB se OCULTA, no se sube. Se subia a 130/205px porque el banner lo tapaba (z-index 100>90), y eso lo dejaba en la zona del pulgar con animacion de pulso: el 28-jul-2026 produjo una conversion de WhatsApp que nadie habia enviado. Tapado ya era invisible, asi que ocultarlo no quita nada y elimina el toque accidental. Vuelve solo al cerrar el banner. */
+  @media(max-width:680px){}
 
   /* CONTACT */
   section.contact{
