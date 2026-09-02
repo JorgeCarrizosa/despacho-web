@@ -183,4 +183,24 @@ document.addEventListener('DOMContentLoaded', function(){
   });
   var wa = document.querySelector('.wa-fab');
   if (wa) wa.addEventListener('click', function(){ cyaConversion('whatsapp'); });
+
+  /* El CUARTO canal, que hasta hoy no medía nada (1-sept-2026).
+     La pagina de /sucesiones/ —destino de los anuncios— ofrece el correo del
+     despacho en 4 enlaces mailto:. Quien pulsa ahi nos escribe y no deja rastro
+     en Ads, en GA4 ni en ningun sitio: un email por mailto: es indistinguible de
+     cualquier otro correo que entre al buzon. En la ronda de julio eso significa
+     que un contacto por esa via se contaba como CERO.
+
+     Se mide como los otros tres. No hay etiqueta de conversion de Ads para
+     'email' todavia (hay que crearla en la interfaz), y eso es deliberadamente
+     inocuo: cyaConversion dispara el evento de GA4 ANTES de mirar la etiqueta y
+     sale sin hacer nada si no la encuentra. Asi que esto ya mide en GA4 hoy, y
+     cuando exista la etiqueta se añade a CYA_ADS.labels y empieza a contar
+     tambien en Ads sin tocar esta linea.
+
+     Aviso que vale para los cuatro canales: esto mide el CLIC en el enlace, no
+     el correo enviado. Mide intencion. */
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
+    a.addEventListener('click', function(){ cyaConversion('email'); });
+  });
 });
