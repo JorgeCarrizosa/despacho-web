@@ -66,7 +66,8 @@ window.CYA_ADS = {
   labels: {
     formulario: '-y4FCJbXs6QcELHW5KdB',
     telefono:   'fgGVCOjVicocELHW5KdB',
-    whatsapp:   'cpHyCOvVicocELHW5KdB'
+    whatsapp:   'cpHyCOvVicocELHW5KdB',
+    email:      '8mP1CJS6wuwcELHW5KdB'   /* accion 'Email Landing', creada 2-sept-2026 */
   }
 };
 /* Dispara un contacto a los DOS destinos.
@@ -191,12 +192,12 @@ document.addEventListener('DOMContentLoaded', function(){
      cualquier otro correo que entre al buzon. En la ronda de julio eso significa
      que un contacto por esa via se contaba como CERO.
 
-     Se mide como los otros tres. No hay etiqueta de conversion de Ads para
-     'email' todavia (hay que crearla en la interfaz), y eso es deliberadamente
-     inocuo: cyaConversion dispara el evento de GA4 ANTES de mirar la etiqueta y
-     sale sin hacer nada si no la encuentra. Asi que esto ya mide en GA4 hoy, y
-     cuando exista la etiqueta se añade a CYA_ADS.labels y empieza a contar
-     tambien en Ads sin tocar esta linea.
+     Se mide como los otros tres, y desde el 2-sept-2026 tambien en Ads: la
+     accion 'Email Landing' ya existe y su etiqueta esta arriba en CYA_ADS.labels
+     (objetivo Contacto, junto al telefono y WhatsApp; Recuento=Una, ventana
+     post-clic 30 dias como las otras tres, para que los cuatro canales sean
+     comparables). Verificado en vivo con Tag Assistant ese mismo dia que los
+     otros tres canales disparan y llegan a Ads con su nombre.
 
      Aviso que vale para los cuatro canales: esto mide el CLIC en el enlace, no
      el correo enviado. Mide intencion. */
