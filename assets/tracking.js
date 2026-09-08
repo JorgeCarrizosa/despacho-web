@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function(){
         'display:none;align-items:center;justify-content:center;padding:20px;' +
         'font-family:"Montserrat",-apple-system,Helvetica,Arial,sans-serif}' +
       '.cya-cc.visible{display:flex}' +
+      '.cya-cc:focus{outline:none}' +
       '.cya-cc-caja{background:#fff;color:#161616;max-width:620px;width:100%;' +
         'max-height:calc(100vh - 40px);overflow-y:auto;padding:34px 34px 28px;' +
         'box-shadow:0 18px 60px rgba(0,0,0,.34)}' +
@@ -284,6 +285,7 @@ document.addEventListener('DOMContentLoaded', function(){
   caja.setAttribute('role', 'dialog');
   caja.setAttribute('aria-modal', 'true');
   caja.setAttribute('aria-labelledby', 'cya-cc-tit');
+  caja.setAttribute('tabindex', '-1');
   /* Redaccion calcada del ejemplo de la propia AEPD (p. 21), que declara el
      perfilado en vez de esconderlo tras "mejorar tu experiencia", formula que
      la guia rechaza expresamente (p. 18). */
@@ -334,8 +336,7 @@ document.addEventListener('DOMContentLoaded', function(){
     document.body.classList.add('cookie-abierta');
     scrollOrig = document.documentElement.style.overflow;
     document.documentElement.style.overflow = 'hidden';
-    var f = document.getElementById('cya-cc-rechazar');
-    if (f) f.focus();
+    caja.focus();
   }
   function cerrar(sel){
     if (sel) window.cyaConsent.guardar(sel);
@@ -370,6 +371,10 @@ document.addEventListener('DOMContentLoaded', function(){
     for (var i = 0; i < f.length; i++) if (f[i].offsetParent !== null) vis.push(f[i]);
     if (!vis.length) return;
     var pri = vis[0], ult = vis[vis.length - 1];
+    if (document.activeElement === caja) {
+      if (e.shiftKey) { e.preventDefault(); ult.focus(); }
+      return;   /* Tab hacia delante entra solo en el primer elemento */
+    }
     if (e.shiftKey && document.activeElement === pri) { e.preventDefault(); ult.focus(); }
     else if (!e.shiftKey && document.activeElement === ult) { e.preventDefault(); pri.focus(); }
   });
