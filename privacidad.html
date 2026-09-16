@@ -265,7 +265,7 @@
     .legal-grid{grid-template-columns:1fr;gap:32px}
     aside.toc{position:static;border-left:none;border-top:1px solid var(--line);padding:24px 0 0}
     .toc ol{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-    .topbar-left span:nth-child(n+2){display:none}
+    .topbar-left>*:nth-child(n+2){display:none}
   }
   @media(max-width:680px){
     .container{padding:0 22px}
@@ -295,9 +295,9 @@
   <div class="topbar">
     <div class="topbar-inner">
       <div class="topbar-left">
-        <span>+34 934 572 123</span>
+        <a href="tel:+34934572123">+34 934 572 123</a>
         <span>L–V 9–13:30 · L–J 15:30–19:30</span>
-        <span>abogados@carrizosayalmazor.com</span>
+        <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a>
       </div>
     </div>
   </div>
@@ -576,7 +576,7 @@
           <a href="privacidad.html">Privacidad</a>
           <a href="condiciones.html">Condiciones de uso</a>
           <a href="#" onclick="cyaCookiePrefs(); return false;">Cookies</a>
-          <a href="#">Aviso legal</a>
+          <a href="condiciones.html">Aviso legal</a>
         </div>
       </div>
       <div class="footer-bottom">

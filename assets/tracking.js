@@ -388,8 +388,13 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
     a.addEventListener('click', function(){ cyaConversion('telefono'); });
   });
-  var wa = document.querySelector('.wa-fab');
-  if (wa) wa.addEventListener('click', function(){ cyaConversion('whatsapp'); });
+  /* Antes era querySelector('.wa-fab'): UN solo elemento y solo con esa clase.
+     Dejaba sin medir el segundo WhatsApp de la home y el de /contacto/, que es
+     un <a class="row">. Ahora engancha cualquier enlace a WhatsApp, igual que
+     ya se hace con tel: y mailto:. (16-sept-2026) */
+  document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp"]').forEach(function(a){
+    a.addEventListener('click', function(){ cyaConversion('whatsapp'); });
+  });
 
   /* El CUARTO canal, que hasta hoy no medía nada (1-sept-2026).
      La pagina de /sucesiones/ —destino de los anuncios— ofrece el correo del
