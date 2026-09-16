@@ -242,7 +242,7 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
 <div class="topbar">
   <div class="topbar-inner">
     <div class="topbar-left">
-      <span>☎ <a href="tel:934572123">+34 934 572 123</a></span>
+      <span>☎ <a href="tel:+34934572123">+34 934 572 123</a></span>
       <span>📍 Calle Pau Claris 171, Entresuelo 2ª · 08037 Barcelona</span>
       <span>Primera consulta gratuita</span>
     </div>
@@ -343,7 +343,10 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
           <div id="docList"></div>
           <div class="tool-actions">
             <button type="button" class="btn-line" onclick="window.print()">Imprimir la lista</button>
-            <a class="btn-line wa" id="waSend" href="#" target="_blank" rel="noopener">Enviárnosla por WhatsApp</a>
+            <!-- Nace con un destino valido, no con "#": el JS lo reescribe en
+                 render() con el resumen del caso, pero si ese script fallara el
+                 boton seguiria llevando a WhatsApp en vez de no hacer nada. -->
+            <a class="btn-line wa" id="waSend" href="https://wa.me/34696714570?text=Hola%2C%20he%20preparado%20mi%20lista%20de%20documentos%20para%20una%20herencia.%20%C2%BFPodemos%20revisarla%3F" target="_blank" rel="noopener">Enviárnosla por WhatsApp</a>
             <a class="btn-line solid" href="https://carrizosayalmazor.com/sucesiones/#contacto">Pedir consulta gratuita</a>
           </div>
         </div>
@@ -400,7 +403,7 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
 <!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="wrap">
-    <span>© 2026 Carrizosa y Almazor · Calle Pau Claris 171, Entresuelo 2ª, Barcelona · <a href="tel:934572123">934 572 123</a> · <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a></span>
+    <span>© 2026 Carrizosa y Almazor · Calle Pau Claris 171, Entresuelo 2ª, Barcelona · <a href="tel:+34934572123">934 572 123</a> · <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a></span>
     <span class="foot-links">
       <a href="/privacidad.html">Política de Privacidad</a>
       <a href="#" onclick="cyaCookiePrefs(); return false;">Cookies</a>

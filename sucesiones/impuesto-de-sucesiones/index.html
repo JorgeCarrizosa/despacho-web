@@ -129,6 +129,9 @@ table.rates td.hl{color:var(--oro); font-weight:600; font-family:var(--serif); f
 .calc .amtline{display:flex; align-items:baseline; justify-content:space-between; margin-bottom:10px;}
 .calc .amtline .lab{font-family:var(--sans); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:600;}
 .calc #vAmount{font-family:var(--serif); font-size:30px; color:var(--noche); font-weight:500;}
+.calc #vAmount{background:transparent;border:0;border-bottom:1px dashed rgba(0,0,0,.28);text-align:right;width:9ch;padding:0 0 2px;cursor:text;-moz-appearance:textfield}
+.calc #vAmount:focus{outline:none;border-bottom-style:solid}
+
 input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:2px; background:var(--linea); outline:none; margin:18px 0 30px;}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:0; background:var(--oro); border:1px solid var(--oro); cursor:pointer; transform:rotate(45deg);}
 input[type=range]::-moz-range-thumb{width:20px; height:20px; border-radius:0; background:var(--oro); border:1px solid var(--oro); cursor:pointer;}
@@ -250,7 +253,7 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
 <div class="topbar">
   <div class="topbar-inner">
     <div class="topbar-left">
-      <span>☎ <a href="tel:934572123">+34 934 572 123</a></span>
+      <span>☎ <a href="tel:+34934572123">+34 934 572 123</a></span>
       <span>📍 Calle Pau Claris 171, Entresuelo 2ª · 08037 Barcelona</span>
       <span>Primera consulta gratuita</span>
     </div>
@@ -296,7 +299,7 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
         <div class="fields">
           <div class="amtline">
             <span class="lab">Valor de la herencia</span>
-            <span id="vAmount">300.000 €</span>
+            <input id="vAmount" type="text" inputmode="numeric" autocomplete="off" aria-label="Valor de la herencia, editable" value="300.000 €">
           </div>
           <input type="range" id="amount" min="50000" max="2000000" step="10000" value="300000" aria-label="Valor de la herencia">
           <label class="fl" for="kin">Parentesco con el fallecido</label>
@@ -456,7 +459,7 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
 <!-- ===================== FOOTER ===================== -->
 <footer>
   <div class="wrap">
-    <span>© 2026 Carrizosa y Almazor · Calle Pau Claris 171, Entresuelo 2ª, Barcelona · <a href="tel:934572123">934 572 123</a> · <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a></span>
+    <span>© 2026 Carrizosa y Almazor · Calle Pau Claris 171, Entresuelo 2ª, Barcelona · <a href="tel:+34934572123">934 572 123</a> · <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a></span>
     <span class="foot-links">
       <a href="/privacidad.html">Política de Privacidad</a>
       <a href="#" onclick="cyaCookiePrefs(); return false;">Cookies</a>
@@ -488,7 +491,8 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
   var GII=[.60,.55,.50,.45,.40,.35,.30,.25,.20,.10,.00];
   function avgBon(base,tab){if(base<=0)return 0;var w=0,cov=0,prev=0;for(var i=0;i<bands.length;i++){var hi=bands[i],seg=Math.min(base,hi)-prev;if(seg>0){w+=seg*tab[i];cov+=seg;}prev=hi;if(base<=hi)break;}return cov>0?w/cov:0;}
   function calc(){
-    var a=+amount.value; vAmount.textContent=eur(a);
+    var a=+amount.value;
+    if(document.activeElement!==vAmount) vAmount.value=eur(a);
     var red=0,coef=1,bon=0;
     switch(kin.value){
       case 'conyuge': red=100000; bon=0.99; break;
@@ -507,6 +511,21 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
     vResult.textContent=eur(pay);
     if(vBonif) vBonif.textContent = bon>0 ? ('Bonificación aplicada · '+Math.round(bon*100)+'%') : 'Sin bonificación';
   }
+  /* Escribir la cifra a mano, no solo arrastrar. Mientras se teclea NO se
+     reformatea (el cursor saltaria); se formatea al salir del campo. */
+  function _leerVAmt(){
+    var n=parseInt(String(vAmount.value).replace(/[^0-9]/g,''),10);
+    if(isNaN(n)) return null;
+    return Math.min(Math.max(n,+amount.min),+amount.max);
+  }
+  vAmount.addEventListener('input',function(){
+    var n=_leerVAmt(); if(n===null) return;
+    amount.value=n; calc();
+  });
+  vAmount.addEventListener('blur',function(){
+    var n=_leerVAmt(); amount.value=(n===null?amount.value:n); calc();
+  });
+  vAmount.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();vAmount.blur();} });
   amount.addEventListener('input',calc);
   kin.addEventListener('change',calc);
   calc();

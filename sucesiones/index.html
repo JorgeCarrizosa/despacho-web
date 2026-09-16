@@ -1049,6 +1049,14 @@
   .guia-link.destacada:hover{background:var(--ink)}
   @media(max-width:980px){.guias-grid{grid-template-columns:1fr 1fr}}
   @media(max-width:680px){.guias{padding:52px 0}.guias-grid{grid-template-columns:1fr}}
+
+  /* El valor de la calculadora era un <span>: se lee como editable al lado
+     de un deslizador, y no lo era. Ahora se puede teclear la cifra. El
+     aspecto no cambia: sin fondo ni borde, hereda tipografia. (16-sept-2026) */
+  #vAmount{font:inherit;color:inherit;background:transparent;border:0;
+    border-bottom:1px dashed rgba(0,0,0,.28);text-align:right;width:9ch;
+    padding:0 0 2px;cursor:text;-moz-appearance:textfield}
+  #vAmount:focus{outline:none;border-bottom-style:solid}
 </style>
 </head>
 <body>
@@ -1057,7 +1065,7 @@
   <div class="topbar">
     <div class="topbar-inner">
       <div class="topbar-left">
-        <span>☎ <a href="tel:934572123">+34 934 572 123</a></span>
+        <span>☎ <a href="tel:+34934572123">+34 934 572 123</a></span>
         <span>📍 Calle Pau Claris 171, Entresuelo 2ª · 08037 Barcelona</span>
         <span>Primera consulta gratuita</span>
       </div>
@@ -1102,7 +1110,7 @@
         </p>
         <div class="hero-cta-row">
           <a href="#contacto" class="btn-primary">Primera consulta gratuita</a>
-          <a href="tel:934572123" class="btn-primary btn-call">Llamar ahora · 93 457 21 23</a>
+          <a href="tel:+34934572123" class="btn-primary btn-call">Llamar ahora · 93 457 21 23</a>
           <a href="#servicios" class="btn-secondary">Áreas de práctica</a>
         </div>
         <p class="hero-plazo">El Impuesto de Sucesiones se liquida en un plazo de 6 meses desde el fallecimiento. Cuanto antes revisemos su caso, más margen tendremos.</p>
@@ -1244,7 +1252,7 @@
             <div class="credential">Defensa en Tribunales de Justicia · asuntos civiles, penales y mercantiles</div>
           </div>
           <div class="partner-contact">
-            <a href="tel:934572123">
+            <a href="tel:+34934572123">
               <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
               +34 934 572 123
             </a>
@@ -1275,7 +1283,7 @@
             <div class="credential">Litigación civil, penal y social</div>
           </div>
           <div class="partner-contact">
-            <a href="tel:934572123">
+            <a href="tel:+34934572123">
               <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
               +34 934 572 123
             </a>
@@ -1363,7 +1371,7 @@
         <h3>Simulador orientativo</h3>
 
         <div class="calc-field">
-          <label>Valor de la herencia <span class="v" id="vAmount">300.000 €</span></label>
+          <label>Valor de la herencia <input class="v" id="vAmount" type="text" inputmode="numeric" autocomplete="off" aria-label="Valor de la herencia, editable" value="300.000 €"></label>
           <input type="range" id="amount" min="50000" max="2000000" step="10000" value="300000" />
         </div>
 
@@ -1453,7 +1461,7 @@
         <div class="contact-detail">
           <div class="lbl">Teléfono</div>
           <div class="val">
-            <a href="tel:934572123">+34 934 572 123</a>
+            <a href="tel:+34934572123">+34 934 572 123</a>
             <small>Atención directa de los socios</small>
           </div>
         </div>
@@ -1612,7 +1620,7 @@
           <ul>
             <li>Calle Pau Claris 171, Entresuelo 2ª</li>
             <li>08037 Barcelona</li>
-            <li><a href="tel:934572123">+34 934 572 123</a></li>
+            <li><a href="tel:+34934572123">+34 934 572 123</a></li>
             <li><a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a></li>
           </ul>
         </div>
@@ -1716,12 +1724,33 @@
         else if(k==='gi') bonifPct = bonifMedia(v, TABLA_GI);
         else if(k==='gii') bonifPct = bonifMedia(v, TABLA_GII);
         var pagar = cuota * (1 - bonifPct/100);
-        document.getElementById('vAmount').textContent = fmt.format(v);
+        if (document.activeElement !== document.getElementById('vAmount')) document.getElementById('vAmount').value = fmt.format(v);
         document.getElementById('vResult').textContent = fmt.format(Math.round(pagar));
         document.getElementById('vBonif').innerHTML = bonifPct>0
           ? 'Bonificaci\u00f3n media aplicada: <strong>'+bonifPct.toFixed(1).replace('.',',')+'%</strong> seg\u00fan las tablas vigentes en Catalu\u00f1a.'
           : 'Este grupo de parentesco no tiene bonificaci\u00f3n de la cuota en Catalu\u00f1a.';
       }
+      
+      /* Escribir la cifra a mano, no solo arrastrar el deslizador. Mientras se
+         teclea NO se reformatea (el cursor saltaria); se formatea al salir. */
+      var _vAmt = document.getElementById('vAmount');
+      function _leerVAmt(){
+        var n = parseInt(String(_vAmt.value).replace(/[^0-9]/g, ''), 10);
+        if (isNaN(n)) return null;
+        return Math.min(Math.max(n, +amount.min), +amount.max);
+      }
+      _vAmt.addEventListener('input', function(){
+        var n = _leerVAmt();
+        if (n === null) return;
+        amount.value = n;
+        calc();
+      });
+      _vAmt.addEventListener('blur', function(){
+        var n = _leerVAmt();
+        amount.value = (n === null ? amount.value : n);
+        calc();
+      });
+      _vAmt.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); _vAmt.blur(); } });
       [amount,kin].forEach(function(el){ el.addEventListener('input', calc); el.addEventListener('change', calc); });
       calc();
     })();
