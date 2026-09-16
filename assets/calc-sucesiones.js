@@ -137,6 +137,7 @@
     var clave = datos.parentesco || 'hijo';
     var grupo = GRUPO[clave] || 2;
     var detalle = [];
+    var noAplicadas = [];
 
     // 1. Reducción por parentesco (art. 631-2)
     var rParentesco;
@@ -171,6 +172,11 @@
     if (vivienda > 0 && puedeVivienda) {
       rVivienda = Math.min(vivienda * 0.95, 500000);
       detalle.push({ concepto: 'Vivienda habitual', importe: rVivienda, art: '631-17' });
+    } else if (vivienda > 0) {
+      // Se ha pedido y NO procede. Hay que decirlo: si la cifra entra y el
+      // resultado no se mueve sin explicación, parece que la calculadora falla.
+      noAplicadas.push({ concepto: 'Vivienda habitual', art: '631-17',
+                         motivo: grupo === 4 ? 'vivienda_grupo4' : 'vivienda_colateral' });
     }
 
     // 3. Discapacidad (art. 631-3) o persona mayor de 75 (art. 631-4).
@@ -179,6 +185,11 @@
     if (datos.situacion === 'discap33') { rPersonal = 275000; detalle.push({ concepto: 'Discapacidad ≥ 33 %', importe: rPersonal, art: '631-3' }); }
     else if (datos.situacion === 'discap65') { rPersonal = 650000; detalle.push({ concepto: 'Discapacidad ≥ 65 %', importe: rPersonal, art: '631-3' }); }
     else if (datos.situacion === 'mayor75' && grupo === 2) { rPersonal = 275000; detalle.push({ concepto: '75 años o más', importe: rPersonal, art: '631-4' }); }
+    else if (datos.situacion === 'mayor75') {
+      // El art. 631-4 la reserva a "personas del grupo II": un hermano de 78
+      // años la elige y no le corresponde. Mismo silencio que el anterior.
+      noAplicadas.push({ concepto: '75 años o más', art: '631-4', motivo: 'edad_solo_grupo2' });
+    }
 
     var reducciones = rParentesco + rVivienda + rPersonal;
     var baseLiquidable = Math.max(0, herencia - reducciones);
@@ -203,6 +214,7 @@
       baseImponible: herencia,
       reducciones: reducciones,
       detalleReducciones: detalle,
+      noAplicadas: noAplicadas,
       baseLiquidable: baseLiquidable,
       cuotaIntegra: cuotaIntegra,
       coeficiente: coef,

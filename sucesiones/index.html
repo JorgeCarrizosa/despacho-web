@@ -651,6 +651,12 @@
   .calc-desglose{font-family:"Montserrat",sans-serif;font-size:12px;line-height:1.8;
     margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18)}
   .calc-desglose .fila{display:flex;justify-content:space-between;gap:12px}
+  .calc-aviso{margin-top:14px;padding:13px 15px;background:rgba(201,163,90,.14);
+    border-left:3px solid var(--gold);font-family:"Montserrat",sans-serif;font-size:12px;
+    line-height:1.6}
+  .calc-aviso.oculto{display:none}
+  .calc-aviso p{margin:0}
+  .calc-aviso p+p{margin-top:10px}
   .calc-desglose b{font-weight:600}
   .calc-field select{
     border:none;border-bottom:1px solid var(--line);
@@ -1454,6 +1460,7 @@
           <div class="calc-result-value" id="vResult">—</div>
           <div class="calc-result-bonif" id="vBonif">Cálculo según las tablas de bonificación vigentes en Cataluña.</div>
           <div class="calc-desglose" id="vDesglose"></div>
+          <div class="calc-aviso oculto" id="vAviso"></div>
           <a href="#contacto" class="calc-cta">Pedir cálculo exacto</a>
         </div>
       </div>
@@ -1749,13 +1756,18 @@
           vBonif=$('vBonif'), vDesglose=$('vDesglose'), vivienda=$('vivienda'),
           patrimonio=$('patrimonio'), situacion=$('situacion'), edad=$('edad'), cEdad=$('cEdad'),
           tieneVivienda=$('tieneVivienda'), cVivienda=$('cVivienda'),
-          colateral=$('colateral'), cColateral=$('cColateral');
+          colateral=$('colateral'), cColateral=$('cColateral'), vAviso=$('vAviso');
       if(!amount || !kin || !window.CYA_SUCESIONES) return;
 
       var nf = new Intl.NumberFormat('es-ES', {maximumFractionDigits:0});
       var eur = function(n){ return nf.format(Math.round(n)) + ' €'; };
       var soloNum = function(v){ var n = parseInt(String(v).replace(/[^0-9]/g,''),10); return isNaN(n)?0:n; };
 
+      var MOTIVOS = {
+        vivienda_grupo4: 'La reducción por vivienda habitual <b>no le corresponde</b>: el art. 631-17 la reserva al cónyuge, a los descendientes, a los ascendientes y a los colaterales del fallecido. Los primos, parientes más lejanos y las personas sin parentesco quedan fuera. El valor de la vivienda sigue formando parte de la herencia, pero no la reduce.',
+        vivienda_colateral: 'La reducción por vivienda habitual <b>no se está aplicando</b>: los hermanos, sobrinos y tíos solo pueden hacerlo si tienen 65 años o más y convivieron con el fallecido los dos años anteriores (art. 631-18.2). Marque la casilla si cumple las dos condiciones.',
+        edad_solo_grupo2: 'La reducción de 275.000 € por tener 75 años o más <b>no le corresponde</b>: el art. 631-4 la reserva al cónyuge, hijos, nietos y ascendientes. Con este parentesco no se aplica.'
+      };
       function render(){
         var herencia = +amount.value;
         var hayVivienda = tieneVivienda.value === 'si';
@@ -1789,6 +1801,13 @@
           '<div class="fila"><span>Cuota antes de la bonificación' +
             (r.coeficiente !== 1 ? ' (coef. ' + String(r.coeficiente).replace('.',',') + ')' : '') +
             '</span><b>' + eur(r.cuotaTributaria) + '</b></div>';
+
+        // Si el usuario ha pedido una reduccion que no le corresponde, hay que
+        // DECIRLO: si la cifra entra y el resultado no se mueve, parece un fallo.
+        vAviso.innerHTML = r.noAplicadas.map(function(n){
+          return '<p>' + (MOTIVOS[n.motivo] || '') + '</p>';
+        }).join('');
+        vAviso.classList.toggle('oculto', r.noAplicadas.length === 0);
       }
 
       [kin, patrimonio, situacion, tieneVivienda, colateral].forEach(function(el){

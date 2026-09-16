@@ -146,6 +146,12 @@ table.rates td.hl{color:var(--oro); font-weight:600; font-family:var(--serif); f
   border-top:1px solid rgba(201,163,90,.3); padding-top:16px; line-height:1.8;}
 .calc .desglose b{color:#fff; font-weight:600;}
 .calc .desglose .fila{display:flex; justify-content:space-between; gap:14px;}
+.calc .aviso{margin-top:16px; padding:14px 16px; background:rgba(201,163,90,.16);
+  border-left:3px solid var(--oro2); font-family:var(--sans); font-size:12px; line-height:1.6;
+  color:#e8e6f0;}
+.calc .aviso.oculto{display:none;}
+.calc .aviso p{margin:0;}
+.calc .aviso p+p{margin-top:10px;}
 @media(max-width:860px){ .calc .fila2{grid-template-columns:1fr;} .calc .fila2 .campo+.campo{margin-top:22px;} }
 
 input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:2px; background:var(--linea); outline:none; margin:18px 0 30px;}
@@ -381,6 +387,7 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
           <div id="vResult">—</div>
           <div id="vBonif"></div>
           <div class="desglose" id="vDesglose"></div>
+          <div class="aviso oculto" id="vAviso"></div>
           <p class="rnote">Cálculo según las tablas de bonificación vigentes en Cataluña.</p>
           <a href="https://carrizosayalmazor.com/sucesiones/#contacto">Pedir cálculo exacto</a>
         </div>
@@ -549,13 +556,18 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
       vBonif=$('vBonif'), vDesglose=$('vDesglose'), vivienda=$('vivienda'),
       patrimonio=$('patrimonio'), situacion=$('situacion'), edad=$('edad'), cEdad=$('cEdad'),
       tieneVivienda=$('tieneVivienda'), cVivienda=$('cVivienda'),
-      colateral=$('colateral'), cColateral=$('cColateral');
+      colateral=$('colateral'), cColateral=$('cColateral'), vAviso=$('vAviso');
   if(!amount || !kin || !window.CYA_SUCESIONES) return;
 
   var nf = new Intl.NumberFormat('es-ES', {maximumFractionDigits:0});
   var eur = function(n){ return nf.format(Math.round(n)) + ' €'; };
   var soloNum = function(v){ var n = parseInt(String(v).replace(/[^0-9]/g,''),10); return isNaN(n)?0:n; };
 
+  var MOTIVOS = {
+    vivienda_grupo4: 'La reducción por vivienda habitual <b>no le corresponde</b>: el art. 631-17 la reserva al cónyuge, a los descendientes, a los ascendientes y a los colaterales del fallecido. Los primos, parientes más lejanos y las personas sin parentesco quedan fuera. El valor de la vivienda sigue formando parte de la herencia, pero no la reduce.',
+    vivienda_colateral: 'La reducción por vivienda habitual <b>no se está aplicando</b>: los hermanos, sobrinos y tíos solo pueden hacerlo si tienen 65 años o más y convivieron con el fallecido los dos años anteriores (art. 631-18.2). Marque la casilla si cumple las dos condiciones.',
+    edad_solo_grupo2: 'La reducción de 275.000 € por tener 75 años o más <b>no le corresponde</b>: el art. 631-4 la reserva al cónyuge, hijos, nietos y ascendientes. Con este parentesco no se aplica.'
+  };
   function render(){
     var herencia = +amount.value;
     var hayVivienda = tieneVivienda.value === 'si';
@@ -593,6 +605,13 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
       '<div class="fila"><span>Cuota antes de la bonificación' +
         (r.coeficiente !== 1 ? ' (coef. ' + String(r.coeficiente).replace('.',',') + ')' : '') +
         '</span><b>' + eur(r.cuotaTributaria) + '</b></div>';
+
+    // Si el usuario ha pedido una reduccion que no le corresponde, hay que
+    // DECIRLO: si la cifra entra y el resultado no se mueve, parece un fallo.
+    vAviso.innerHTML = r.noAplicadas.map(function(n){
+      return '<p>' + (MOTIVOS[n.motivo] || '') + '</p>';
+    }).join('');
+    vAviso.classList.toggle('oculto', r.noAplicadas.length === 0);
   }
 
   [kin, patrimonio, situacion, tieneVivienda, colateral].forEach(function(el){
