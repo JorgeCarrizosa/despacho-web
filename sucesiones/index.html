@@ -91,6 +91,7 @@
        Fichero compartido por toda la web (/assets/tracking.js); inyecta el
        banner de cookies y engancha las conversiones por si solo. -->
   <script src="/assets/tracking.js"></script>
+<script src="/assets/calc-sucesiones.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -637,6 +638,18 @@
     width:18px;height:18px;background:var(--ink);
     border-radius:50%;cursor:pointer;border:3px solid var(--bg);
   }
+
+  .calc-field.oculto{display:none}
+  .calc-field input.txt{font-family:"Montserrat",sans-serif;font-size:14px;color:var(--ink);
+    padding:12px 14px;border:1px solid var(--line);background:#fff;border-radius:0;width:100%;
+    -moz-appearance:textfield}
+  .calc-field input.txt:focus{outline:2px solid var(--gold);outline-offset:-2px}
+  .calc-field .ayuda{font-family:"Montserrat",sans-serif;font-size:11px;color:var(--muted);
+    line-height:1.5;margin:0}
+  .calc-desglose{font-family:"Montserrat",sans-serif;font-size:12px;line-height:1.8;
+    margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18)}
+  .calc-desglose .fila{display:flex;justify-content:space-between;gap:12px}
+  .calc-desglose b{font-weight:600}
   .calc-field select{
     border:none;border-bottom:1px solid var(--line);
     background:transparent;padding:10px 0;
@@ -1364,7 +1377,7 @@
         <span class="eyebrow">Impuesto de Sucesiones</span>
         <h2>Calcule, de forma orientativa, <em>lo que pagaría en Cataluña.</em></h2>
         <p>Una primera estimación basada en las bonificaciones del Impuesto de Sucesiones de Cataluña por grupo de parentesco. La cifra real depende del patrimonio preexistente, las reducciones aplicables y la naturaleza de los bienes.</p>
-        <div class="calc-disclaimer">Cálculo estimativo · Asume la reducción de 100.000 € del hijo; para nietos (50.000 €) o padres (30.000 €), también del Grupo II, la reducción es menor. Tampoco suma el ajuar doméstico (3%) ni el mínimo ampliado de los menores de 21 años. No sustituye al asesoramiento jurídico personalizado. Para un cálculo exacto, agende una consulta gratuita.</div>
+        <div class="calc-disclaimer">Cálculo estimativo según el Decreto legislativo 1/2024 (libro sexto del Código tributario de Catalunya). Contempla las reducciones por parentesco, vivienda habitual, discapacidad y edad, y el coeficiente por patrimonio preexistente. No suma el ajuar doméstico (3 %) ni los seguros de vida, y no contempla la reducción por empresa familiar, que haría perder la bonificación. No sustituye al asesoramiento jurídico: para un cálculo exacto, agende una consulta gratuita.</div>
       </div>
 
       <div class="calc-card">
@@ -1379,10 +1392,44 @@
           <label>Parentesco con el fallecido</label>
           <select id="kin">
             <option value="conyuge">Cónyuge o pareja estable</option>
-            <option value="gi">Hijo o nieto menor de 21 años</option>
-            <option value="gii" selected>Hijo mayor de 21 años (Grupo II)</option>
-            <option value="giii">Hermanos, sobrinos, tíos</option>
-            <option value="giv">Primos y otros / sin parentesco</option>
+            <option value="menor21">Hijo, nieto u otro descendiente menor de 21 años</option>
+            <option value="hijo" selected>Hijo o hija de 21 años o más</option>
+            <option value="descendiente">Nieto u otro descendiente de 21 o más</option>
+            <option value="ascendiente">Padre o madre del fallecido</option>
+            <option value="grupo3">Hermanos, sobrinos, tíos</option>
+            <option value="grupo4">Primos y otros / sin parentesco</option>
+          </select>
+        </div>
+
+        <div class="calc-field oculto" id="cEdad">
+          <label for="edad">Edad del heredero</label>
+          <input class="txt" type="number" id="edad" min="0" max="20" value="15" inputmode="numeric">
+          <p class="ayuda">La reducción sube 12.000 € por cada año que le falte para los 21, hasta 196.000 € (art. 631-2.a).</p>
+        </div>
+
+        <div class="calc-field">
+          <label for="vivienda">De la herencia, ¿cuánto vale la vivienda habitual del fallecido?</label>
+          <input class="txt" type="text" id="vivienda" inputmode="numeric" autocomplete="off" value="0 €">
+          <p class="ayuda">Si la hereda, se reduce el 95 % de su valor, con un tope de 500.000 € (art. 631-17). Escriba 0 si no la hereda.</p>
+        </div>
+
+        <div class="calc-field">
+          <label for="patrimonio">Patrimonio que ya tiene el heredero</label>
+          <select id="patrimonio">
+            <option value="0" selected>Menos de 500.000 €</option>
+            <option value="1000000">Entre 500.000 y 2 millones</option>
+            <option value="3000000">Entre 2 y 4 millones</option>
+            <option value="5000000">Más de 4 millones</option>
+          </select>
+        </div>
+
+        <div class="calc-field">
+          <label for="situacion">Situación personal del heredero</label>
+          <select id="situacion">
+            <option value="" selected>Ninguna de las siguientes</option>
+            <option value="discap33">Discapacidad del 33 % o más</option>
+            <option value="discap65">Discapacidad del 65 % o más</option>
+            <option value="mayor75">Tiene 75 años o más</option>
           </select>
         </div>
 
@@ -1390,6 +1437,7 @@
           <div class="calc-result-label">Cuota estimada · Impuesto de Sucesiones</div>
           <div class="calc-result-value" id="vResult">—</div>
           <div class="calc-result-bonif" id="vBonif">Cálculo según las tablas de bonificación vigentes en Cataluña.</div>
+          <div class="calc-desglose" id="vDesglose"></div>
           <a href="#contacto" class="calc-cta">Pedir cálculo exacto</a>
         </div>
       </div>
@@ -1676,83 +1724,69 @@
       els.forEach(function(e){ io.observe(e); });
     })();
 
-    // Calculadora orientativa Impuesto de Sucesiones · Cataluña
+    // Calculadora del Impuesto de Sucesiones de Cataluna.
+    // El calculo vive en /assets/calc-sucesiones.js, que lleva las tablas del
+    // DL 1/2024 con el articulo de cada una. Aqui solo la interfaz.
     (function(){
-      var amount = document.getElementById('amount');
-      var kin = document.getElementById('kin');
-      if(!amount) return;
-      var fmt = new Intl.NumberFormat('es-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0});
-      // Tablas de bonificación por tramos de base imponible (marginales).
-      // Fuente: DL 1/2024, texto refundido (art. 58 bis Ley 19/2010, red. Ley 5/2020).
-      var TABLA_GI  = [[100000,99],[100000,97],[100000,95],[200000,90],[250000,80],[250000,70],[500000,60],[500000,50],[500000,40],[500000,25],[Infinity,20]];
-      var TABLA_GII = [[100000,60],[100000,55],[100000,50],[200000,45],[250000,40],[250000,35],[500000,30],[500000,25],[500000,20],[500000,10],[Infinity,0]];
-      function bonifMedia(base, tabla){
-        if(base<=0) return 0;
-        var restante = base, suma = 0;
-        for(var i=0;i<tabla.length && restante>0;i++){
-          var t = Math.min(restante, tabla[i][0]);
-          suma += t * tabla[i][1];
-          restante -= t;
-        }
-        return suma / base;
+      var $ = function(id){ return document.getElementById(id); };
+      var amount=$('amount'), kin=$('kin'), vAmount=$('vAmount'), vResult=$('vResult'),
+          vBonif=$('vBonif'), vDesglose=$('vDesglose'), vivienda=$('vivienda'),
+          patrimonio=$('patrimonio'), situacion=$('situacion'), edad=$('edad'), cEdad=$('cEdad');
+      if(!amount || !kin || !window.CYA_SUCESIONES) return;
+
+      var nf = new Intl.NumberFormat('es-ES', {maximumFractionDigits:0});
+      var eur = function(n){ return nf.format(Math.round(n)) + ' €'; };
+      var soloNum = function(v){ var n = parseInt(String(v).replace(/[^0-9]/g,''),10); return isNaN(n)?0:n; };
+
+      function render(){
+        var herencia = +amount.value;
+        var vViv = Math.min(soloNum(vivienda.value), herencia);
+
+        var r = window.CYA_SUCESIONES.calcular({
+          herencia: herencia, parentesco: kin.value,
+          edad: edad ? +edad.value : 20, vivienda: vViv,
+          patrimonio: +patrimonio.value, situacion: situacion.value
+        });
+
+        if(document.activeElement !== vAmount) vAmount.value = eur(herencia);
+        cEdad.classList.toggle('oculto', kin.value !== 'menor21');
+        vResult.textContent = eur(r.aPagar);
+
+        vBonif.innerHTML = r.bonificacion > 0
+          ? 'Bonificación aplicada: <strong>' + String(r.bonificacion).replace('.',',') + '%</strong>'
+          : 'Este grupo de parentesco no tiene bonificación de la cuota en Cataluña.';
+
+        var filas = r.detalleReducciones.map(function(d){
+          return '<div class="fila"><span>' + d.concepto + '</span><b>− ' + eur(d.importe) + '</b></div>';
+        }).join('');
+        vDesglose.innerHTML = filas +
+          '<div class="fila"><span>Base sobre la que se calcula</span><b>' + eur(r.baseLiquidable) + '</b></div>' +
+          '<div class="fila"><span>Cuota antes de la bonificación' +
+            (r.coeficiente !== 1 ? ' (coef. ' + String(r.coeficiente).replace('.',',') + ')' : '') +
+            '</span><b>' + eur(r.cuotaTributaria) + '</b></div>';
       }
-      function tarifa(base){
-        // Tarifa propia de Cataluna, art. 57 Ley 19/2010 (7-32% en 5 tramos)
-        var tramos = [[50000,7],[100000,11],[250000,17],[400000,24]];
-        var tipoFinal = 32;
-        var c = 0, restante = base;
-        for(var i=0;i<tramos.length && restante>0;i++){
-          var t = Math.min(restante, tramos[i][0]);
-          c += t * tramos[i][1] / 100;
-          restante -= t;
-        }
-        if(restante>0) c += restante * tipoFinal/100;
-        return c;
-      }
-      function calc(){
-        var v = +amount.value;
-        var k = kin.value;
-        // Reduccion por parentesco (orientativa; padres 30.000 - se afina en consulta)
-        var reducc = {conyuge:100000, gi:100000, gii:100000, giii:8000, giv:0}[k] || 0;
-        var base = Math.max(0, v - reducc);
-        // Coeficiente multiplicador art. 58 del texto refundido DL 1/2024 (patrimonio preexistente < 500.000)
-        var coef = {giii:1.5882, giv:2}[k] || 1;
-        var cuota = tarifa(base) * coef;
-        var bonifPct = 0;
-        if(k==='conyuge') bonifPct = 99;
-        // Bonificacion: porcentaje medio ponderado por tramos de BASE IMPONIBLE (v), no de base liquidable (art. 58 bis.2)
-        else if(k==='gi') bonifPct = bonifMedia(v, TABLA_GI);
-        else if(k==='gii') bonifPct = bonifMedia(v, TABLA_GII);
-        var pagar = cuota * (1 - bonifPct/100);
-        if (document.activeElement !== document.getElementById('vAmount')) document.getElementById('vAmount').value = fmt.format(v);
-        document.getElementById('vResult').textContent = fmt.format(Math.round(pagar));
-        document.getElementById('vBonif').innerHTML = bonifPct>0
-          ? 'Bonificaci\u00f3n media aplicada: <strong>'+bonifPct.toFixed(1).replace('.',',')+'%</strong> seg\u00fan las tablas vigentes en Catalu\u00f1a.'
-          : 'Este grupo de parentesco no tiene bonificaci\u00f3n de la cuota en Catalu\u00f1a.';
-      }
-      
-      /* Escribir la cifra a mano, no solo arrastrar el deslizador. Mientras se
-         teclea NO se reformatea (el cursor saltaria); se formatea al salir. */
-      var _vAmt = document.getElementById('vAmount');
-      function _leerVAmt(){
-        var n = parseInt(String(_vAmt.value).replace(/[^0-9]/g, ''), 10);
-        if (isNaN(n)) return null;
+
+      [kin, patrimonio, situacion].forEach(function(el){ el.addEventListener('change', render); });
+      amount.addEventListener('input', render);
+      if(edad) edad.addEventListener('input', render);
+      vivienda.addEventListener('input', render);
+      vivienda.addEventListener('blur', function(){ vivienda.value = eur(soloNum(vivienda.value)); render(); });
+
+      function leerVAmount(){
+        var n = soloNum(vAmount.value);
+        if(!n) return null;
         return Math.min(Math.max(n, +amount.min), +amount.max);
       }
-      _vAmt.addEventListener('input', function(){
-        var n = _leerVAmt();
-        if (n === null) return;
-        amount.value = n;
-        calc();
+      vAmount.addEventListener('input', function(){
+        var n = leerVAmount(); if(n === null) return;
+        amount.value = n; render();
       });
-      _vAmt.addEventListener('blur', function(){
-        var n = _leerVAmt();
-        amount.value = (n === null ? amount.value : n);
-        calc();
+      vAmount.addEventListener('blur', function(){
+        var n = leerVAmount(); amount.value = (n === null ? amount.value : n); render();
       });
-      _vAmt.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); _vAmt.blur(); } });
-      [amount,kin].forEach(function(el){ el.addEventListener('input', calc); el.addEventListener('change', calc); });
-      calc();
+      vAmount.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); vAmount.blur(); } });
+
+      render();
     })();
 
     // Formulario — Web3Forms con conversión Google Ads

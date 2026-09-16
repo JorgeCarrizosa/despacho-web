@@ -92,6 +92,7 @@
        Fichero compartido por toda la web (/assets/tracking.js); inyecta el
        banner de cookies y engancha las conversiones por si solo. -->
   <script src="/assets/tracking.js"></script>
+<script src="/assets/calc-sucesiones.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -638,6 +639,18 @@
     width:18px;height:18px;background:var(--ink);
     border-radius:50%;cursor:pointer;border:3px solid var(--bg);
   }
+
+  .calc-field.oculto{display:none}
+  .calc-field input.txt{font-family:"Montserrat",sans-serif;font-size:14px;color:var(--ink);
+    padding:12px 14px;border:1px solid var(--line);background:#fff;border-radius:0;width:100%;
+    -moz-appearance:textfield}
+  .calc-field input.txt:focus{outline:2px solid var(--gold);outline-offset:-2px}
+  .calc-field .ayuda{font-family:"Montserrat",sans-serif;font-size:11px;color:var(--muted);
+    line-height:1.5;margin:0}
+  .calc-desglose{font-family:"Montserrat",sans-serif;font-size:12px;line-height:1.8;
+    margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.18)}
+  .calc-desglose .fila{display:flex;justify-content:space-between;gap:12px}
+  .calc-desglose b{font-weight:600}
   .calc-field select{
     border:none;border-bottom:1px solid var(--line);
     background:transparent;padding:10px 0;
@@ -1365,7 +1378,7 @@
         <span class="eyebrow">Impost de Successions</span>
         <h2>Calculi, de manera orientativa, <em>el que pagaria a Catalunya.</em></h2>
         <p>Una primera estimació basada en les bonificacions de l'Impost de Successions de Catalunya per grup de parentiu. La xifra real depèn del patrimoni preexistent, les reduccions aplicables i la naturalesa dels béns.</p>
-        <div class="calc-disclaimer">Càlcul estimatiu · Assumeix la reducció de 100.000 € del fill; per a néts (50.000 €) o pares (30.000 €), també del Grup II, la reducció és menor. Tampoc suma l'aixovar domèstic (3%) ni el mínim ampliat dels menors de 21 anys. No substitueix l'assessorament jurídic personalitzat. Per a un càlcul exacte, demani una consulta gratuïta.</div>
+        <div class="calc-disclaimer">Càlcul estimatiu segons el Decret legislatiu 1/2024 (llibre sisè del Codi tributari de Catalunya). Contempla les reduccions per parentiu, habitatge habitual, discapacitat i edat, i el coeficient per patrimoni preexistent. No suma l'aixovar domèstic (3 %) ni les assegurances de vida, i no contempla la reducció per empresa familiar, que faria perdre la bonificació. No substitueix l'assessorament jurídic: per a un càlcul exacte, demaneu una consulta gratuïta.</div>
       </div>
 
       <div class="calc-card">
@@ -1380,10 +1393,44 @@
           <label>Parentiu amb el difunt</label>
           <select id="kin">
             <option value="conyuge">Cònjuge o parella estable</option>
-            <option value="gi">Fill o nét menor de 21 anys</option>
-            <option value="gii" selected>Fill major de 21 anys (Grup II)</option>
-            <option value="giii">Germans, nebots, oncles</option>
-            <option value="giv">Cosins i altres / sense parentiu</option>
+            <option value="menor21">Fill, nét o altre descendent menor de 21 anys</option>
+            <option value="hijo" selected>Fill o filla de 21 anys o més</option>
+            <option value="descendiente">Nét o altre descendent de 21 o més</option>
+            <option value="ascendiente">Pare o mare del difunt</option>
+            <option value="grupo3">Germans, nebots, oncles</option>
+            <option value="grupo4">Cosins i altres / sense parentiu</option>
+          </select>
+        </div>
+
+        <div class="calc-field oculto" id="cEdad">
+          <label for="edad">Edat de l'hereu</label>
+          <input class="txt" type="number" id="edad" min="0" max="20" value="15" inputmode="numeric">
+          <p class="ayuda">La reducció puja 12.000 € per cada any que li falti per als 21, fins a 196.000 € (art. 631-2.a).</p>
+        </div>
+
+        <div class="calc-field">
+          <label for="vivienda">De l'herència, quant val l'habitatge habitual del difunt?</label>
+          <input class="txt" type="text" id="vivienda" inputmode="numeric" autocomplete="off" value="0 €">
+          <p class="ayuda">Si l'hereta, es redueix el 95 % del seu valor, amb un topall de 500.000 € (art. 631-17). Escriviu 0 si no l'hereta.</p>
+        </div>
+
+        <div class="calc-field">
+          <label for="patrimonio">Patrimoni que ja té l'hereu</label>
+          <select id="patrimonio">
+            <option value="0" selected>Menys de 500.000 €</option>
+            <option value="1000000">Entre 500.000 i 2 milions</option>
+            <option value="3000000">Entre 2 i 4 milions</option>
+            <option value="5000000">Més de 4 milions</option>
+          </select>
+        </div>
+
+        <div class="calc-field">
+          <label for="situacion">Situació personal de l'hereu</label>
+          <select id="situacion">
+            <option value="" selected>Cap de les següents</option>
+            <option value="discap33">Discapacitat del 33 % o més</option>
+            <option value="discap65">Discapacitat del 65 % o més</option>
+            <option value="mayor75">Té 75 anys o més</option>
           </select>
         </div>
 
@@ -1391,6 +1438,7 @@
           <div class="calc-result-label">Quota estimada · Impost de Successions</div>
           <div class="calc-result-value" id="vResult">—</div>
           <div class="calc-result-bonif" id="vBonif">Càlcul segons les taules de bonificació vigents a Catalunya.</div>
+          <div class="calc-desglose" id="vDesglose"></div>
           <a href="#contacto" class="calc-cta">Demanar càlcul exacte</a>
         </div>
       </div>
@@ -1677,83 +1725,69 @@
       els.forEach(function(e){ io.observe(e); });
     })();
 
-    // Calculadora orientativa Impost de Successions · Catalunya
+    // Calculadora del Impuesto de Sucesiones de Cataluna.
+    // El calculo vive en /assets/calc-sucesiones.js, que lleva las tablas del
+    // DL 1/2024 con el articulo de cada una. Aqui solo la interfaz.
     (function(){
-      var amount = document.getElementById('amount');
-      var kin = document.getElementById('kin');
-      if(!amount) return;
-      var fmt = new Intl.NumberFormat('ca-ES',{style:'currency',currency:'EUR',maximumFractionDigits:0});
-      // Tablas de bonificación por tramos de base imponible (marginales).
-      // Fuente: DL 1/2024, texto refundido (art. 58 bis Ley 19/2010, red. Ley 5/2020).
-      var TABLA_GI  = [[100000,99],[100000,97],[100000,95],[200000,90],[250000,80],[250000,70],[500000,60],[500000,50],[500000,40],[500000,25],[Infinity,20]];
-      var TABLA_GII = [[100000,60],[100000,55],[100000,50],[200000,45],[250000,40],[250000,35],[500000,30],[500000,25],[500000,20],[500000,10],[Infinity,0]];
-      function bonifMedia(base, tabla){
-        if(base<=0) return 0;
-        var restante = base, suma = 0;
-        for(var i=0;i<tabla.length && restante>0;i++){
-          var t = Math.min(restante, tabla[i][0]);
-          suma += t * tabla[i][1];
-          restante -= t;
-        }
-        return suma / base;
+      var $ = function(id){ return document.getElementById(id); };
+      var amount=$('amount'), kin=$('kin'), vAmount=$('vAmount'), vResult=$('vResult'),
+          vBonif=$('vBonif'), vDesglose=$('vDesglose'), vivienda=$('vivienda'),
+          patrimonio=$('patrimonio'), situacion=$('situacion'), edad=$('edad'), cEdad=$('cEdad');
+      if(!amount || !kin || !window.CYA_SUCESIONES) return;
+
+      var nf = new Intl.NumberFormat('es-ES', {maximumFractionDigits:0});
+      var eur = function(n){ return nf.format(Math.round(n)) + ' €'; };
+      var soloNum = function(v){ var n = parseInt(String(v).replace(/[^0-9]/g,''),10); return isNaN(n)?0:n; };
+
+      function render(){
+        var herencia = +amount.value;
+        var vViv = Math.min(soloNum(vivienda.value), herencia);
+
+        var r = window.CYA_SUCESIONES.calcular({
+          herencia: herencia, parentesco: kin.value,
+          edad: edad ? +edad.value : 20, vivienda: vViv,
+          patrimonio: +patrimonio.value, situacion: situacion.value
+        });
+
+        if(document.activeElement !== vAmount) vAmount.value = eur(herencia);
+        cEdad.classList.toggle('oculto', kin.value !== 'menor21');
+        vResult.textContent = eur(r.aPagar);
+
+        vBonif.innerHTML = r.bonificacion > 0
+          ? 'Bonificació aplicada: <strong>' + String(r.bonificacion).replace('.',',') + '%</strong>'
+          : 'Aquest grup de parentiu no té bonificació de la quota a Catalunya.';
+
+        var filas = r.detalleReducciones.map(function(d){
+          return '<div class="fila"><span>' + d.concepto + '</span><b>− ' + eur(d.importe) + '</b></div>';
+        }).join('');
+        vDesglose.innerHTML = filas +
+          '<div class="fila"><span>Base sobre la qual es calcula</span><b>' + eur(r.baseLiquidable) + '</b></div>' +
+          '<div class="fila"><span>Quota abans de la bonificació' +
+            (r.coeficiente !== 1 ? ' (coef. ' + String(r.coeficiente).replace('.',',') + ')' : '') +
+            '</span><b>' + eur(r.cuotaTributaria) + '</b></div>';
       }
-      function tarifa(base){
-        // Tarifa propia de Cataluna, art. 57 Ley 19/2010 (7-32% en 5 tramos)
-        var tramos = [[50000,7],[100000,11],[250000,17],[400000,24]];
-        var tipoFinal = 32;
-        var c = 0, restante = base;
-        for(var i=0;i<tramos.length && restante>0;i++){
-          var t = Math.min(restante, tramos[i][0]);
-          c += t * tramos[i][1] / 100;
-          restante -= t;
-        }
-        if(restante>0) c += restante * tipoFinal/100;
-        return c;
-      }
-      function calc(){
-        var v = +amount.value;
-        var k = kin.value;
-        // Reduccion por parentesco (orientativa; padres 30.000 - se afina en consulta)
-        var reducc = {conyuge:100000, gi:100000, gii:100000, giii:8000, giv:0}[k] || 0;
-        var base = Math.max(0, v - reducc);
-        // Coeficiente multiplicador art. 58 del texto refundido DL 1/2024 (patrimonio preexistente < 500.000)
-        var coef = {giii:1.5882, giv:2}[k] || 1;
-        var cuota = tarifa(base) * coef;
-        var bonifPct = 0;
-        if(k==='conyuge') bonifPct = 99;
-        // Bonificacion: porcentaje medio ponderado por tramos de BASE IMPONIBLE (v), no de base liquidable (art. 58 bis.2)
-        else if(k==='gi') bonifPct = bonifMedia(v, TABLA_GI);
-        else if(k==='gii') bonifPct = bonifMedia(v, TABLA_GII);
-        var pagar = cuota * (1 - bonifPct/100);
-        if (document.activeElement !== document.getElementById('vAmount')) document.getElementById('vAmount').value = fmt.format(v);
-        document.getElementById('vResult').textContent = fmt.format(Math.round(pagar));
-        document.getElementById('vBonif').innerHTML = bonifPct>0
-          ? 'Bonificaci\u00f3 mitjana aplicada: <strong>'+bonifPct.toFixed(1).replace('.',',')+'%</strong> segons les taules vigents a Catalunya.'
-          : 'Aquest grup de parentiu no t\u00e9 bonificaci\u00f3 de la quota a Catalunya.';
-      }
-      
-      /* Escribir la cifra a mano, no solo arrastrar el deslizador. Mientras se
-         teclea NO se reformatea (el cursor saltaria); se formatea al salir. */
-      var _vAmt = document.getElementById('vAmount');
-      function _leerVAmt(){
-        var n = parseInt(String(_vAmt.value).replace(/[^0-9]/g, ''), 10);
-        if (isNaN(n)) return null;
+
+      [kin, patrimonio, situacion].forEach(function(el){ el.addEventListener('change', render); });
+      amount.addEventListener('input', render);
+      if(edad) edad.addEventListener('input', render);
+      vivienda.addEventListener('input', render);
+      vivienda.addEventListener('blur', function(){ vivienda.value = eur(soloNum(vivienda.value)); render(); });
+
+      function leerVAmount(){
+        var n = soloNum(vAmount.value);
+        if(!n) return null;
         return Math.min(Math.max(n, +amount.min), +amount.max);
       }
-      _vAmt.addEventListener('input', function(){
-        var n = _leerVAmt();
-        if (n === null) return;
-        amount.value = n;
-        calc();
+      vAmount.addEventListener('input', function(){
+        var n = leerVAmount(); if(n === null) return;
+        amount.value = n; render();
       });
-      _vAmt.addEventListener('blur', function(){
-        var n = _leerVAmt();
-        amount.value = (n === null ? amount.value : n);
-        calc();
+      vAmount.addEventListener('blur', function(){
+        var n = leerVAmount(); amount.value = (n === null ? amount.value : n); render();
       });
-      _vAmt.addEventListener('keydown', function(e){ if (e.key === 'Enter') { e.preventDefault(); _vAmt.blur(); } });
-      [amount,kin].forEach(function(el){ el.addEventListener('input', calc); el.addEventListener('change', calc); });
-      calc();
+      vAmount.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); vAmount.blur(); } });
+
+      render();
     })();
 
     // Formulario — Web3Forms con conversión Google Ads

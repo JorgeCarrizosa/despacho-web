@@ -131,6 +131,20 @@ table.rates td.hl{color:var(--oro); font-weight:600; font-family:var(--serif); f
 .calc #vAmount{font-family:var(--serif); font-size:30px; color:var(--noche); font-weight:500;}
 .calc #vAmount{background:transparent;border:0;border-bottom:1px dashed rgba(0,0,0,.28);text-align:right;width:9ch;padding:0 0 2px;cursor:text;-moz-appearance:textfield}
 .calc #vAmount:focus{outline:none;border-bottom-style:solid}
+.calc .campo{margin-top:22px;}
+.calc .campo.oculto{display:none;}
+.calc .fila2{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.calc .fila2 .campo{margin-top:0;}
+.calc input.txt{width:100%; font-family:var(--sans); font-size:14px; color:var(--ink);
+  padding:13px 14px; border:1px solid var(--linea); background:var(--crema); border-radius:0;
+  -moz-appearance:textfield;}
+.calc input.txt:focus{outline:2px solid var(--oro); outline-offset:-2px;}
+.calc .ayuda{font-family:var(--sans); font-size:11px; color:var(--muted); margin-top:7px; line-height:1.5;}
+.calc .desglose{font-family:var(--sans); font-size:12px; color:#c8c6d6; margin-top:18px;
+  border-top:1px solid rgba(201,163,90,.3); padding-top:16px; line-height:1.8;}
+.calc .desglose b{color:#fff; font-weight:600;}
+.calc .desglose .fila{display:flex; justify-content:space-between; gap:14px;}
+@media(max-width:860px){ .calc .fila2{grid-template-columns:1fr;} .calc .fila2 .campo+.campo{margin-top:22px;} }
 
 input[type=range]{-webkit-appearance:none; appearance:none; width:100%; height:2px; background:var(--linea); outline:none; margin:18px 0 30px;}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; appearance:none; width:22px; height:22px; border-radius:0; background:var(--oro); border:1px solid var(--oro); cursor:pointer; transform:rotate(45deg);}
@@ -305,16 +319,52 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
           <label class="fl" for="kin">Parentesco con el fallecido</label>
           <select id="kin">
             <option value="conyuge">Cónyuge o pareja estable</option>
-            <option value="gi">Hijo o nieto menor de 21 años</option>
-            <option value="gii" selected>Hijo mayor de 21 años (Grupo II)</option>
-            <option value="giii">Hermanos, sobrinos, tíos</option>
-            <option value="giv">Primos y otros / sin parentesco</option>
+            <option value="menor21">Hijo, nieto u otro descendiente menor de 21 años</option>
+            <option value="hijo" selected>Hijo o hija de 21 años o más</option>
+            <option value="descendiente">Nieto u otro descendiente de 21 o más</option>
+            <option value="ascendiente">Padre o madre del fallecido</option>
+            <option value="grupo3">Hermanos, sobrinos, tíos</option>
+            <option value="grupo4">Primos y otros / sin parentesco</option>
           </select>
+
+          <div class="campo oculto" id="cEdad">
+            <label class="fl" for="edad">Edad del heredero</label>
+            <input class="txt" type="number" id="edad" min="0" max="20" value="15" inputmode="numeric">
+            <p class="ayuda">La reducción sube 12.000 € por cada año que le falte para los 21, hasta un máximo de 196.000 € (art. 631-2.a).</p>
+          </div>
+
+          <div class="campo">
+            <label class="fl" for="vivienda">De esa herencia, ¿cuánto vale la vivienda habitual del fallecido?</label>
+            <input class="txt" type="text" id="vivienda" inputmode="numeric" autocomplete="off" value="0 €">
+            <p class="ayuda">Si la hereda, se reduce el 95 % de su valor, con un tope de 500.000 € (art. 631-17). Escriba 0 si no hereda la vivienda.</p>
+          </div>
+
+          <div class="fila2">
+            <div class="campo">
+              <label class="fl" for="patrimonio">Patrimonio que ya tiene el heredero</label>
+              <select id="patrimonio">
+                <option value="0" selected>Menos de 500.000 €</option>
+                <option value="1000000">Entre 500.000 y 2 millones</option>
+                <option value="3000000">Entre 2 y 4 millones</option>
+                <option value="5000000">Más de 4 millones</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label class="fl" for="situacion">Situación personal del heredero</label>
+              <select id="situacion">
+                <option value="" selected>Ninguna de las siguientes</option>
+                <option value="discap33">Discapacidad del 33 % o más</option>
+                <option value="discap65">Discapacidad del 65 % o más</option>
+                <option value="mayor75">Tiene 75 años o más</option>
+              </select>
+            </div>
+          </div>
         </div>
         <div class="result">
           <div class="rlab">Cuota estimada · Impuesto de Sucesiones</div>
           <div id="vResult">—</div>
           <div id="vBonif"></div>
+          <div class="desglose" id="vDesglose"></div>
           <p class="rnote">Cálculo según las tablas de bonificación vigentes en Cataluña.</p>
           <a href="https://carrizosayalmazor.com/sucesiones/#contacto">Pedir cálculo exacto</a>
         </div>
@@ -364,7 +414,7 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
         <div class="inner" style="margin-top:28px;">
           <p>Ojo con un detalle que sorprende a muchas familias: si se opta por aplicar ciertas reducciones (por ejemplo, la de empresa familiar), <em>la bonificación se pierde</em>; la de vivienda habitual, en cambio, es compatible. Elegir la combinación óptima entre reducciones y bonificación es puro cálculo, y es dinero.</p>
           <p>Y si el impuesto es solo una parte de sus dudas, tenemos el proceso completo explicado paso a paso en la <a href="/sucesiones/guia-herencias-cataluna/">guía de herencias en Cataluña</a>.</p>
-          <p class="source">Fuente: Decreto legislativo 1/2024 (texto refundido de los tributos cedidos de Cataluña; art. 58 bis de la Ley 19/2010 en la redacción de la Ley 5/2020) y Agència Tributària de Catalunya.</p>
+          <p class="source">Fuente: Decreto legislativo 1/2024, de 12 de marzo, por el que se aprueba el libro sexto del Código tributario de Catalunya (DOGC 9122; BOE-A-2024-6951) — tarifa art. 633-1, coeficientes art. 633-3, bonificación art. 633-4 y reducciones arts. 631-2 a 631-17. Este decreto derogó la Ley 19/2010 con efectos de 15 de marzo de 2024.</p>
         </div>
       </div>
     </div>
@@ -473,62 +523,76 @@ footer .foot-links{margin-left:auto; display:flex; gap:22px;}
   <span>Escríbanos por WhatsApp</span>
 </a>
 
-<!-- Estimador orientativo autocontenido. El desarrollador puede sustituirlo por el
-     script de cálculo del sitio: solo depende de los ids amount, kin, vAmount, vResult, vBonif. -->
+<!-- La calculadora usa el motor comun /assets/calc-sucesiones.js, que lleva las
+     tablas del DL 1/2024 con el articulo de cada una. Aqui solo vive la interfaz. -->
+<script src="/assets/calc-sucesiones.js"></script>
 <script>
 (function(){
-  var amount=document.getElementById('amount'),
-      kin=document.getElementById('kin'),
-      vAmount=document.getElementById('vAmount'),
-      vResult=document.getElementById('vResult'),
-      vBonif=document.getElementById('vBonif');
-  if(!amount||!kin) return;
-  var eur=function(n){return new Intl.NumberFormat('es-ES',{maximumFractionDigits:0}).format(Math.round(n))+' €';};
-  var scale=[[0,.07],[50000,.11],[150000,.17],[400000,.24],[800000,.32]];
-  function tax(base){var t=0;for(var i=0;i<scale.length;i++){var lo=scale[i][0],hi=i+1<scale.length?scale[i+1][0]:Infinity,r=scale[i][1];if(base>lo)t+=(Math.min(base,hi)-lo)*r;}return t;}
-  var bands=[100000,200000,300000,500000,750000,1000000,1500000,2000000,2500000,3000000,Infinity];
-  var GI=[.99,.97,.95,.90,.80,.70,.60,.50,.40,.25,.20];
-  var GII=[.60,.55,.50,.45,.40,.35,.30,.25,.20,.10,.00];
-  function avgBon(base,tab){if(base<=0)return 0;var w=0,cov=0,prev=0;for(var i=0;i<bands.length;i++){var hi=bands[i],seg=Math.min(base,hi)-prev;if(seg>0){w+=seg*tab[i];cov+=seg;}prev=hi;if(base<=hi)break;}return cov>0?w/cov:0;}
-  function calc(){
-    var a=+amount.value;
-    if(document.activeElement!==vAmount) vAmount.value=eur(a);
-    var red=0,coef=1,bon=0;
-    switch(kin.value){
-      case 'conyuge': red=100000; bon=0.99; break;
-      case 'gi': red=100000; break;
-      case 'gii': red=100000; break;
-      // Coeficiente multiplicador art. 58 del texto refundido DL 1/2024 (patrimonio preexistente < 500.000)
-      case 'giii': red=8000; coef=1.5882; break;
-      case 'giv': red=0; coef=2; break;
-    }
-    var base=Math.max(0,a-red);
-    var cuota=tax(base)*coef;
-    // Bonificacion: porcentaje medio ponderado por tramos de BASE IMPONIBLE (a), no de base liquidable (art. 58 bis.2)
-    if(kin.value==='gi') bon=avgBon(a,GI);
-    if(kin.value==='gii') bon=avgBon(a,GII);
-    var pay=cuota*(1-bon);
-    vResult.textContent=eur(pay);
-    if(vBonif) vBonif.textContent = bon>0 ? ('Bonificación aplicada · '+Math.round(bon*100)+'%') : 'Sin bonificación';
+  var $ = function(id){ return document.getElementById(id); };
+  var amount=$('amount'), kin=$('kin'), vAmount=$('vAmount'), vResult=$('vResult'),
+      vBonif=$('vBonif'), vDesglose=$('vDesglose'), vivienda=$('vivienda'),
+      patrimonio=$('patrimonio'), situacion=$('situacion'), edad=$('edad'), cEdad=$('cEdad');
+  if(!amount || !kin || !window.CYA_SUCESIONES) return;
+
+  var nf = new Intl.NumberFormat('es-ES', {maximumFractionDigits:0});
+  var eur = function(n){ return nf.format(Math.round(n)) + ' €'; };
+  var soloNum = function(v){ var n = parseInt(String(v).replace(/[^0-9]/g,''),10); return isNaN(n)?0:n; };
+
+  function render(){
+    var herencia = +amount.value;
+    var vViv = Math.min(soloNum(vivienda.value), herencia);   // no puede valer mas que la herencia
+
+    var r = window.CYA_SUCESIONES.calcular({
+      herencia: herencia,
+      parentesco: kin.value,
+      edad: edad ? +edad.value : 20,
+      vivienda: vViv,
+      patrimonio: +patrimonio.value,
+      situacion: situacion.value
+    });
+
+    if(document.activeElement !== vAmount) vAmount.value = eur(herencia);
+    cEdad.classList.toggle('oculto', kin.value !== 'menor21');
+    vResult.textContent = eur(r.aPagar);
+
+    vBonif.innerHTML = r.bonificacion > 0
+      ? 'Bonificación aplicada: <strong>' + String(r.bonificacion).replace('.',',') + '%</strong>'
+      : 'Este grupo de parentesco no tiene bonificación de la cuota en Cataluña.';
+
+    var filas = r.detalleReducciones.map(function(d){
+      return '<div class="fila"><span>' + d.concepto + ' <small>(art. ' + d.art + ')</small></span><b>− ' + eur(d.importe) + '</b></div>';
+    }).join('');
+    vDesglose.innerHTML =
+      filas +
+      '<div class="fila"><span>Base sobre la que se calcula</span><b>' + eur(r.baseLiquidable) + '</b></div>' +
+      '<div class="fila"><span>Cuota antes de la bonificación' +
+        (r.coeficiente !== 1 ? ' (coef. ' + String(r.coeficiente).replace('.',',') + ')' : '') +
+        '</span><b>' + eur(r.cuotaTributaria) + '</b></div>';
   }
-  /* Escribir la cifra a mano, no solo arrastrar. Mientras se teclea NO se
-     reformatea (el cursor saltaria); se formatea al salir del campo. */
-  function _leerVAmt(){
-    var n=parseInt(String(vAmount.value).replace(/[^0-9]/g,''),10);
-    if(isNaN(n)) return null;
-    return Math.min(Math.max(n,+amount.min),+amount.max);
+
+  [kin, patrimonio, situacion].forEach(function(el){ el.addEventListener('change', render); });
+  amount.addEventListener('input', render);
+  if(edad) edad.addEventListener('input', render);
+
+  // Campos de importe: se escriben a mano y se formatean al salir.
+  vivienda.addEventListener('input', render);
+  vivienda.addEventListener('blur', function(){ vivienda.value = eur(soloNum(vivienda.value)); render(); });
+
+  function leerVAmount(){
+    var n = soloNum(vAmount.value);
+    if(!n) return null;
+    return Math.min(Math.max(n, +amount.min), +amount.max);
   }
-  vAmount.addEventListener('input',function(){
-    var n=_leerVAmt(); if(n===null) return;
-    amount.value=n; calc();
+  vAmount.addEventListener('input', function(){
+    var n = leerVAmount(); if(n === null) return;
+    amount.value = n; render();
   });
-  vAmount.addEventListener('blur',function(){
-    var n=_leerVAmt(); amount.value=(n===null?amount.value:n); calc();
+  vAmount.addEventListener('blur', function(){
+    var n = leerVAmount(); amount.value = (n === null ? amount.value : n); render();
   });
-  vAmount.addEventListener('keydown',function(e){ if(e.key==='Enter'){e.preventDefault();vAmount.blur();} });
-  amount.addEventListener('input',calc);
-  kin.addEventListener('change',calc);
-  calc();
+  vAmount.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); vAmount.blur(); } });
+
+  render();
 })();
 </script>
 
