@@ -155,12 +155,20 @@
     // 2. Reducción por vivienda habitual (art. 631-17): 95 %, límite 500.000
     //    por el valor conjunto. El mínimo individual de 180.000 solo entra al
     //    prorratear entre varios sujetos pasivos, y aquí calculamos uno.
-    //    Los colaterales de 4.º grado y extraños (grupo IV) quedan fuera: el
-    //    artículo la reserva a cónyuge, descendientes, ascendientes y
-    //    colaterales del causante.
+    //
+    //    Quién puede aplicarla: el art. 631-17 la reserva a cónyuge,
+    //    descendientes, ascendientes y colaterales del causante, así que el
+    //    grupo IV (colaterales de 4.º grado y extraños) queda fuera.
+    //
+    //    Y los COLATERALES (grupo III) tienen un requisito propio que es fácil
+    //    pasar por alto, art. 631-18.2: "deben ser mayores de sesenta y cinco
+    //    años y deben haber convivido con el causante como mínimo los dos años
+    //    anteriores a su muerte". Sin eso no les corresponde.
     var rVivienda = 0;
     var vivienda = Math.max(0, Number(datos.vivienda) || 0);
-    if (vivienda > 0 && grupo !== 4) {
+    var puedeVivienda = (grupo !== 4) &&
+                        (grupo !== 3 || datos.colateralConviviente === true);
+    if (vivienda > 0 && puedeVivienda) {
       rVivienda = Math.min(vivienda * 0.95, 500000);
       detalle.push({ concepto: 'Vivienda habitual', importe: rVivienda, art: '631-17' });
     }

@@ -640,6 +640,8 @@
   }
 
   .calc-field.oculto{display:none}
+  .calc-field label.chk{display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:13px;line-height:1.5;cursor:pointer}
+  .calc-field label.chk input{width:17px;height:17px;flex-shrink:0;margin-top:2px;accent-color:var(--ink)}
   .calc-field input.txt{font-family:"Montserrat",sans-serif;font-size:14px;color:var(--ink);
     padding:12px 14px;border:1px solid var(--line);background:#fff;border-radius:0;width:100%;
     -moz-appearance:textfield}
@@ -1408,9 +1410,23 @@
         </div>
 
         <div class="calc-field">
-          <label for="vivienda">De la herencia, ¿cuánto vale la vivienda habitual del fallecido?</label>
+          <label for="tieneVivienda">¿La herencia incluye la vivienda habitual del fallecido?</label>
+          <select id="tieneVivienda">
+            <option value="no" selected>No, o no me corresponde a mí</option>
+            <option value="si">Sí, y me corresponde a mí</option>
+          </select>
+          <p class="ayuda">Se reduce el 95 % de su valor, con un tope de 500.000 € (art. 631-17). Cuentan también el trastero y hasta dos plazas de aparcamiento del mismo edificio. Si el fallecido pasó sus últimos años en una residencia, sigue contando la que fue su vivienda habitual.</p>
+        </div>
+
+        <div class="calc-field oculto" id="cVivienda">
+          <label for="vivienda">Valor de esa vivienda</label>
           <input class="txt" type="text" id="vivienda" inputmode="numeric" autocomplete="off" value="0 €">
-          <p class="ayuda">Si la hereda, se reduce el 95 % de su valor, con un tope de 500.000 € (art. 631-17). Escriba 0 si no la hereda.</p>
+          <p class="ayuda">Ya está incluido en el valor total de la herencia que ha puesto arriba: no lo sume aparte. La reducción se pierde si la vivienda se vende dentro de los cinco años siguientes (art. 631-19).</p>
+        </div>
+
+        <div class="calc-field oculto" id="cColateral">
+          <label class="chk"><input type="checkbox" id="colateral"> <span>Tengo 65 años o más y conviví con el fallecido los dos años anteriores a su muerte</span></label>
+          <p class="ayuda">Los hermanos, sobrinos y tíos solo pueden aplicar esta reducción si cumplen las dos condiciones (art. 631-18.2).</p>
         </div>
 
         <div class="calc-field">
@@ -1731,7 +1747,9 @@
       var $ = function(id){ return document.getElementById(id); };
       var amount=$('amount'), kin=$('kin'), vAmount=$('vAmount'), vResult=$('vResult'),
           vBonif=$('vBonif'), vDesglose=$('vDesglose'), vivienda=$('vivienda'),
-          patrimonio=$('patrimonio'), situacion=$('situacion'), edad=$('edad'), cEdad=$('cEdad');
+          patrimonio=$('patrimonio'), situacion=$('situacion'), edad=$('edad'), cEdad=$('cEdad'),
+          tieneVivienda=$('tieneVivienda'), cVivienda=$('cVivienda'),
+          colateral=$('colateral'), cColateral=$('cColateral');
       if(!amount || !kin || !window.CYA_SUCESIONES) return;
 
       var nf = new Intl.NumberFormat('es-ES', {maximumFractionDigits:0});
@@ -1740,16 +1758,23 @@
 
       function render(){
         var herencia = +amount.value;
-        var vViv = Math.min(soloNum(vivienda.value), herencia);
+        var hayVivienda = tieneVivienda.value === 'si';
+        // La vivienda va DENTRO del valor de la herencia, no se suma aparte.
+        var vViv = hayVivienda ? Math.min(soloNum(vivienda.value), herencia) : 0;
 
         var r = window.CYA_SUCESIONES.calcular({
           herencia: herencia, parentesco: kin.value,
           edad: edad ? +edad.value : 20, vivienda: vViv,
-          patrimonio: +patrimonio.value, situacion: situacion.value
+          patrimonio: +patrimonio.value, situacion: situacion.value,
+          colateralConviviente: colateral.checked
         });
 
         if(document.activeElement !== vAmount) vAmount.value = eur(herencia);
         cEdad.classList.toggle('oculto', kin.value !== 'menor21');
+        cVivienda.classList.toggle('oculto', !hayVivienda);
+        // El requisito de 65 anios + convivencia (art. 631-18.2) solo afecta a
+        // los colaterales, asi que la casilla solo se ensena cuando aplica.
+        cColateral.classList.toggle('oculto', !(hayVivienda && kin.value === 'grupo3'));
         vResult.textContent = eur(r.aPagar);
 
         vBonif.innerHTML = r.bonificacion > 0
@@ -1766,7 +1791,9 @@
             '</span><b>' + eur(r.cuotaTributaria) + '</b></div>';
       }
 
-      [kin, patrimonio, situacion].forEach(function(el){ el.addEventListener('change', render); });
+      [kin, patrimonio, situacion, tieneVivienda, colateral].forEach(function(el){
+        el.addEventListener('change', render);
+      });
       amount.addEventListener('input', render);
       if(edad) edad.addEventListener('input', render);
       vivienda.addEventListener('input', render);

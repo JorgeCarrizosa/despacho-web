@@ -641,6 +641,8 @@
   }
 
   .calc-field.oculto{display:none}
+  .calc-field label.chk{display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font-size:13px;line-height:1.5;cursor:pointer}
+  .calc-field label.chk input{width:17px;height:17px;flex-shrink:0;margin-top:2px;accent-color:var(--ink)}
   .calc-field input.txt{font-family:"Montserrat",sans-serif;font-size:14px;color:var(--ink);
     padding:12px 14px;border:1px solid var(--line);background:#fff;border-radius:0;width:100%;
     -moz-appearance:textfield}
@@ -1409,9 +1411,23 @@
         </div>
 
         <div class="calc-field">
-          <label for="vivienda">De l'herència, quant val l'habitatge habitual del difunt?</label>
+          <label for="tieneVivienda">L'herència inclou l'habitatge habitual del difunt?</label>
+          <select id="tieneVivienda">
+            <option value="no" selected>No, o no em correspon a mi</option>
+            <option value="si">Sí, i em correspon a mi</option>
+          </select>
+          <p class="ayuda">Es redueix el 95 % del seu valor, amb un topall de 500.000 € (art. 631-17). Compten també el traster i fins a dues places d'aparcament del mateix edifici. Si el difunt va passar els últims anys en una residència, continua comptant el que va ser el seu habitatge habitual.</p>
+        </div>
+
+        <div class="calc-field oculto" id="cVivienda">
+          <label for="vivienda">Valor d'aquest habitatge</label>
           <input class="txt" type="text" id="vivienda" inputmode="numeric" autocomplete="off" value="0 €">
-          <p class="ayuda">Si l'hereta, es redueix el 95 % del seu valor, amb un topall de 500.000 € (art. 631-17). Escriviu 0 si no l'hereta.</p>
+          <p class="ayuda">Ja està inclòs en el valor total de l'herència que ha posat a dalt: no el sumi a part. La reducció es perd si l'habitatge es ven dins dels cinc anys següents (art. 631-19).</p>
+        </div>
+
+        <div class="calc-field oculto" id="cColateral">
+          <label class="chk"><input type="checkbox" id="colateral"> <span>Tinc 65 anys o més i vaig conviure amb el difunt els dos anys anteriors a la seva mort</span></label>
+          <p class="ayuda">Els germans, nebots i oncles només poden aplicar aquesta reducció si compleixen les dues condicions (art. 631-18.2).</p>
         </div>
 
         <div class="calc-field">
@@ -1732,7 +1748,9 @@
       var $ = function(id){ return document.getElementById(id); };
       var amount=$('amount'), kin=$('kin'), vAmount=$('vAmount'), vResult=$('vResult'),
           vBonif=$('vBonif'), vDesglose=$('vDesglose'), vivienda=$('vivienda'),
-          patrimonio=$('patrimonio'), situacion=$('situacion'), edad=$('edad'), cEdad=$('cEdad');
+          patrimonio=$('patrimonio'), situacion=$('situacion'), edad=$('edad'), cEdad=$('cEdad'),
+          tieneVivienda=$('tieneVivienda'), cVivienda=$('cVivienda'),
+          colateral=$('colateral'), cColateral=$('cColateral');
       if(!amount || !kin || !window.CYA_SUCESIONES) return;
 
       var nf = new Intl.NumberFormat('es-ES', {maximumFractionDigits:0});
@@ -1741,16 +1759,23 @@
 
       function render(){
         var herencia = +amount.value;
-        var vViv = Math.min(soloNum(vivienda.value), herencia);
+        var hayVivienda = tieneVivienda.value === 'si';
+        // La vivienda va DENTRO del valor de la herencia, no se suma aparte.
+        var vViv = hayVivienda ? Math.min(soloNum(vivienda.value), herencia) : 0;
 
         var r = window.CYA_SUCESIONES.calcular({
           herencia: herencia, parentesco: kin.value,
           edad: edad ? +edad.value : 20, vivienda: vViv,
-          patrimonio: +patrimonio.value, situacion: situacion.value
+          patrimonio: +patrimonio.value, situacion: situacion.value,
+          colateralConviviente: colateral.checked
         });
 
         if(document.activeElement !== vAmount) vAmount.value = eur(herencia);
         cEdad.classList.toggle('oculto', kin.value !== 'menor21');
+        cVivienda.classList.toggle('oculto', !hayVivienda);
+        // El requisito de 65 anios + convivencia (art. 631-18.2) solo afecta a
+        // los colaterales, asi que la casilla solo se ensena cuando aplica.
+        cColateral.classList.toggle('oculto', !(hayVivienda && kin.value === 'grupo3'));
         vResult.textContent = eur(r.aPagar);
 
         vBonif.innerHTML = r.bonificacion > 0
@@ -1767,7 +1792,9 @@
             '</span><b>' + eur(r.cuotaTributaria) + '</b></div>';
       }
 
-      [kin, patrimonio, situacion].forEach(function(el){ el.addEventListener('change', render); });
+      [kin, patrimonio, situacion, tieneVivienda, colateral].forEach(function(el){
+        el.addEventListener('change', render);
+      });
       amount.addEventListener('input', render);
       if(edad) edad.addEventListener('input', render);
       vivienda.addEventListener('input', render);
