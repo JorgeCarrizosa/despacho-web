@@ -782,6 +782,127 @@
     .spot-stats{grid-template-columns:1fr}
   }
 </style>
+
+<!-- ===================================================================
+     DATOS ESTRUCTURADOS DE LA PORTADA — 22-sept-2026
+     La portada no tenia NINGUN marcado (ni JSON-LD, ni microdatos): el
+     despacho declaraba su identidad en las 9 paginas de /sucesiones/ y en
+     derecho-empresa.html, pero no en la pagina que ES el despacho, que es
+     donde Google dice que tiene sentido ponerlo y la que se lleva el 58%
+     de los clics organicos.
+
+     Decisiones tomadas por Jorge el 22-sept:
+       - name "Carrizosa y Almazor": el NOMBRE COMERCIAL, y el unico que se
+         declara. Sin alternateName. legalName "Licet Europa SL" es la
+         sociedad, no la marca.
+         PENDIENTE EN GOOGLE BUSINESS: la ficha se llama hoy "Carrizosa Y
+         Almazor Abogados". Hay que renombrarla para que coincida.
+       - direccion: Calle Pau Claris 171, Entresuelo 2a (confirmada; el
+         texto visible decia "planta principal" y se ha corregido aqui y
+         en contacto/index.html).
+       - tarde hasta las 19:00, como la ficha de Google (el texto visible
+         decia 19:30 en 17 sitios de 13 ficheros; corregidos todos).
+       - sameAs: enlace de la ficha de Google Business (kgmid /g/1q62hz49q).
+
+     Tipo LegalService, no Attorney: schema.org marca Attorney como
+     deprecado ("LegalService is more inclusive and less ambiguous").
+     No toca <title> ni <meta description>: el experimento de titulos del
+     18-sept sigue abierto hasta mediados de octubre.
+
+     Mejora opcional: sustituir el share.google/... por la URL larga de
+     Maps (abrir la ficha en Maps en el ordenador y copiar la barra de
+     direcciones). Es mas duradera; un acortador lo puede retirar Google.
+     =================================================================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LegalService",
+      "@id": "https://carrizosayalmazor.com/#despacho",
+      "name": "Carrizosa y Almazor",
+      "legalName": "Licet Europa SL",
+      "description": "Despacho de abogados en Barcelona con atencion directa de los dos socios. Derecho civil, penal, laboral, herencias y sucesiones, y derecho de empresa.",
+      "url": "https://carrizosayalmazor.com/",
+      "telephone": "+34934572123",
+      "email": "abogados@carrizosayalmazor.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Pau Claris 171, Entresuelo 2ª",
+        "postalCode": "08037",
+        "addressLocality": "Barcelona",
+        "addressRegion": "Cataluña",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 41.39588,
+        "longitude": 2.1627
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "13:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          "opens": "15:30",
+          "closes": "19:00"
+        }
+      ],
+      "areaServed": "Provincia de Barcelona",
+      "knowsLanguage": ["es", "ca"],
+      "knowsAbout": [
+        "Derecho Civil",
+        "Derecho Penal",
+        "Derecho Laboral",
+        "Herencias y Sucesiones",
+        "Derecho de Empresa"
+      ],
+      "employee": [
+        { "@id": "https://carrizosayalmazor.com/#carlos-carrizosa" },
+        { "@id": "https://carrizosayalmazor.com/#marisa-almazor" }
+      ],
+      "sameAs": ["https://share.google/5cjbcOQ5VKReytrhY"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://carrizosayalmazor.com/#web",
+      "url": "https://carrizosayalmazor.com/",
+      "name": "Carrizosa y Almazor",
+      "inLanguage": "es-ES",
+      "publisher": { "@id": "https://carrizosayalmazor.com/#despacho" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://carrizosayalmazor.com/#carlos-carrizosa",
+      "name": "Carlos Carrizosa",
+      "jobTitle": "Abogado socio",
+      "worksFor": { "@id": "https://carrizosayalmazor.com/#despacho" },
+      "url": "https://carrizosayalmazor.com/#socios",
+      "sameAs": ["https://www.linkedin.com/in/carloscarrizosatorres/"],
+      "subjectOf": {
+        "@type": "NewsArticle",
+        "headline": "El Supremo y la colaboración con la justicia en casos de corrupción",
+        "url": "https://confilegal.com/20260623-supremo-abalos-koldo-aldama-colaboracion-justicia-corrupcion/",
+        "publisher": { "@type": "Organization", "name": "Confilegal" }
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://carrizosayalmazor.com/#marisa-almazor",
+      "name": "Marisa Almazor",
+      "jobTitle": "Abogada socia",
+      "worksFor": { "@id": "https://carrizosayalmazor.com/#despacho" },
+      "url": "https://carrizosayalmazor.com/#socios",
+      "sameAs": ["https://www.linkedin.com/in/marisa-almazor-lopez-58b2245b/"]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -790,7 +911,7 @@
     <div class="topbar-inner">
       <div class="topbar-left">
         <a href="tel:+34934572123">+34 934 572 123</a>
-        <span>L–V 9–13:30 · L–J 15:30–19:30</span>
+        <span>L–V 9–13:30 · L–J 15:30–19:00</span>
         <a href="mailto:abogados@carrizosayalmazor.com">abogados@carrizosayalmazor.com</a>
       </div>
     </div>
@@ -873,7 +994,7 @@
           </div>
           <div class="hero-foot">
             <span>Horario de atención</span>
-            <strong>L–V 9–13:30 · L–J 15:30–19:30</strong>
+            <strong>L–V 9–13:30 · L–J 15:30–19:00</strong>
           </div>
         </div>
       </aside>
@@ -1370,7 +1491,7 @@
         <div class="contact-detail">
           <div class="lbl">Despacho</div>
           <div class="val">
-            Calle Pau Claris 171, planta principal
+            Calle Pau Claris 171, Entresuelo 2ª
             <small>08037 Barcelona · L'Eixample</small>
           </div>
         </div>
@@ -1378,7 +1499,7 @@
           <div class="lbl">Teléfono</div>
           <div class="val">
             <a href="tel:+34934572123">+34 934 572 123</a>
-            <small>L–V mañanas 9:00–13:30 · L–J tardes 15:30–19:30</small>
+            <small>L–V mañanas 9:00–13:30 · L–J tardes 15:30–19:00</small>
           </div>
         </div>
         <div class="contact-detail">
@@ -1495,7 +1616,7 @@
             <li>Calle Pau Claris 171<br/>08037 Barcelona</li>
             <li><a href="tel:+34934572123">+34 934 572 123</a></li>
             <li><a href="mailto:abogados@carrizosayalmazor.com">abogados@<br/>carrizosayalmazor.com</a></li>
-            <li>L–V 9–13:30 · L–J 15:30–19:30</li>
+            <li>L–V 9–13:30 · L–J 15:30–19:00</li>
           </ul>
         </div>
       </div>
