@@ -416,6 +416,69 @@ document.addEventListener('DOMContentLoaded', function(){
     a.addEventListener('click', function(){ cyaConversion('email'); });
   });
 
+  /* Formularios: validacion y origen (28-sept-2026).
+     Los cuatro formularios llevan novalidate y su JS solo miraba la casilla de
+     privacidad, asi que aceptaban envios sin nombre ni forma de contacto (entraron
+     2 spam en 4 dias y uno disparo una conversion de Ads). Este listener va en
+     fase de captura sobre document: corre ANTES que el handler propio de cada
+     formulario y, si faltan datos, para el envio. Exige nombre y al menos un
+     telefono (9 digitos) o un correo validos: pedir los dos perderia a quien
+     solo quiere que le llamen. El antispam (campo botcheck) va en el HTML de
+     cada formulario, que es donde lo lee Web3Forms.
+     Ademas anade la pagina desde la que se escribe y la de llegada con su
+     referente, para saber que pagina trajo la consulta sin guardar nada fuera
+     de la sesion del navegador. */
+  try {
+    if (!sessionStorage.getItem('cya_llegada')) {
+      sessionStorage.setItem('cya_llegada', JSON.stringify({
+        pagina: location.pathname, referente: document.referrer ? new URL(document.referrer).hostname : '(directo)'
+      }));
+    }
+  } catch(e){}
+  var origen = function(){
+    var ll = {};
+    try { ll = JSON.parse(sessionStorage.getItem('cya_llegada') || '{}'); } catch(e){}
+    return {pagina_envio: location.pathname, pagina_llegada: ll.pagina || '', referente: ll.referente || ''};
+  };
+  window.cyaOrigenFormulario = origen;  // para los formularios que montan su FormData a mano
+  document.querySelectorAll('form[action*="web3forms"]').forEach(function(f){
+    var o = origen();
+    Object.keys(o).forEach(function(k){
+      var i = document.createElement('input');
+      i.type = 'hidden'; i.name = k; i.value = o[k];
+      f.appendChild(i);
+    });
+  });
+  document.addEventListener('submit', function(e){
+    var f = e.target;
+    if (!f || !f.querySelector || !f.getAttribute('action') || f.getAttribute('action').indexOf('web3forms') < 0) return;
+    var val = function(n){ var el = f.querySelector('[name="' + n + '"]'); return el ? el.value.trim() : ''; };
+    var tel = val('telefono').replace(/\D/g, ''), mail = val('email');
+    var falta = !val('nombre') ? 'nombre'
+              : (tel.length < 9 && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(mail)) ? 'contacto' : '';
+    if (falta) {
+      e.preventDefault(); e.stopImmediatePropagation();
+      var ca = document.documentElement.lang === 'ca';
+      alert(falta === 'nombre'
+        ? (ca ? 'Si us plau, indiqui el seu nom.' : 'Por favor, indique su nombre.')
+        : (ca ? 'Si us plau, deixi un telèfon o un correu vàlid perquè el puguem contactar.'
+              : 'Por favor, deje un teléfono o un correo válido para que podamos contactarle.'));
+    }
+  }, true);
+
+  /* Clics en "Pedir cita" y demas enlaces al formulario (28-sept-2026): mide la
+     intencion antes del envio, y desde que pagina se produce. */
+  document.querySelectorAll('a[href*="#contacto"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if (window.CYA_MEDICION && window.CYA_MEDICION.ga4) {
+        gtag('event', 'clic_pedir_cita', {
+          'send_to': window.CYA_MEDICION.ga4,
+          'link_text': (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 60)
+        });
+      }
+    });
+  });
+
   /* Detector de clics sin efecto (27-sept-2026).
      Clarity marcaba "clic muerto" en /sucesiones/impuesto-de-sucesiones/ y su
      API no dice QUE elemento se pulso: solo cuenta sesiones. Esto hace lo mismo

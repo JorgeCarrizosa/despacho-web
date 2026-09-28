@@ -63,12 +63,12 @@
     {
       "@type": "Question",
       "name": "Què passa si el difunt no va deixar testament?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Es tramita una declaració d'hereus abintestat davant de notari, o judicialment si no hi ha parents propers. La llei catalana estableix l'ordre de crida: descendents, cònjuge o convivent, ascendents, germans i nebots. Ens encarreguem de l'expedient íntegre." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Es tramita davant de notari, en una acta de declaració d'hereus abintestat, sigui quin sigui el parentiu (art. 55 de la Llei del notariat); si no hi ha parents dins del quart grau, hereta la Generalitat (art. 442-12 CCCat). La llei catalana estableix l'ordre de crida: descendents, cònjuge o convivent, ascendents, germans i nebots. Ens encarreguem de l'expedient íntegre." }
     },
     {
       "@type": "Question",
       "name": "Puc renunciar a una herència amb deutes?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sí. La renúncia s'ha de formalitzar davant de notari i és irrevocable. Hi ha una alternativa: l'acceptació a benefici d'inventari, que limita la responsabilitat de l'hereu al valor dels béns rebuts. L'aconsellarem quina és la via adequada abans de signar res." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. La renúncia s'ha de formalitzar davant de notari i és irrevocable. Hi ha una alternativa: l'acceptació a benefici d'inventari, amb la qual l'hereu respon dels deutes només amb els béns de l'herència, no amb els seus (art. 461-20 CCCat). L'aconsellarem quina és la via adequada abans de signar res." }
     },
     {
       "@type": "Question",
@@ -92,7 +92,10 @@
   <!-- Tracking del sitio: Google Ads + GA4 + Clarity bajo Consent Mode v2.
        Fichero compartido por toda la web (/assets/tracking.js); inyecta el
        banner de cookies y engancha las conversiones por si solo. -->
-  <script src="/assets/tracking.js"></script>
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/assets/tracking.js"></script>
 <script src="/assets/calc-sucesiones.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1294,6 +1297,7 @@
           </p>
           <div class="partner-credentials">
             <div class="credential">Advocat en exercici des de 1989</div>
+            <div class="credential">Col·legiat núm. 16983 de l’Il·lustre Col·legi de l’Advocacia de Barcelona</div>
             <div class="credential">Diputat al Parlament de Catalunya (2012–2024)</div>
             <div class="credential">Portaveu a la Comissió de Justícia del Parlament</div>
             <div class="credential">Defensa als Tribunals de Justícia · assumptes civils, penals i mercantils</div>
@@ -1325,6 +1329,7 @@
           </p>
           <div class="partner-credentials">
             <div class="credential">Advocada en exercici des de 1991</div>
+            <div class="credential">Col·legiada núm. 18344 de l’Il·lustre Col·legi de l’Advocacia de Barcelona</div>
             <div class="credential">Directora del despatx Carrizosa y Almazor</div>
             <div class="credential">Especialista en dret de successions, propietat i immobiliari</div>
             <div class="credential">Litigació civil, penal i social</div>
@@ -1516,11 +1521,11 @@
         </details>
         <details class="qa">
           <summary>Què passa si el difunt no va deixar testament?</summary>
-          <div class="answer">Es tramita una declaració d'hereus abintestat davant de notari, o judicialment si no hi ha parents propers. La llei catalana estableix l'ordre de crida: descendents, cònjuge o convivent, ascendents, germans i nebots. Ens encarreguem de l'expedient íntegre.</div>
+          <div class="answer">Es tramita davant de notari, en una acta de declaració d'hereus abintestat, sigui quin sigui el parentiu (art. 55 de la Llei del notariat); si no hi ha parents dins del quart grau, hereta la Generalitat (art. 442-12 CCCat). La llei catalana estableix l'ordre de crida: descendents, cònjuge o convivent, ascendents, germans i nebots. Ens encarreguem de l'expedient íntegre.</div>
         </details>
         <details class="qa">
           <summary>Puc renunciar a una herència amb deutes?</summary>
-          <div class="answer">Sí. La renúncia s'ha de formalitzar davant de notari i és irrevocable. Hi ha una alternativa: l'<em>acceptació a benefici d'inventari</em>, que limita la responsabilitat de l'hereu al valor dels béns rebuts. L'aconsellarem quina és la via adequada abans de signar res.</div>
+          <div class="answer">Sí. La renúncia s'ha de formalitzar davant de notari i és irrevocable. Hi ha una alternativa: l'<em>acceptació a benefici d'inventari</em>, amb la qual l'hereu respon dels deutes només amb els béns de l'herència, no amb els seus (art. 461-20 CCCat). L'aconsellarem quina és la via adequada abans de signar res.</div>
         </details>
         <details class="qa">
           <summary>Quant es paga d'Impost de Successions a Catalunya?</summary>
@@ -1589,6 +1594,7 @@
       <form class="form-card" id="contacto-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
 
         <input type="hidden" name="access_key" value="95543e2d-0168-42c0-a329-c55425ffb9b0" />
+        <input type="checkbox" name="botcheck" class="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="to" value="abogados@carrizosayalmazor.com" />
         <input type="hidden" name="subject" value="Nova consulta des del web · Herències i Successions" />
 
@@ -1597,21 +1603,21 @@
 
         <div class="form-row">
           <div class="field">
-            <label>Nom</label>
-            <input type="text" name="nombre" placeholder="Nom i cognoms" required autocomplete="name" />
+            <label for="cf-nombre">Nom</label>
+            <input type="text" id="cf-nombre" name="nombre" placeholder="Nom i cognoms" required autocomplete="name" />
           </div>
           <div class="field">
-            <label>Telèfon</label>
-            <input type="tel" name="telefono" placeholder="+34" required autocomplete="tel" />
+            <label for="cf-telefono">Telèfon</label>
+            <input type="tel" id="cf-telefono" name="telefono" placeholder="+34" required autocomplete="tel" />
           </div>
         </div>
         <div class="field">
-          <label>Correu electrònic</label>
-          <input type="email" name="email" placeholder="vostè@correu.com" required autocomplete="email" />
+          <label for="cf-email">Correu electrònic</label>
+          <input type="email" id="cf-email" name="email" placeholder="vostè@correu.com" required autocomplete="email" />
         </div>
         <div class="field">
-          <label>Matèria de la consulta</label>
-          <select name="materia" required>
+          <label for="cf-materia">Matèria de la consulta</label>
+          <select id="cf-materia" name="materia" required>
             <option value="">Seleccioni una opció</option>
             <option>Planificació de l'herència / testament</option>
             <option>Tramitació d'una herència</option>
@@ -1621,8 +1627,8 @@
           </select>
         </div>
         <div class="field">
-          <label>Escrigui aquí la seva consulta</label>
-          <textarea name="consulta" placeholder="Descrigui breument la seva situació. La conversa detallada serà durant la primera consulta." rows="3"></textarea>
+          <label for="cf-consulta">Escrigui aquí la seva consulta</label>
+          <textarea id="cf-consulta" name="consulta" placeholder="Descrigui breument la seva situació. La conversa detallada serà durant la primera consulta." rows="3"></textarea>
         </div>
 
         <label class="checkbox-row">
@@ -1724,11 +1730,11 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div>© 2026 Carrizosa y Almazor · Tots els drets reservats</div>
+        <div>© 2026 Carrizosa y Almazor · Advocats col·legiats a l’Il·lustre Col·legi de l’Advocacia de Barcelona · Tots els drets reservats</div>
         <div class="legal">
-          <a href="/contacto/">Contacto</a>
-          <a href="/condiciones.html" target="_blank" rel="noopener">Condiciones de Uso</a>
-          <a href="/privacidad.html" target="_blank" rel="noopener">Política de Privacidad</a>
+          <a href="/contacto/">Contacte</a>
+          <a href="/condiciones.html" target="_blank" rel="noopener">Condicions d’ús</a>
+          <a href="/privacidad.html" target="_blank" rel="noopener">Política de privacitat</a>
           <a href="#" onclick="cyaCookiePrefs();return false;">Cookies</a>
         </div>
       </div>

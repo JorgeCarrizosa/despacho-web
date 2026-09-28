@@ -8,7 +8,10 @@
   <title>Desheredación por maltrato psicológico: doctrina del TS</title>
   <meta name="description" content="El Tribunal Supremo ha consolidado el maltrato psicológico como causa de desheredación: cómo acreditarlo y qué prueba admiten los juzgados.">
   <!-- Tracking del sitio: Google Ads + GA4 + Clarity bajo Consent Mode v2 -->
-  <script src="/assets/tracking.js"></script>
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/assets/tracking.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -241,7 +244,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="brand-name">Carrizosa &amp; Almazor <small>Abogados</small></div>
+          <div class="brand-name">Carrizosa y Almazor <small>Abogados</small></div>
           <p>Despacho de abogados especializado en derecho de familia, sucesiones y planificación patrimonial. Barcelona.</p>
         </div>
         <div class="footer-col">
@@ -270,7 +273,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; 2026 Carrizosa &amp; Almazor Abogados. Todos los derechos reservados.</span>
+        <span>&copy; 2026 Carrizosa y Almazor Abogados · Abogados colegiados en el Il·lustre Col·legi de l’Advocacia de Barcelona. Todos los derechos reservados.</span>
         <div class="legal">
           <a href="/contacto/">Contacto</a>
           <a href="../condiciones.html">Aviso legal</a>
@@ -283,7 +286,7 @@ footer{background:var(--bg);border-top:1px solid var(--line);padding:72px 0 28px
   <script>
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
-    toggle.addEventListener('click', () => {
+    if (toggle && links) toggle.addEventListener('click', () => {
       const open = links.classList.toggle('open');
       toggle.classList.toggle('open', open);
       toggle.setAttribute('aria-expanded', open);

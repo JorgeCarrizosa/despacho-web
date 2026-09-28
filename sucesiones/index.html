@@ -62,12 +62,12 @@
     {
       "@type": "Question",
       "name": "¿Qué ocurre si el fallecido no dejó testamento?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Se tramita una declaración de herederos abintestato ante notario, o judicialmente si no hay parientes cercanos. La ley catalana establece el orden de llamamiento: descendientes, cónyuge o conviviente, ascendientes, hermanos y sobrinos. Nos encargamos del expediente íntegro." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Se tramita ante notario, en un acta de declaración de herederos abintestato, sea cual sea el parentesco (art. 55 de la Ley del Notariado); si no hay parientes dentro del cuarto grado, hereda la Generalitat (art. 442-12 CCCat). La ley catalana establece el orden de llamamiento: descendientes, cónyuge o conviviente, ascendientes, hermanos y sobrinos. Nos encargamos del expediente íntegro." }
     },
     {
       "@type": "Question",
       "name": "¿Puedo renunciar a una herencia con deudas?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sí. La renuncia debe formalizarse ante notario y es irrevocable. Existe una alternativa: la aceptación a beneficio de inventario, que limita la responsabilidad del heredero al valor de los bienes recibidos. Le aconsejaremos cuál es la vía adecuada antes de firmar nada." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Sí. La renuncia debe formalizarse ante notario y es irrevocable. Existe una alternativa: la aceptación a beneficio de inventario, con la que el heredero responde de las deudas solo con los bienes de la herencia, no con los suyos (art. 461-20 CCCat). Le aconsejaremos cuál es la vía adecuada antes de firmar nada." }
     },
     {
       "@type": "Question",
@@ -91,7 +91,10 @@
   <!-- Tracking del sitio: Google Ads + GA4 + Clarity bajo Consent Mode v2.
        Fichero compartido por toda la web (/assets/tracking.js); inyecta el
        banner de cookies y engancha las conversiones por si solo. -->
-  <script src="/assets/tracking.js"></script>
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/assets/tracking.js"></script>
 <script src="/assets/calc-sucesiones.js"></script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1293,6 +1296,7 @@
           </p>
           <div class="partner-credentials">
             <div class="credential">Abogado en ejercicio desde 1989</div>
+            <div class="credential">Colegiado n.º 16983 del Il·lustre Col·legi de l’Advocacia de Barcelona</div>
             <div class="credential">Diputado en el Parlamento de Cataluña (2012–2024)</div>
             <div class="credential">Portavoz en la Comisión de Justicia del Parlament</div>
             <div class="credential">Defensa en Tribunales de Justicia · asuntos civiles, penales y mercantiles</div>
@@ -1324,6 +1328,7 @@
           </p>
           <div class="partner-credentials">
             <div class="credential">Abogada en ejercicio desde 1991</div>
+            <div class="credential">Colegiada n.º 18344 del Il·lustre Col·legi de l’Advocacia de Barcelona</div>
             <div class="credential">Directora del despacho Carrizosa y Almazor</div>
             <div class="credential">Especialista en derecho de sucesiones, propiedad e inmobiliario</div>
             <div class="credential">Litigación civil, penal y social</div>
@@ -1515,11 +1520,11 @@
         </details>
         <details class="qa">
           <summary>¿Qué ocurre si el fallecido no dejó testamento?</summary>
-          <div class="answer">Se tramita una declaración de herederos abintestato ante notario, o judicialmente si no hay parientes cercanos. La ley catalana establece el orden de llamamiento: descendientes, cónyuge o conviviente, ascendientes, hermanos y sobrinos. Nos encargamos del expediente íntegro.</div>
+          <div class="answer">Se tramita ante notario, en un acta de declaración de herederos abintestato, sea cual sea el parentesco (art. 55 de la Ley del Notariado); si no hay parientes dentro del cuarto grado, hereda la Generalitat (art. 442-12 CCCat). La ley catalana establece el orden de llamamiento: descendientes, cónyuge o conviviente, ascendientes, hermanos y sobrinos. Nos encargamos del expediente íntegro.</div>
         </details>
         <details class="qa">
           <summary>¿Puedo renunciar a una herencia con deudas?</summary>
-          <div class="answer">Sí. La renuncia debe formalizarse ante notario y es irrevocable. Existe una alternativa: la <em>aceptación a beneficio de inventario</em>, que limita la responsabilidad del heredero al valor de los bienes recibidos. Le aconsejaremos cuál es la vía adecuada antes de firmar nada.</div>
+          <div class="answer">Sí. La renuncia debe formalizarse ante notario y es irrevocable. Existe una alternativa: la <em>aceptación a beneficio de inventario</em>, con la que el heredero responde de las deudas solo con los bienes de la herencia, no con los suyos (art. 461-20 CCCat). Le aconsejaremos cuál es la vía adecuada antes de firmar nada.</div>
         </details>
         <details class="qa">
           <summary>¿Cuánto se paga de Impuesto de Sucesiones en Cataluña?</summary>
@@ -1588,6 +1593,7 @@
       <form class="form-card" id="contacto-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
 
         <input type="hidden" name="access_key" value="95543e2d-0168-42c0-a329-c55425ffb9b0" />
+        <input type="checkbox" name="botcheck" class="botcheck" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <input type="hidden" name="to" value="abogados@carrizosayalmazor.com" />
         <input type="hidden" name="subject" value="Nueva consulta desde la web — Herencias y Sucesiones" />
 
@@ -1596,21 +1602,21 @@
 
         <div class="form-row">
           <div class="field">
-            <label>Nombre</label>
-            <input type="text" name="nombre" placeholder="Nombre y apellidos" required autocomplete="name" />
+            <label for="cf-nombre">Nombre</label>
+            <input type="text" id="cf-nombre" name="nombre" placeholder="Nombre y apellidos" required autocomplete="name" />
           </div>
           <div class="field">
-            <label>Teléfono</label>
-            <input type="tel" name="telefono" placeholder="+34" required autocomplete="tel" />
+            <label for="cf-telefono">Teléfono</label>
+            <input type="tel" id="cf-telefono" name="telefono" placeholder="+34" required autocomplete="tel" />
           </div>
         </div>
         <div class="field">
-          <label>E-mail</label>
-          <input type="email" name="email" placeholder="usted@correo.com" required autocomplete="email" />
+          <label for="cf-email">E-mail</label>
+          <input type="email" id="cf-email" name="email" placeholder="usted@correo.com" required autocomplete="email" />
         </div>
         <div class="field">
-          <label>Materia de la consulta</label>
-          <select name="materia" required>
+          <label for="cf-materia">Materia de la consulta</label>
+          <select id="cf-materia" name="materia" required>
             <option value="">Seleccione una opción</option>
             <option>Planificación de la herencia / testamento</option>
             <option>Tramitación de una herencia</option>
@@ -1620,8 +1626,8 @@
           </select>
         </div>
         <div class="field">
-          <label>Escriba aquí su consulta</label>
-          <textarea name="consulta" placeholder="Describa brevemente su situación. La conversación detallada será durante la primera consulta." rows="3"></textarea>
+          <label for="cf-consulta">Escriba aquí su consulta</label>
+          <textarea id="cf-consulta" name="consulta" placeholder="Describa brevemente su situación. La conversación detallada será durante la primera consulta." rows="3"></textarea>
         </div>
 
         <label class="checkbox-row">
@@ -1723,7 +1729,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <div>© 2026 Carrizosa y Almazor · Todos los derechos reservados</div>
+        <div>© 2026 Carrizosa y Almazor · Abogados colegiados en el Il·lustre Col·legi de l’Advocacia de Barcelona · Todos los derechos reservados</div>
         <div class="legal">
           <a href="/contacto/">Contacto</a>
           <a href="/condiciones.html" target="_blank" rel="noopener">Condiciones de Uso</a>
