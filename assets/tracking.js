@@ -415,4 +415,45 @@ document.addEventListener('DOMContentLoaded', function(){
   document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){
     a.addEventListener('click', function(){ cyaConversion('email'); });
   });
+
+  /* Detector de clics sin efecto (27-sept-2026).
+     Clarity marcaba "clic muerto" en /sucesiones/impuesto-de-sucesiones/ y su
+     API no dice QUE elemento se pulso: solo cuenta sesiones. Esto hace lo mismo
+     que Clarity -un clic tras el que en 1 s no cambia el DOM ni se navega- pero
+     manda a GA4 el elemento. Los controles de formulario (campos, desplegables)
+     se marcan aparte con es_control=si: Clarity los cuenta como clic muerto por
+     definicion aunque funcionen, y es justo lo que hay que distinguir.
+     El elemento va en link_text porque "Texto del enlace" es una dimension
+     predefinida de GA4 y no obliga a registrar una personalizada. Tope de 10
+     por pagina para que un usuario insistente no llene el informe. */
+  if (window.CYA_MEDICION && window.CYA_MEDICION.ga4 && window.MutationObserver) {
+    var enviados = 0;
+    var describir = function(el){
+      var d = el.tagName.toLowerCase();
+      if (el.id) d += '#' + el.id;
+      if (typeof el.className === 'string' && el.className.trim())
+        d += '.' + el.className.trim().split(/\s+/).slice(0, 2).join('.');
+      var t = (el.textContent || el.value || '').replace(/\s+/g, ' ').trim().slice(0, 30);
+      return (t ? d + ' "' + t + '"' : d).slice(0, 100);
+    };
+    document.addEventListener('click', function(e){
+      if (enviados >= 10 || !e.target || !e.target.tagName) return;
+      var el = e.target;
+      if (el.closest && el.closest('a[href], #cya-cc')) return;  // navega o es el banner
+      var control = !!(el.closest && el.closest('input, select, textarea, label, button, summary'));
+      var cambio = false, url = location.href;
+      var obs = new MutationObserver(function(){ cambio = true; });
+      obs.observe(document.body, {subtree: true, childList: true, attributes: true, characterData: true});
+      setTimeout(function(){
+        obs.disconnect();
+        if (cambio || location.href !== url || enviados >= 10) return;
+        enviados++;
+        gtag('event', 'clic_sin_efecto', {
+          'send_to': window.CYA_MEDICION.ga4,
+          'link_text': describir(el),
+          'link_classes': control ? 'es_control=si' : 'es_control=no'
+        });
+      }, 1000);
+    }, true);
+  }
 });
