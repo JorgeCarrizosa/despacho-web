@@ -1085,6 +1085,17 @@
     border-bottom:1px dashed rgba(0,0,0,.28);text-align:right;width:9ch;
     padding:0 0 2px;cursor:text;-moz-appearance:textfield}
   #vAmount:focus{outline:none;border-bottom-style:solid}
+
+  /* Menu de escritorio (28-sept-2026): en portatiles de 1024-1440 px el logotipo a su
+     tamano maximo mas los enlaces no cabian en el contenedor de 1240 px y el boton de
+     cita quedaba FUERA de la pantalla. El logotipo escala con el ancho, sin partirse
+     nunca en dos lineas, y los enlaces se juntan en las pantallas pequenas. */
+  @media(min-width:981px){
+    nav.main .brand-name{font-size:clamp(28px,2.9vw,52px)}
+    #navLinks a{white-space:nowrap}
+  }
+  @media(min-width:981px) and (max-width:1500px){nav.main .nav-inner{gap:28px}#navLinks{gap:22px}}
+  @media(min-width:981px) and (max-width:1120px){nav.main .nav-inner{gap:18px}#navLinks{gap:16px}#navLinks a{font-size:12.5px}.nav-cta{padding:12px 16px}}
 </style>
 <!-- BreadcrumbList anadido el 23-sept-2026: solo 4 de 22 paginas
      lo tenian, y es un resultado enriquecido soportado por Google. -->

@@ -789,6 +789,20 @@
     .footer-bottom .legal{flex-wrap:wrap;gap:16px}
     .spot-stats{grid-template-columns:1fr}
   }
+
+  /* Menu de escritorio (28-sept-2026): en portatiles de 1024-1440 px el logotipo a su
+     tamano maximo mas los enlaces no cabian en el contenedor de 1240 px y el boton de
+     cita quedaba FUERA de la pantalla. El logotipo escala con el ancho, sin partirse
+     nunca en dos lineas, y los enlaces se juntan en las pantallas pequenas. */
+  @media(min-width:981px){
+    nav.main .brand-name{font-size:clamp(28px,2.9vw,52px)}
+    #navLinks a{white-space:nowrap}
+  }
+  @media(min-width:981px) and (max-width:1500px){nav.main .nav-inner{gap:28px}#navLinks{gap:22px}}
+  @media(min-width:981px) and (max-width:1120px){nav.main .nav-inner{gap:18px}#navLinks{gap:16px}#navLinks a{font-size:12.5px}.nav-cta{padding:12px 16px}}
+  /* En la portada, Metodo y FAQ son secciones de la misma pagina: fuera del menu de
+     escritorio (siguen en el del movil) para que el resto quepa en una linea. */
+  @media(min-width:981px){#navLinks a[href="#metodo"],#navLinks a[href="#faq"]{display:none}}
 </style>
 
 <!-- ===================================================================
@@ -962,7 +976,7 @@
         <a href="#insights">Notas</a>
         <a href="#faq">FAQ</a>
         <a href="tel:+34934572123" class="nav-tel">Llamar · 93 457 21 23</a>
-        <a href="#contacto" class="nav-cta">Pedir cita</a>
+        <a href="#contacto" class="nav-cta">Consulta gratuita</a>
       </div>
     </div>
   </nav>
@@ -977,7 +991,7 @@
           Asesoramos a personas, familias y empresas en derecho civil, penal, laboral, sucesorio y de empresa. Atención personal de los socios desde la primera consulta hasta la resolución del caso.
         </p>
         <div class="hero-cta-row">
-          <a href="#contacto" class="btn-primary">Pedir cita con el despacho</a>
+          <a href="#contacto" class="btn-primary">Primera consulta gratuita</a>
           <!-- 28-sept-2026: en movil el telefono no aparecia hasta la pantalla 10-11
                ni estaba en el menu, y el uso principal de la portada es de marca
                (quien ya nos busca y quiere llamar). Mismo patron que /sucesiones/. -->
@@ -1380,7 +1394,7 @@
         Abogados · Barcelona · desde 1989
       </div>
       <div style="margin-top:40px">
-        <a href="#contacto" class="btn-primary">Pedir cita con el despacho</a>
+        <a href="#contacto" class="btn-primary">Primera consulta gratuita</a>
       </div>
     </div>
   </section>
@@ -1525,9 +1539,9 @@
         <span class="eyebrow">Contacto</span>
         <h2>Cuéntenos su caso. <em>Le respondemos en 24 horas hábiles.</em></h2>
         <p>
-          Le escuchamos sin compromiso. Si decide trabajar con nosotros, le entregaremos un presupuesto cerrado por escrito en 48 horas hábiles.
+          La primera consulta es gratuita y sin compromiso. Si decide trabajar con nosotros, le entregaremos un presupuesto cerrado por escrito en 48 horas hábiles.
         </p>
-        <div class="first-consult-badge">Presupuesto cerrado por escrito</div>
+        <div class="first-consult-badge">Primera consulta gratuita</div>
 
         <div class="contact-detail">
           <div class="lbl">Despacho</div>
