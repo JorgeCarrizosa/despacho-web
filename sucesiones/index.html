@@ -1426,7 +1426,7 @@
         <span class="eyebrow">Impuesto de Sucesiones</span>
         <h2>Calcule, de forma orientativa, <em>lo que pagaría en Cataluña.</em></h2>
         <p>Una primera estimación basada en las bonificaciones del Impuesto de Sucesiones de Cataluña por grupo de parentesco. La cifra real depende del patrimonio preexistente, las reducciones aplicables y la naturaleza de los bienes.</p>
-        <div class="calc-disclaimer">Cálculo estimativo según el Decreto legislativo 1/2024 (libro sexto del Código tributario de Catalunya). Contempla las reducciones por parentesco, vivienda habitual, discapacidad y edad, y el coeficiente por patrimonio preexistente. No suma el ajuar doméstico (3 %) ni los seguros de vida, y no contempla la reducción por empresa familiar, que haría perder la bonificación. No sustituye al asesoramiento jurídico: para un cálculo exacto, agende una consulta gratuita.</div>
+        <div class="calc-disclaimer">Cálculo estimativo según el Decreto legislativo 1/2024 (libro sexto del Código tributario de Catalunya). Contempla las reducciones por parentesco, vivienda habitual, discapacidad y edad, y el coeficiente por patrimonio preexistente. No suma el ajuar doméstico (3 %) ni los seguros de vida, y no contempla la reducción por empresa familiar, que haría perder la bonificación a hijos, nietos y padres (no al cónyuge ni a la pareja). No sustituye al asesoramiento jurídico: para un cálculo exacto, agende una consulta gratuita.</div>
       </div>
 
       <div class="calc-card">
@@ -1442,11 +1442,13 @@
           <select id="kin">
             <option value="conyuge">Cónyuge o pareja estable</option>
             <option value="menor21">Hijo, nieto u otro descendiente menor de 21 años</option>
-            <option value="hijo" selected>Hijo o hija de 21 años o más</option>
+            <option value="hijo" selected>Hijo o hija de 21 años o más (también hijastros)</option>
             <option value="descendiente">Nieto u otro descendiente de 21 o más</option>
             <option value="ascendiente">Padre o madre del fallecido</option>
             <option value="grupo3">Hermanos, sobrinos, tíos</option>
-            <option value="grupo4">Primos y otros / sin parentesco</option>
+            <option value="afinidad">Suegros, yernos, nueras</option>
+            <option value="primo">Primos</option>
+            <option value="grupo4">Otros parientes o sin parentesco</option>
           </select>
         </div>
 
@@ -1462,18 +1464,26 @@
             <option value="no" selected>No, o no me corresponde a mí</option>
             <option value="si">Sí, y me corresponde a mí</option>
           </select>
-          <p class="ayuda">Se reduce el 95 % de su valor, con un tope de 500.000 € (art. 631-17). Cuentan también el trastero y hasta dos plazas de aparcamiento del mismo edificio. Si el fallecido pasó sus últimos años en una residencia, sigue contando la que fue su vivienda habitual.</p>
+          <p class="ayuda">Se reduce el 95 % de su valor. El tope es de 500.000 € para toda la vivienda y se reparte entre los herederos según su parte, con un mínimo de 180.000 € cada uno (art. 631-17). Cuentan también el trastero y hasta dos plazas de aparcamiento del mismo edificio. Si el fallecido pasó sus últimos años en una residencia, sigue contando la que fue su vivienda habitual.</p>
         </div>
 
         <div class="calc-field oculto" id="cVivienda">
-          <label for="vivienda">Valor de esa vivienda</label>
+          <label class="fl" for="parteVivienda">¿Qué parte de la vivienda hereda usted?</label>
+            <select id="parteVivienda">
+              <option value="1" selected>Toda (soy el único heredero de la vivienda)</option>
+              <option value="0.5">La mitad</option>
+              <option value="0.333333">Un tercio</option>
+              <option value="0.25">Una cuarta parte</option>
+              <option value="0.2">Una quinta parte</option>
+            </select>
+            <label for="vivienda">Valor de la vivienda entera</label>
           <input class="txt" type="text" id="vivienda" inputmode="numeric" autocomplete="off" value="0 €">
-          <p class="ayuda">Ya está incluido en el valor total de la herencia que ha puesto arriba: no lo sume aparte. La reducción se pierde si la vivienda se vende dentro de los cinco años siguientes (art. 631-19).</p>
+          <p class="ayuda">Su parte ya está incluida en el valor total de la herencia que ha puesto arriba: no la sume aparte. La reducción se pierde si la vivienda se vende dentro de los cinco años siguientes, salvo que en seis meses el dinero se destine a su propia vivienda habitual o a amortizar su hipoteca (art. 631-19).</p>
         </div>
 
         <div class="calc-field oculto" id="cColateral">
           <label class="chk"><input type="checkbox" id="colateral"> <span>Tengo 65 años o más y conviví con el fallecido los dos años anteriores a su muerte</span></label>
-          <p class="ayuda">Los hermanos, sobrinos y tíos solo pueden aplicar esta reducción si cumplen las dos condiciones (art. 631-18.2).</p>
+          <p class="ayuda">Los hermanos, sobrinos, tíos y primos solo pueden aplicar esta reducción si cumplen las dos condiciones (art. 631-18.2).</p>
         </div>
 
         <div class="calc-field">
@@ -1799,7 +1809,7 @@
       var amount=$('amount'), kin=$('kin'), vAmount=$('vAmount'), vResult=$('vResult'),
           vBonif=$('vBonif'), vDesglose=$('vDesglose'), vivienda=$('vivienda'),
           patrimonio=$('patrimonio'), situacion=$('situacion'), edad=$('edad'), cEdad=$('cEdad'),
-          tieneVivienda=$('tieneVivienda'), cVivienda=$('cVivienda'),
+          tieneVivienda=$('tieneVivienda'), cVivienda=$('cVivienda'), parteVivienda=$('parteVivienda'),
           colateral=$('colateral'), cColateral=$('cColateral'), vAviso=$('vAviso');
       if(!amount || !kin || !window.CYA_SUCESIONES) return;
 
@@ -1808,21 +1818,24 @@
       var soloNum = function(v){ var n = parseInt(String(v).replace(/[^0-9]/g,''),10); return isNaN(n)?0:n; };
 
       var MOTIVOS = {
-        vivienda_grupo4: 'La reducción por vivienda habitual <b>no le corresponde</b>: el art. 631-17 la reserva al cónyuge, a los descendientes, a los ascendientes y a los colaterales del fallecido. Los primos, parientes más lejanos y las personas sin parentesco quedan fuera. El valor de la vivienda sigue formando parte de la herencia, pero no la reduce.',
-        vivienda_colateral: 'La reducción por vivienda habitual <b>no se está aplicando</b>: los hermanos, sobrinos y tíos solo pueden hacerlo si tienen 65 años o más y convivieron con el fallecido los dos años anteriores (art. 631-18.2). Marque la casilla si cumple las dos condiciones.',
+        vivienda_grupo4: 'La reducción por vivienda habitual <b>no le corresponde</b>: el art. 631-17 la reserva al cónyuge, a los descendientes, a los ascendientes y a los colaterales del fallecido. Las personas sin parentesco o con un parentesco más lejano que el de primo quedan fuera. El valor de la vivienda sigue formando parte de la herencia, pero no la reduce.',
+        vivienda_colateral: 'La reducción por vivienda habitual <b>no se está aplicando</b>: los hermanos, sobrinos, tíos y primos solo pueden hacerlo si tienen 65 años o más y convivieron con el fallecido los dos años anteriores (art. 631-18.2). Marque la casilla si cumple las dos condiciones.',
+    vivienda_afinidad: 'La reducción por vivienda habitual <b>no le corresponde</b>: el art. 631-17 la reserva al cónyuge, a los descendientes, a los ascendientes y a los colaterales del fallecido, y no menciona a los parientes por afinidad (suegros, yernos, nueras). El valor de la vivienda sigue formando parte de la herencia, pero no la reduce.',
         edad_solo_grupo2: 'La reducción de 275.000 € por tener 75 años o más <b>no le corresponde</b>: el art. 631-4 la reserva al cónyuge, hijos, nietos y ascendientes. Con este parentesco no se aplica.'
       };
       function render(){
         var herencia = +amount.value;
         var hayVivienda = tieneVivienda.value === 'si';
         // La vivienda va DENTRO del valor de la herencia, no se suma aparte.
-        var vViv = hayVivienda ? Math.min(soloNum(vivienda.value), herencia) : 0;
+        var parteViv = parteVivienda ? (+parteVivienda.value || 1) : 1;
+    var vViv = hayVivienda ? Math.min(soloNum(vivienda.value) * parteViv, herencia) : 0;   // valor de SU parte (art. 631-17)
 
         var r = window.CYA_SUCESIONES.calcular({
           herencia: herencia, parentesco: kin.value,
           edad: edad ? +edad.value : 20, vivienda: vViv,
           patrimonio: +patrimonio.value, situacion: situacion.value,
-          colateralConviviente: colateral.checked
+          colateralConviviente: colateral.checked,
+      parteVivienda: parteViv
         });
 
         if(document.activeElement !== vAmount) vAmount.value = eur(herencia);
@@ -1830,7 +1843,7 @@
         cVivienda.classList.toggle('oculto', !hayVivienda);
         // El requisito de 65 anios + convivencia (art. 631-18.2) solo afecta a
         // los colaterales, asi que la casilla solo se ensena cuando aplica.
-        cColateral.classList.toggle('oculto', !(hayVivienda && kin.value === 'grupo3'));
+        cColateral.classList.toggle('oculto', !(hayVivienda && (kin.value === 'grupo3' || kin.value === 'primo')));
         vResult.textContent = eur(r.aPagar);
 
         vBonif.innerHTML = r.bonificacion > 0
@@ -1854,7 +1867,7 @@
         vAviso.classList.toggle('oculto', r.noAplicadas.length === 0);
       }
 
-      [kin, patrimonio, situacion, tieneVivienda, colateral].forEach(function(el){
+      [kin, patrimonio, situacion, tieneVivienda, colateral, parteVivienda].forEach(function(el){
         el.addEventListener('change', render);
       });
       amount.addEventListener('input', render);

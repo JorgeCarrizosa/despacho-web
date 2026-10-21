@@ -53,14 +53,16 @@
     descendiente: 50000,   // Grupo II - resto de descendientes (nietos...)
     ascendiente: 30000,    // Grupo II - ascendientes
     grupo3: 8000,          // Grupo III - colaterales 2.º y 3.er grado
-    grupo4: 0              // Grupo IV - sin reducción
+    afinidad: 8000,        // Grupo III - ascendientes y descendientes por afinidad (suegros, yernos, nueras), art. 631-2.c
+    primo: 0,              // Grupo IV - colaterales de 4.º grado (primos)
+    grupo4: 0              // Grupo IV - grados más distantes y extraños
     // Grupo I (menores de 21) se calcula aparte: depende de la edad.
   };
 
   /* Grupo de parentesco de cada opción, a efectos de coeficiente y bonificación. */
   var GRUPO = {
     conyuge: 2, menor21: 1, hijo: 2, descendiente: 2,
-    ascendiente: 2, grupo3: 3, grupo4: 4
+    ascendiente: 2, grupo3: 3, afinidad: 3, primo: 4, grupo4: 4
   };
 
   function escalonado(base, tramos, tipoUltimo) {
@@ -126,8 +128,11 @@
    *   herencia:   número. Valor total heredado (base imponible).
    *   parentesco: 'conyuge'|'menor21'|'hijo'|'descendiente'|'ascendiente'|'grupo3'|'grupo4'
    *   edad:       número. Solo si parentesco === 'menor21'.
-   *   vivienda:   número. Valor de la vivienda habitual del causante que se
-   *               hereda, YA INCLUIDO dentro de `herencia`. 0 si no la hereda.
+   *   vivienda:   número. Valor de la PARTE de la vivienda habitual del causante
+   *               que hereda este sujeto pasivo, YA INCLUIDO dentro de `herencia`.
+   *               0 si no la hereda.
+   *   parteVivienda: 0-1. Su participación en la vivienda (1 si la hereda entera).
+   *               Fija su límite individual de la reducción (art. 631-17).
    *   patrimonio: número. Patrimonio preexistente del heredero.
    *   situacion:  ''|'discap33'|'discap65'|'mayor75'
    * }
@@ -153,30 +158,37 @@
     }
     if (rParentesco > 0) detalle.push({ concepto: 'Parentesco', importe: rParentesco, art: '631-2' });
 
-    // 2. Reducción por vivienda habitual (art. 631-17): 95 %, límite 500.000
-    //    por el valor conjunto. El mínimo individual de 180.000 solo entra al
-    //    prorratear entre varios sujetos pasivos, y aquí calculamos uno.
+    // 2. Reducción por vivienda habitual (art. 631-17): 95 %, «con un límite de
+    //    500.000 euros por el valor conjunto de la vivienda, que debe
+    //    prorratearse entre los sujetos pasivos en proporción a su
+    //    participación; en todo caso, el límite individual resultante del
+    //    prorrateo [...] no puede ser menor de 180.000 euros».
+    //    Hasta el 21-10-2026 se aplicaba el límite entero a cada heredero, y
+    //    con varios herederos la reducción salía inflada (auditoría W3, A1).
     //
-    //    Quién puede aplicarla: el art. 631-17 la reserva a cónyuge,
-    //    descendientes, ascendientes y colaterales del causante, así que el
-    //    grupo IV (colaterales de 4.º grado y extraños) queda fuera.
-    //
-    //    Y los COLATERALES (grupo III) tienen un requisito propio que es fácil
-    //    pasar por alto, art. 631-18.2: "deben ser mayores de sesenta y cinco
-    //    años y deben haber convivido con el causante como mínimo los dos años
-    //    anteriores a su muerte". Sin eso no les corresponde.
+    //    Quién puede aplicarla: cónyuge, descendientes, ascendientes y
+    //    COLATERALES del causante, de cualquier grado (también los primos,
+    //    grupo IV). No los parientes por afinidad ni los extraños.
+    //    Los colaterales tienen un requisito propio, art. 631-18.2: «deben ser
+    //    mayores de sesenta y cinco años y deben haber convivido con el
+    //    causante como mínimo los dos años anteriores a su muerte».
     var rVivienda = 0;
     var vivienda = Math.max(0, Number(datos.vivienda) || 0);
-    var puedeVivienda = (grupo !== 4) &&
-                        (grupo !== 3 || datos.colateralConviviente === true);
+    var parte = Number(datos.parteVivienda);
+    if (!(parte > 0 && parte <= 1)) parte = 1;
+    var colateral = clave === 'grupo3' || clave === 'primo';
+    var puedeVivienda = clave !== 'grupo4' && clave !== 'afinidad' &&
+                        (!colateral || datos.colateralConviviente === true);
     if (vivienda > 0 && puedeVivienda) {
-      rVivienda = Math.min(vivienda * 0.95, 500000);
+      var limite = Math.max(500000 * parte, 180000);
+      rVivienda = Math.min(vivienda * 0.95, limite);
       detalle.push({ concepto: 'Vivienda habitual', importe: rVivienda, art: '631-17' });
     } else if (vivienda > 0) {
       // Se ha pedido y NO procede. Hay que decirlo: si la cifra entra y el
       // resultado no se mueve sin explicación, parece que la calculadora falla.
       noAplicadas.push({ concepto: 'Vivienda habitual', art: '631-17',
-                         motivo: grupo === 4 ? 'vivienda_grupo4' : 'vivienda_colateral' });
+                         motivo: clave === 'grupo4' ? 'vivienda_grupo4' :
+                                 clave === 'afinidad' ? 'vivienda_afinidad' : 'vivienda_colateral' });
     }
 
     // 3. Discapacidad (art. 631-3) o persona mayor de 75 (art. 631-4).

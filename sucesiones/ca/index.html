@@ -1427,7 +1427,7 @@
         <span class="eyebrow">Impost de Successions</span>
         <h2>Calculi, de manera orientativa, <em>el que pagaria a Catalunya.</em></h2>
         <p>Una primera estimació basada en les bonificacions de l'Impost de Successions de Catalunya per grup de parentiu. La xifra real depèn del patrimoni preexistent, les reduccions aplicables i la naturalesa dels béns.</p>
-        <div class="calc-disclaimer">Càlcul estimatiu segons el Decret legislatiu 1/2024 (llibre sisè del Codi tributari de Catalunya). Contempla les reduccions per parentiu, habitatge habitual, discapacitat i edat, i el coeficient per patrimoni preexistent. No suma l'aixovar domèstic (3 %) ni les assegurances de vida, i no contempla la reducció per empresa familiar, que faria perdre la bonificació. No substitueix l'assessorament jurídic: per a un càlcul exacte, demaneu una consulta gratuïta.</div>
+        <div class="calc-disclaimer">Càlcul estimatiu segons el Decret legislatiu 1/2024 (llibre sisè del Codi tributari de Catalunya). Contempla les reduccions per parentiu, habitatge habitual, discapacitat i edat, i el coeficient per patrimoni preexistent. No suma l'aixovar domèstic (3 %) ni les assegurances de vida, i no contempla la reducció per empresa familiar, que faria perdre la bonificació a fills, néts i pares (no al cònjuge ni a la parella). No substitueix l'assessorament jurídic: per a un càlcul exacte, demaneu una consulta gratuïta.</div>
       </div>
 
       <div class="calc-card">
@@ -1443,11 +1443,13 @@
           <select id="kin">
             <option value="conyuge">Cònjuge o parella estable</option>
             <option value="menor21">Fill, nét o altre descendent menor de 21 anys</option>
-            <option value="hijo" selected>Fill o filla de 21 anys o més</option>
+            <option value="hijo" selected>Fill o filla de 21 anys o més (també fillastres)</option>
             <option value="descendiente">Nét o altre descendent de 21 o més</option>
             <option value="ascendiente">Pare o mare del difunt</option>
             <option value="grupo3">Germans, nebots, oncles</option>
-            <option value="grupo4">Cosins i altres / sense parentiu</option>
+            <option value="afinidad">Sogres, gendres, nores</option>
+            <option value="primo">Cosins</option>
+            <option value="grupo4">Altres parents o sense parentiu</option>
           </select>
         </div>
 
@@ -1463,13 +1465,21 @@
             <option value="no" selected>No, o no em correspon a mi</option>
             <option value="si">Sí, i em correspon a mi</option>
           </select>
-          <p class="ayuda">Es redueix el 95 % del seu valor, amb un topall de 500.000 € (art. 631-17). Compten també el traster i fins a dues places d'aparcament del mateix edifici. Si el difunt va passar els últims anys en una residència, continua comptant el que va ser el seu habitatge habitual.</p>
+          <p class="ayuda">Es redueix el 95 % del seu valor. El topall és de 500.000 € per a tot l'habitatge i es reparteix entre els hereus segons la seva part, amb un mínim de 180.000 € cadascun (art. 631-17). Compten també el traster i fins a dues places d'aparcament del mateix edifici. Si el difunt va passar els últims anys en una residència, continua comptant el que va ser el seu habitatge habitual.</p>
         </div>
 
         <div class="calc-field oculto" id="cVivienda">
-          <label for="vivienda">Valor d'aquest habitatge</label>
+          <label class="fl" for="parteVivienda">Quina part de l'habitatge hereta vostè?</label>
+            <select id="parteVivienda">
+              <option value="1" selected>Tot (sóc l'únic hereu de l'habitatge)</option>
+              <option value="0.5">La meitat</option>
+              <option value="0.333333">Un terç</option>
+              <option value="0.25">Una quarta part</option>
+              <option value="0.2">Una cinquena part</option>
+            </select>
+            <label for="vivienda">Valor de l'habitatge sencer</label>
           <input class="txt" type="text" id="vivienda" inputmode="numeric" autocomplete="off" value="0 €">
-          <p class="ayuda">Ja està inclòs en el valor total de l'herència que ha posat a dalt: no el sumi a part. La reducció es perd si l'habitatge es ven dins dels cinc anys següents (art. 631-19).</p>
+          <p class="ayuda">La seva part ja està inclosa en el valor total de l'herència que ha posat a dalt: no la sumi a part. La reducció es perd si l'habitatge es ven dins dels cinc anys següents, llevat que en sis mesos els diners es destinin al seu propi habitatge habitual o a amortitzar-ne la hipoteca (art. 631-19).</p>
         </div>
 
         <div class="calc-field oculto" id="cColateral">
@@ -1800,7 +1810,7 @@
       var amount=$('amount'), kin=$('kin'), vAmount=$('vAmount'), vResult=$('vResult'),
           vBonif=$('vBonif'), vDesglose=$('vDesglose'), vivienda=$('vivienda'),
           patrimonio=$('patrimonio'), situacion=$('situacion'), edad=$('edad'), cEdad=$('cEdad'),
-          tieneVivienda=$('tieneVivienda'), cVivienda=$('cVivienda'),
+          tieneVivienda=$('tieneVivienda'), cVivienda=$('cVivienda'), parteVivienda=$('parteVivienda'),
           colateral=$('colateral'), cColateral=$('cColateral'), vAviso=$('vAviso');
       if(!amount || !kin || !window.CYA_SUCESIONES) return;
 
@@ -1810,20 +1820,23 @@
 
       var MOTIVOS = {
         vivienda_grupo4: "La reducció per habitatge habitual <b>no li correspon</b>: l'art. 631-17 la reserva al cònjuge, als descendents, als ascendents i als col·laterals del difunt. Els cosins, parents més llunyans i les persones sense parentiu en queden fora. El valor de l'habitatge continua formant part de l'herència, però no la redueix.",
-        vivienda_colateral: "La reducció per habitatge habitual <b>no s'està aplicant</b>: els germans, nebots i oncles només poden fer-ho si tenen 65 anys o més i van conviure amb el difunt els dos anys anteriors (art. 631-18.2). Marqueu la casella si compliu les dues condicions.",
+        vivienda_colateral: "La reducció per habitatge habitual <b>no s'està aplicant</b>: els germans, nebots, oncles i cosins només poden fer-ho si tenen 65 anys o més i van conviure amb el difunt els dos anys anteriors (art. 631-18.2). Marqueu la casella si compliu les dues condicions.",
+    vivienda_afinidad: "La reducció per habitatge habitual <b>no li correspon</b>: l'art. 631-17 la reserva al cònjuge, als descendents, als ascendents i als col·laterals del difunt, i no esmenta els parents per afinitat (sogres, gendres, nores). El valor de l'habitatge continua formant part de l'herència, però no la redueix.",
         edad_solo_grupo2: "La reducció de 275.000 € per tenir 75 anys o més <b>no li correspon</b>: l'art. 631-4 la reserva al cònjuge, fills, néts i ascendents. Amb aquest parentiu no s'aplica."
       };
       function render(){
         var herencia = +amount.value;
         var hayVivienda = tieneVivienda.value === 'si';
         // La vivienda va DENTRO del valor de la herencia, no se suma aparte.
-        var vViv = hayVivienda ? Math.min(soloNum(vivienda.value), herencia) : 0;
+        var parteViv = parteVivienda ? (+parteVivienda.value || 1) : 1;
+    var vViv = hayVivienda ? Math.min(soloNum(vivienda.value) * parteViv, herencia) : 0;   // valor de SU parte (art. 631-17)
 
         var r = window.CYA_SUCESIONES.calcular({
           herencia: herencia, parentesco: kin.value,
           edad: edad ? +edad.value : 20, vivienda: vViv,
           patrimonio: +patrimonio.value, situacion: situacion.value,
-          colateralConviviente: colateral.checked
+          colateralConviviente: colateral.checked,
+      parteVivienda: parteViv
         });
 
         if(document.activeElement !== vAmount) vAmount.value = eur(herencia);
@@ -1831,7 +1844,7 @@
         cVivienda.classList.toggle('oculto', !hayVivienda);
         // El requisito de 65 anios + convivencia (art. 631-18.2) solo afecta a
         // los colaterales, asi que la casilla solo se ensena cuando aplica.
-        cColateral.classList.toggle('oculto', !(hayVivienda && kin.value === 'grupo3'));
+        cColateral.classList.toggle('oculto', !(hayVivienda && (kin.value === 'grupo3' || kin.value === 'primo')));
         vResult.textContent = eur(r.aPagar);
 
         vBonif.innerHTML = r.bonificacion > 0
@@ -1855,7 +1868,7 @@
         vAviso.classList.toggle('oculto', r.noAplicadas.length === 0);
       }
 
-      [kin, patrimonio, situacion, tieneVivienda, colateral].forEach(function(el){
+      [kin, patrimonio, situacion, tieneVivienda, colateral, parteVivienda].forEach(function(el){
         el.addEventListener('change', render);
       });
       amount.addEventListener('input', render);
